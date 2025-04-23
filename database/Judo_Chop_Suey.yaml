@@ -1,0 +1,24 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-2
+  name: Judo Chop Suey Podcast
+  lang: eng
+  type: podcast
+  url: https://cms.megaphone.fm/channel/judochopsuey
+  description: >-
+    The Judo Chop Suey Podcast is a show that discusses International
+    Judo Federation results, topics, techniques, history, and opinion
+    on all things related to Judo. Dave Roman currently holds the rank
+    of nidan in Judo and has been a practitioner of Judo for 18
+    years. Other grappling sports and topics may be covered from time
+    to time, most notably on Brazilian Jiu Jitsu where Dave also holds
+    the rank of blue belt.
+  comment:
+    Dave Roman's podcast.
+  photo:
+    url: https://megaphone.imgix.net/podcasts/213249e8-4963-11ea-a04c-2fbffb9bab1c/image/Judo_Chop_Suey_w_Tag.png?ixlib=rails-4.3.1&w=450&h=450
+  tags:
+    - podcast
+    - english

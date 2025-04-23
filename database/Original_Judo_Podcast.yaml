@@ -1,0 +1,22 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-3
+  name: Original Judo Podcast
+  lang: eng
+  type: podcast
+  url: https://www.originaljudopod.com/
+  description: >-
+    Original Judo Podcast is a podcast about Judo! Season one saw us
+    chat with athletes and coaches aiming for Tokyo 2020ne. In season
+    2 we're trying to keep it going following a group of athletes and
+    coaches and coaches through the Paris 2024 Olympic cycle.
+  comment:
+    James Austin's podcast.
+  photo:
+    url: https://images.squarespace-cdn.com/content/v1/58920663ff7c5048fd82c818/1485984466384-OG8UE46U3I0WVM42YS2L/30.png?format=1500w
+  tags:
+    - podcast
+    - english
+    - uk

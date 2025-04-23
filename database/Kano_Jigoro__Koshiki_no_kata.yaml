@@ -1,0 +1,15 @@
+resource:
+  id: JDP-R-10
+  name: 'Kano Jigoro: Koshiki-no-kata'
+  url: https://www.youtube.com/watch?v=XrLDzQohZYs
+  description: 'Kano Jigoro: Koshiki-no-kata'
+  comment: >-
+    Also known as the Kito-ryu no kata, this is not only an
+    interesting historical document of the founder of Judo but also
+    ties with the theme of Judo as a vehicle for preservation of koryu
+    jujutsu, specifically in this case Kito-ryu (from which Judo can
+    be said to be a descendent).
+  tags:
+    - video
+    - kata
+    - history

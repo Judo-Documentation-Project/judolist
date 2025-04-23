@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/judolist.css">
+    <style>
+        {{#tagStyles}}
+        .tag-{{tag}} {
+            background-color: {{styles.bgColor}};
+            color: {{styles.textColor}} !important;
+        }
+        {{/tagStyles}}
+        
+        .tag-budo {
+            background-color: #6f42c1 !important;
+            color: #fff !important;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+</head>
+<body>
+  <nav class="navbar _is-dark _is-spaced has-shadow" role="navigation" aria-label="main navigation">
+    <div class="navbar-item _mr-6">
+      <figure class="image is-24x24 is-clickable">
+          <img class="image is-rounded" src="images/kano_jigoro_small.jpg" id="home" />
+      </figure>
+    </div>
+    <div class="navbar-brand">
+      <a id="jdp" class="navbar-item" href="https://www.judoc.org">柔道 | JDP</a>
+      <div id="nav-budo" class="navbar-item">Judo List</div>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start ml-6"></div>
+      <div class="navbar-end"></div>
+    </div>
+    <div class="navbar-item">
+      <div class="control has-icons-left">
+        <div class="select is-small _is-rounded _is-dark">
+          <select id="language" class="form-radio has-text-right" role="list">
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+            <option value="pt">Português</option>
+          </select>
+          <div class="icon is-small is-left has-text-dark">
+            <i class="fas fa-language fa-light fa-xl" title="Change language" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Tag filter area -->
+    <div class="container mb-5">
+      <div class="tags are-medium" id="tag-filter">
+        {{#allTags}}
+        <span class="tag is-clickable tag-{{.}}" data-tag="{{.}}">
+          {{.}}
+        </span>
+        {{/allTags}}
+      </div>
+    </div>
+
+  <!-- Search input -->
+  <div class="container my-5">
+    <div class="field">
+      <div class="control has-icons-right">
+        <input class="input is-medium" type="text" placeholder="Search resources..." id="searchInput">
+        <span class="icon is-right">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    {{#resources}}
+    <div class="card" data-tags="{{#tags}}{{.}} {{/tags}}" data-id="{{id}}">
+      <div class="card-content">
+        <div class="columns">
+          <!-- Main content column -->
+          <div class="column is-three-quarters">
+            <div class="media">
+              {{#photo}}
+              <div class="media-left">
+                <figure class="image is-96x96">
+                  <img class="_is-rounded" src="{{url}}" alt="Photo for {{name}}">
+                </figure>
+              </div>
+              {{/photo}}
+              <div class="media-content">
+                <p class="title is-4">{{name}}</p>
+                <div class="subtitle is-6 mt-2">
+                  {{#urls}}
+                    {{#.}}
+                      <a href="{{url}}" class="mr-2" target="_blank" rel="noopener">
+                        <span class="icon is-medium has-text-link">
+                          <i class="{{style}} {{icon}} fa-lg"></i>
+                        </span>
+                      </a>
+                    {{/.}}
+                  {{/urls}}
+                </div>
+                <div>
+                  {{#tags}}
+                  <span class="tag-button tag-{{.}}" data-tag="{{.}}">{{.}}</span>
+                  {{/tags}}
+                </div>
+              </div>
+            </div>
+            <div class="content mt-4">
+              <div class="column description">
+                <i class="fa-solid fa-quote-left"></i>&nbsp;<br>{{description}}
+              </div>
+            </div>
+          </div>
+
+          <!-- Comment column spanning height -->
+          <div class="column comment is-flex is-flex-direction-column is-align-items-flex-start">
+            <figure class="image is-24x24 is-clickable is-relative mb-2 flex-shrink-0">
+              <div style="width: 24px; height: 24px">
+                <img class="image is-rounded" src="images/kano_jigoro_small.jpg" id="home" />
+              </div>
+            </figure>
+            <div class="is-flex-grow-1">
+              {{comment}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/resources}}
+  </div>
+  <div id="resources-data" data-resources="{{{resourcesJson}}}"></div>
+  <script src="js/judolist.js"></script>
+</body>
+</html>

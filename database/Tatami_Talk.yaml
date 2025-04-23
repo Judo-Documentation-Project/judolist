@@ -1,0 +1,19 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-1
+  name: Tatami Talk
+  lang: eng
+  type: podcast
+  url: https://www.youtube.com/channel/UCDfto107YAWmMFtNTndXrUA
+  description: >-
+    A Judo podcast for Judo players by two Judo players.
+  comment:
+    A podcast that does this and that.
+  photo:
+    url: https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded400/4789062/4789062-1617431610273-a482d22bd6981.jpg
+  tags:
+    - podcast
+    - english
+    - foo

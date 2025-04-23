@@ -1,0 +1,9 @@
+resource:
+  id: JDP-R-2
+  name: Teachings of Kano Jigoro Shihan
+  url: http://kodokanjudoinstitute.org/en/doctrine/
+  description: Writings of Kano from the Kodokan official english site.
+  comment: 123
+  tags:
+    - english
+    - www

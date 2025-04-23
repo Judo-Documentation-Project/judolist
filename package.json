@@ -1,0 +1,19 @@
+{
+  "name": "judolist",
+  "version": "0.1.0",
+  "description": "List of online Judo resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "judo"
+  ],
+  "author": "Frederico Muñoz",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "js-yaml": "^4.1.0",
+    "mustache": "^4.2.0"
+  }
+}
