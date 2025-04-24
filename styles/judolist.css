@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Noto Serif JP', serif;
-    font-weight: 700;
+    font-weight: 500;
     _background-color: #efefef;        
 }
 
@@ -24,8 +24,43 @@ _.container{
     grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
     grid-gap: 0.5em;
 }
+#nav-title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
 
-.card{
+#nav-subtitle {
+    text-transform: uppercase;
+
+}
+
+.initial-quote {
+    margin: auto;
+    max-width: 90% !important;
+    text-align: center;
+}
+
+.citation {
+    position: relative;
+    padding-left: 2em;
+    font-style: italic;
+    _text-align: left;
+    margin: 0 auto;
+}
+
+.author {
+    font-weight: bold;
+    _text-align: right;
+    margin-top: 0.5rem;
+    padding-right: 2em;
+}
+
+.citation-source {
+  font-weight: normal;
+  _font-style: italic;
+}
+
+.card {
     height: max-content;
     
 }
@@ -40,6 +75,17 @@ _.container{
     border-left: 2px solid #eee;
     padding-left: 2rem;
     margin-left: 2rem;
+}
+
+.comment-icon::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../images/kano_jigoro_small.jpg');
+    background-size: cover;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
 }
 
 .resource { margin-bottom: 20px; }
@@ -73,11 +119,24 @@ _.container{
 }
 
 .tag.is-active {
-    background-color: #3273dc;
-    color: white;
+    _background-color: #3273dc;
+    background-color: white;
+    _color: white;
+    color: red !important;
     transform: scale(0.95);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: inset 0 2px 4px rgba(1,0,0,0.5);
     border-color: rgba(0,0,0,0.3);
+}
+
+.clear-all {
+    background-color: #ff3860 !important;
+    color: white !important;
+    margin-right: 0.5rem;
+    padding-right: 1.25em;
+}
+
+.clear-all:hover {
+    background-color: #ff1f4b !important;
 }
 
 .tag.is-active::before {
@@ -104,4 +163,37 @@ _.container{
     border: 1px solid var(--border);
     border-radius: 4px;
     gap: 0.5rem;
+}
+
+/* Screen reader only text */
+.is-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+.episode-info {
+    background: white;
+    border: 1px solid #333;
+    color: #333;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.episode-info:hover {
+    background: #f8f8f8;
+    border-color: #666;
+    color: #000;
+    transform: translateY(-1px);
 }

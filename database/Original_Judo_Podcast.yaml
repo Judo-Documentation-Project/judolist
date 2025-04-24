@@ -7,6 +7,7 @@ resource:
   lang: eng
   type: podcast
   url: https://www.originaljudopod.com/
+  rss: https://www.originaljudopod.com/blog/?format=rss
   description: >-
     Original Judo Podcast is a podcast about Judo! Season one saw us
     chat with athletes and coaches aiming for Tokyo 2020ne. In season

@@ -7,9 +7,11 @@ resource:
   lang: eng
   type: podcast
   url:
+    - https://shintarohigashi.com/shintaro-higashi-show-podcast
     - https://open.spotify.com/show/343IXJDYlh6PvKgDUSgt9w?si=793309f05de34604&nd=1&dlsi=d6c22eb0053a4ccb
     - https://podcasts.apple.com/us/podcast/the-shintaro-higashi-show/id1540600589
     - https://www.youtube.com/playlist?list=PLTNkUnUBIfH_SW0mGbde_AOdeNqnrcX14
+  rss: https://anchor.fm/s/3ee141a8/podcast/rss
   description: >-
      Welcome to The Shintaro Higashi Show! Join Shintaro Higashi and
      Peter as they dive deep into the world of Judo, Brazilian

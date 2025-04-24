@@ -6,7 +6,10 @@ resource:
   name: Judo Chop Suey Podcast
   lang: eng
   type: podcast
-  url: https://cms.megaphone.fm/channel/judochopsuey
+  url:
+    - https://cms.megaphone.fm/channel/judochopsuey
+    - https://open.spotify.com/show/2VT4l1equyFqkPBQbXCKi2
+  rss: https://feeds.megaphone.fm/judochopsuey
   description: >-
     The Judo Chop Suey Podcast is a show that discusses International
     Judo Federation results, topics, techniques, history, and opinion
