@@ -1,0 +1,33 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-3
+  name: The Shintaro Higashi Show
+  lang: eng
+  type: podcast
+  url:
+    - https://shintarohigashi.com/shintaro-higashi-show-podcast
+    - https://open.spotify.com/show/343IXJDYlh6PvKgDUSgt9w?si=793309f05de34604&nd=1&dlsi=d6c22eb0053a4ccb
+    - https://podcasts.apple.com/us/podcast/the-shintaro-higashi-show/id1540600589
+    - https://www.youtube.com/playlist?list=PLTNkUnUBIfH_SW0mGbde_AOdeNqnrcX14
+  rss: https://anchor.fm/s/3ee141a8/podcast/rss
+  description: >-
+     Welcome to The Shintaro Higashi Show! Join Shintaro Higashi and
+     Peter as they dive deep into the world of Judo, Brazilian
+     Jiu-Jitsu (BJJ), and martial arts. Each episode features
+     insightful discussions, expert tips, and fascinating stories from
+     their experiences in the martial arts community. Whether you're a
+     seasoned practitioner or just starting your journey, this podcast
+     offers valuable knowledge and inspiration for everyone. Tune in
+     and explore the art of combat with Shintaro and Peter!
+  comment: >-
+     A podcast from Shintaroo Higashi, lifelong martial artist and
+     professional judoka, Head Instructor at Kokushi Budo Institute,
+     New York. Content ranges from interviews to topic-based
+     discussion, covering a lot of ground.   
+  photo:
+    url: https://i.scdn.co/image/ab6765630000ba8a645844212a87b767d33acc06
+  tags:
+    - podcast
+    - english

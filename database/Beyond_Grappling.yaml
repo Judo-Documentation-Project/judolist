@@ -1,0 +1,21 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-20
+  name: Beyond Grappling
+  url:
+    - https://beyondgrappling.com/
+    - https://www.youtube.com/@BeyondGrappling
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC7_E3ZwrWWnoleNx42wqcTw
+  photo:
+    url: https://yt3.googleusercontent.com/ytc/AIdro_kO6ffqvUH7tZ7seCODWLurAWt0V6jIQLIparBnzQtP8VI=s160-c-k-c0x00ffffff-no-rj
+  description: >-
+     Matt D'Aquino from Beyond Grappling is a 2008 Judo Olympian, 5th degree judo black belt, 1st degree BJJ black belt. Matt has a passion for teaching all things Judo. 
+  comment: >-
+     Matt D'Aquino is well-known for the content he shares on Youtube and elsewhere, and this is his main channel. Technique, training tips, exercise and conditioning, competition footage and analysis, diet, there's a little bit of everything here.  
+  tags:
+    - podcast
+    - technique
+    - conditioning
+    - strenght

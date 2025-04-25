@@ -9,3 +9,5 @@ resource:
   tags:
     - english
     - www
+  tree:
+    - JDP-1

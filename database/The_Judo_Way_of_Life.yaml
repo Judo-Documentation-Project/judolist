@@ -1,0 +1,24 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-19
+  name: The Judo Way of Life
+  url:
+    - https://creators.spotify.com/pod/profile/thejudowayoflife/
+    - https://podcasts.apple.com/au/podcast/the-judo-way-of-life/id1556262466
+    - https://open.spotify.com/show/3QEYELfZjlx7Ll8QqFuLL4
+  rss: https://anchor.fm/s/4c6037f8/podcast/rss
+  photo:
+    url: https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_nologo400/12713742/12713742-1613285259857-cfa27181a0f69.jpg
+  description: >-
+    Self-defence?
+    Olympic sport?
+    Japanese pyjama wrestling?
+    Over 20 million people across 200 different countries practice Judo worldwide. Let's talk about what it takes to maximise your judo performance, and how it can guide your everyday life.
+  comment: >-
+     Podcast by David Groom, 3x National Champion in the UK and Australia. Interviews with competitors, but also strenght and conditioning experts, coaches, and other content creators. 
+  tags:
+    - interview
+    - english
+    - podcast

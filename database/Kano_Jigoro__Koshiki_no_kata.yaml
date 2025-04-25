@@ -15,3 +15,6 @@ resource:
     - video
     - kata
     - history
+  tree:
+    - JDP-1
+    - JDP-95

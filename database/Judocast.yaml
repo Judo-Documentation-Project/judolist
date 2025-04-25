@@ -1,0 +1,31 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-18
+  name: Judocast
+  url:
+    - https://www.judocast.com/
+  rss: https://feeds.buzzsprout.com/1071805.rss
+  photo:
+    url: https://storage.buzzsprout.com/2tmcpuarxy1su4l9gz5bbpgs4uxz?.jpg
+  description: >-
+     This Judo podcast is a culmination of illuminating stories and
+     narratives from some of the greatest minds in Judo. Judocast
+     guests range from World & Olympic Medalists, sports performance
+     coaches and a list of Judo practitioners who have found high
+     levels of success on and off the mat. We will learn how judo has
+     shaped the lives of so many successful people. You will hear
+     their unique perspective on how they hacked success and how you
+     can learn from their experiences. We will explore how the humble
+     art of Judo has helped drive these individuals far beyond the
+     medals. Judocast will be a platform to share the stories of some
+     of the most influential Icons in Judo. Please subscribe to
+     Judocast on your podcast app to get notified of all upcoming
+     episodes.
+  comment: >-
+     A good mix of interviews, analysis, and opinion from Chuck Jefferson, owner of CJ Judo in San Jose, California.
+  tags:
+    - interview
+    - english
+    - podcast

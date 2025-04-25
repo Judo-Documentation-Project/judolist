@@ -211,3 +211,37 @@ _.container{
     height: 100%;
     object-fit: cover;
 }
+
+.card-footer {
+    _background-color: #f5f5f5;
+    _border-top: 1px solid #eee;
+    padding: 0rem;
+}
+
+.budotree-link {
+    font-size: 0.7rem;
+    line-height: 1.2;
+    color: #363636 !important;
+    display: inline-flex;
+    align-items: center;
+}
+
+.budotree-link .icon {
+    margin-left: 0.25rem;
+    opacity: 0.7;
+}
+
+.budotree-link:hover {
+    color: #3273dc !important;
+}
+
+.budotree-link:hover .icon {
+    opacity: 1;
+}
+
+.card-footer-item {
+padding: 1px;
+}
+.card-footer-item:not(:last-child) {
+    border-right: 1px solid #ddd;
+}

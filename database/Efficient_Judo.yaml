@@ -1,0 +1,27 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-22
+  name: Efficient Judo
+  url:
+    - https://efficientjudo.com/
+    - https://www.youtube.com/channel/UC1CsWk5MTssfFt6rb7CXKKA
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UC1CsWk5MTssfFt6rb7CXKKA  
+  photo:
+    url: https://yt3.googleusercontent.com/ytc/AIdro_nUlBkylF_E_-wfUT7KYKAPA1ufdjlE-qY4NW3UrT5-HQ=s160-c-k-c0x00ffffff-no-rj
+  description: >-
+   Our mission is to improve your Judo! Whether you're a beginner or
+   experienced player, our free, structured video content will take
+   your Judo to the next level. New to Judo? Check out our Basics
+   Compilation playlist for how to do some of the most common throws
+   in Judo. Looking for a specific technique? Our Series playlists are
+   designed to take you from Basics, through set up and combinations
+   and into competitive variations and more! About to grade, or just
+   looking for inspiration? Check out our expanding list of demos in
+   our many demo playlists!
+  comment: >-
+   One of the most commonly suggested resources for technique reference, there's a wealth of content around individual techniques, combinations, entries, drills, variations, but nagewaza and newaza. A high quality, comprehensive resource.
+  tags:
+    - technique
+    - video

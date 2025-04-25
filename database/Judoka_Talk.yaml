@@ -1,0 +1,24 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-17
+  name: Judoka Talk
+  url:
+    - https://www.youtube.com/playlist?list=PLhtEk-K85gsc7WUBcqAX3ShV6ozEaMYhU
+    - https://soundcloud.com/john-jayne-703461911
+  rss: https://www.youtube.com/feeds/videos.xml?playlist_id=PLhtEk-K85gsc7WUBcqAX3ShV6ozEaMYhU
+  photo:
+    url: https://yt3.googleusercontent.com/ytc/AIdro_mYFddIuiV9obpppuxlxwlF4E8c_zmyRrHk_qC7sY132g=s160-c-k-c0x00ffffff-no-rj
+  description: >-  
+     Judoka Talk - John Jayne
+  comment: >-
+     John Jayne's channel, great content on strenght training and conditioning for Judo, interviews with international competitors, and more. John Jayne is an USA international competitor and olympic judoka.
+  tags:
+    - interview
+    - training
+    - strenght
+    - conditioning
+    - english
+    - podcast
+    - video

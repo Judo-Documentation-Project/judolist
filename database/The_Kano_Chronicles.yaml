@@ -31,3 +31,5 @@ resource:
   tags:
     - www
     - english
+  tree:
+    - JDP-1

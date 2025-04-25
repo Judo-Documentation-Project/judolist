@@ -1,0 +1,22 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-16
+  name: The Judo Edit
+  url:
+    - https://thejudoedit.podbean.com
+    - https://open.spotify.com/show/2ePRKIZRySFpkk971o1C09
+    - https://podcasts.apple.com/pt/podcast/the-judo-edit/id1329707958
+  rss: https://anchor.fm/s/48ebe734/podcast/rss
+  photo:
+    url: https://yt3.googleusercontent.com/ytc/AIdro_mTYOBJVeetT4Om3EmVNtoBIn5oGvSWdwpP9Y8EA0ZsMw=s160-c-k-c0x00ffffff-no-rj
+  description: >-  
+     Interviewing top judo athletes to bring you behind the scenes of the international judo circuit.
+  comment: >-
+     Interviews with top competitors, hosted by international Australian competitor Melissa Budiarto.
+  tags:
+    - interview
+    - australia
+    - english
+    - podcast

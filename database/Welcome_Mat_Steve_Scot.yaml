@@ -1,0 +1,31 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-23
+  name: Efficient Judo
+  url:
+    - https://www.youtube.com/user/welcomematstevescott
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCyYLg9fylmLH-7mX_n3lqWA
+  photo:
+    url: https://yt3.googleusercontent.com/ytc/AIdro_kanq9QPE54aDBMbnaEYKZoE9iDHsfH2Zf6Kw23XYqxkII=s160-c-k-c0x00ffffff-no-rj
+  description: >-
+    Our YouTube channel's goal is to provide fundamentally sound and
+    technically innovative skills that will benefit everyone in the
+    martial arts. We focus on bringing you videos on Kodokan Judo,
+    Sambo and Shingitai Jujitsu that everyone in the grappling and
+    combat sports as well as the martial arts may find useful.
+    The Welcome Mat Judo, Jujitsu and Sambo Club was formed in 1969 in
+    Kansas City, Missouri. Our athletes and coaches have travelled the
+    world competing, training and coaching and bring this experience
+    to our channel. Steve Scott is the club's founder and Head
+    Technical Director. Our videos feature the coaches and athletes at
+    Welcome Mat in addition to other coaches and athletes who support
+    our work.
+  comment: >-
+    Loads of technique videos, including material not common elsewhere - armlocks, no gi, etc. On top of the technique videos, there is also content about the history of Judo and interviews with US Judo pioneers.
+  tags:
+    - technique
+    - video
+    - history
+

@@ -94,12 +94,40 @@ async function generateHtml() {
 
     // Prepare resources for template and process podcast episodes
     const marked = require('marked');
+
+    async function getBudoTreeData(jdpId) {
+        try {
+            console.log(`Fetching BudoTree data for ${jdpId}`);
+            const url = `https://budotree.judoc.org/${jdpId}.html`;
+            const response = await fetch(url);
+            console.log(`Received response for ${jdpId}: ${response.status}`);
+            const html = await response.text();
+            const nameMatch = html.match(/<h1 class="name" property="name">([^<]+)<\/h1>/);
+            return {
+                name: nameMatch ? nameMatch[1] : jdpId,
+                profileUrl: url,
+                treeUrl: `https://budotree.judoc.org/tree.html?id=${jdpId}&infobox=visible`
+            };
+        } catch (error) {
+            console.error(`Error fetching BudoTree data for ${jdpId}:`, error);
+            return {name: jdpId, profileUrl: '#', treeUrl: '#'};
+        }
+    }
+
     const preparedResources = await Promise.all(resources.map(async r => {
+      const treeLinks = r.tree ? await Promise.all(r.tree.map(async id => ({
+        ...await getBudoTreeData(id),
+        id
+      }))) : [];
       return {
         ...r,
+        treeLinks, // This was missing from the object
         commentHtml: r.comment ? marked.parse(String(r.comment)) : '',
         descriptionHtml: r.description ? marked.parse(String(r.description)) : '',
-        episodeInfo: r.rss ? await getLastEpisode(r.rss) : {date: 'NA', title: 'No RSS feed'},
+        episodeInfo: r.rss ? {
+            ...await getLastEpisode(r.rss),
+            isPodcast: (r.tags || []).includes('podcast') // Add this flag
+        } : null,
         urls: (() => {
             const processUrl = (url) => {
                 const domainMap = [
@@ -147,21 +175,26 @@ async function generateHtml() {
       resourcesJson: encodeURIComponent(JSON.stringify(preparedResources)),
       tagStyles
     });
-
+    
     // Write the output HTML file
     await fs.writeFile(outputFile, html);
     console.log('\nSite generation completed');
     
     // Calculate totals from all resources
     const totals = preparedResources.reduce((acc, r) => {
-        if (r.episodeInfo.date !== 'NA') acc.success++;
-        if (r.episodeInfo.date === 'NA') acc.failed++;
+        if (r.episodeInfo) {
+            if (r.episodeInfo.date !== 'NA') acc.success++;
+            if (r.episodeInfo.date === 'NA') acc.failed++;
+        } else {
+            acc.skipped++;
+        }
         return acc;
-    }, {success: 0, failed: 0});
+    }, {success: 0, failed: 0, skipped: 0});
 
-    console.log(`Processed ${totals.success + totals.failed} podcast resources`);
-    console.log(`Successfully fetched ${totals.success} episodes`);
-    console.log(`Failed to fetch ${totals.failed} episodes`);
+    console.log(`Processed ${totals.success + totals.failed} RSS feeds`);
+    console.log(`Successfully fetched ${totals.success} updates`);
+    console.log(`Failed to fetch ${totals.failed} updates`);
+    console.log(`Skipped ${totals.skipped} non-RSS resources`);
     console.log('HTML file generated as output.html');
 }
 

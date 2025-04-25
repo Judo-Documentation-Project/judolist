@@ -131,12 +131,12 @@
               </div>
             </div>
             <div class="content mt-4">
-              {{#rss}}
-              <a href="{{episodeInfo.link}}" class="episode-info mt-3" style="text-decoration: none;">
-                <i class="fas fa-podcast mr-1"></i>
-                Last episode: {{episodeInfo.date}} - {{episodeInfo.title}}
+              {{#episodeInfo}}
+              <a href="{{link}}" class="episode-info mt-3" style="text-decoration: none;">
+                <i class="fas fa-{{#isPodcast}}podcast{{/isPodcast}}{{^isPodcast}}newspaper{{/isPodcast}} mr-1"></i>
+                {{#isPodcast}}Last episode{{/isPodcast}}{{^isPodcast}}Last publication{{/isPodcast}}: {{date}} - {{title}}
               </a>
-              {{/rss}}
+              {{/episodeInfo}}
               <div class="column description">
                 <i class="fa-solid fa-quote-left"></i>&nbsp;<br>{{{descriptionHtml}}}
               </div>	      
@@ -152,6 +152,20 @@
           </div>
         </div>
       </div>
+
+      <div class="card-footer">
+      {{#treeLinks}}
+      <div class="card-footer-item is-flex is-align-items-center">
+        <a href="{{profileUrl}}" target="_blank" class="budotree-link mr-2">
+          {{name}}
+        </a>
+        <a href="{{treeUrl}}" target="_blank" class="icon">
+          <i class="fas fa-eye fa-xs"></i>
+        </a>
+      </div>
+    {{/treeLinks}}      
+    </div>
+
     </div>
     {{/resources}}
   </div>
