@@ -2,10 +2,16 @@ resource:
   id: JDP-R-9
   name: Tokai University Judo students demonstrating Goshin Jutsu
   url: https://www.youtube.com/watch?v=Fbfir2EUh38
+  photo:
+    url: https://img.youtube.com/vi/Fbfir2EUh38/3.jpg
   description: >-
-    A light-hearted performance of the most recent Judo kata, but
-    maybe because of that an interesting example of kata as real
-    practice and (not only) cerimony.    
+    2013 fun demonstration of Kodokan Goshin Jutsu by Judo students at Tokai University.
+  comment: >-
+    Interesting in many ways, but especially in how it breaks the
+    excessive formality of kata performance that has became the rule
+    (and which, arguably, was not always the case). A light-hearted
+    performance of the most recent Judo kata, an interesting example
+    of kata as real practice and (not only) cerimony.
   tags:
     - japanese
     - video

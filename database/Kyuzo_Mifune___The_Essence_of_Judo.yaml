@@ -2,8 +2,10 @@ resource:
   id: JDP-R-7
   name: Kyuzo Mifune - The Essence of Judo
   url: https://www.youtube.com/watch?v=Vhxfk5GW9BY
-  description: A documentary and instructional video on Judo & Kyuzo Mifune from 1955
-  comment: Japanese audio with English subtitles of classic.
+  photo:
+    url: https://img.youtube.com/vi/Vhxfk5GW9BY/1.jpg  
+  description: A documentary and instructional video on Judo & Kyuzo Mifune from 1955.
+  comment: Japanese audio with English subtitles of this 1955 documentary, which covers principles, kata, randori - and 10th dan Kyuzo Mifune.
   tags:
     - japanese
     - video

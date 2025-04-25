@@ -80,7 +80,7 @@ async function generateHtml() {
             if (feed.items?.length > 0) {
                 const latest = feed.items[0];
                 return {
-                    date: latest.isoDate ? new Date(latest.isoDate).toLocaleDateString() : 'Unknown date',
+                    date: latest.isoDate ? latest.isoDate.split('T')[0].replace(/-/g, '/') : 'Unknown date',
                     title: latest.title || 'Untitled episode',
                     link: latest.link || (latest.enclosure?.url || '')
                 };
@@ -93,9 +93,12 @@ async function generateHtml() {
     };
 
     // Prepare resources for template and process podcast episodes
+    const marked = require('marked');
     const preparedResources = await Promise.all(resources.map(async r => {
       return {
         ...r,
+        commentHtml: r.comment ? marked.parse(String(r.comment)) : '',
+        descriptionHtml: r.description ? marked.parse(String(r.description)) : '',
         episodeInfo: r.rss ? await getLastEpisode(r.rss) : {date: 'NA', title: 'No RSS feed'},
         urls: (() => {
             const processUrl = (url) => {
@@ -141,7 +144,7 @@ async function generateHtml() {
     const html = mustache.render(template, { 
       resources: preparedResources,
       allTags,
-      resourcesJson: JSON.stringify(preparedResources).replace(/"/g, '&quot;'),
+      resourcesJson: encodeURIComponent(JSON.stringify(preparedResources)),
       tagStyles
     });
 

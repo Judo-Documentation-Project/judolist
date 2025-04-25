@@ -2,6 +2,8 @@ resource:
   id: JDP-R-3
   name: Canon of Judo, Kyuzo Mifune
   url: https://archive.org/details/pdfy-vaVjryYeqQikyrwh
+  photo:
+    url: https://upload.wikimedia.org/wikipedia/en/9/9c/The_Canon_of_Judo.jpg
   description: >-
      The Canon of Judo is a book that was originally published in
      1956, and written by Kodokan 10th dan, Kyuzo Mifune (1883-1965).
@@ -11,6 +13,7 @@ resource:
      to teach adaptation through reversal and counters. The book
      organizes the techniques differently from the official Kodokan
      Gokyo.
+  comment: A classic reference by Mifune himself, contains techniques not often found elsewhere. Also contains a number of kata outside the official canon, some of them practiced worldwide. 
   tags:
     - english
     - book

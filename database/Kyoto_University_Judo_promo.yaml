@@ -1,8 +1,10 @@
 resource:
   id: JDP-R-13
-  name: Kyoto University Judo promo
+  name: Kyoto University Judo
   url: https://www.youtube.com/watch?v=lZyCAOqRIYk
-  description: Kyoto University Judo promo
+  photo:
+    url: https://img.youtube.com/vi/lZyCAOqRIYk/0.jpg
+  description: Kyoto University Judo promomotion
   comment: Sometimes having a 1m upper that brings it all together is a must, and this is a very good fit for that.
   tags:
     - video

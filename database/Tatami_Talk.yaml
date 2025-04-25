@@ -13,8 +13,8 @@ resource:
   rss: https://anchor.fm/s/1d241dd8/podcast/rss
   description: >-
     A Judo podcast for Judo players by two Judo players.
-  comment:
-    A podcast that does this and that.
+  comment: >-
+    Juan and Anthony's podcast, Los Angeles-based judoka at the Hollywood Judo Dojo. One of the (if not the) most regular podcasts, covering a lot of ground. An excellent choice for anyone that wants to keep up with the Judo community worldwide and a staple in terms of Judo podcasts.
   photo:
     url: https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded400/4789062/4789062-1617431610273-a482d22bd6981.jpg
   tags:

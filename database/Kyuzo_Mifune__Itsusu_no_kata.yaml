@@ -2,8 +2,10 @@ resource:
   id: JDP-R-11
   name: 'Kyuzo Mifune: Itsusu no kata'
   url: https://www.youtube.com/watch?v=cwiaRm0Mw9s
-  description: Mifune doing the Itsusu no kata
-  comment: The kata from Tenjin Shinyō-ryū, with audio commentary by Hal Sharp.
+  photo:
+    url: https://img.youtube.com/vi/cwiaRm0Mw9s/3.jpg
+  description: 'Kyuzo Mifune Itsusu-no-kata'
+  comment: The kata from Tenjin Shinyō-ryū, performed by Kyuzo Mifune 10th dan, with audio commentary by Hal Sharp.
   tags:
     - video
     - kata

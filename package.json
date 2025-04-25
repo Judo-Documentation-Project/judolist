@@ -15,5 +15,9 @@
     "fs-extra": "^11.2.0",
     "js-yaml": "^4.1.0",
     "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "marked": "^15.0.10",
+    "rss-parser": "^3.13.0"
   }
 }

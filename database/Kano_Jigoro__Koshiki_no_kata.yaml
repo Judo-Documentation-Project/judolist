@@ -1,8 +1,10 @@
 resource:
   id: JDP-R-10
-  name: 'Kano Jigoro: Koshiki-no-kata'
+  name: '1929 - Koshiki-No-Kata, Jigoro Kano and Yoshiaki Yamashita'
   url: https://www.youtube.com/watch?v=XrLDzQohZYs
-  description: 'Kano Jigoro: Koshiki-no-kata'
+  photo:
+    url: https://img.youtube.com/vi/XrLDzQohZYs/2.jpg
+  description: 'Kano Jigoro and Yoshiaki Yamashita performing Koshiki-no-kata'
   comment: >-
     Also known as the Kito-ryu no kata, this is not only an
     interesting historical document of the founder of Judo but also

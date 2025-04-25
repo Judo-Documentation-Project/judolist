@@ -3,13 +3,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSearchMatches = new Set();
     let activeTags = new Set();
 
+    // Clear all filters handler
+    document.querySelector('.clear-all').addEventListener('click', () => {
+        // Remove active classes from all tags (filter and card)
+        document.querySelectorAll('#tag-filter .is-active, .tag-button.is-active').forEach(tag => {
+            tag.classList.remove('is-active');
+        });
+        
+        // Clear active tags and reset set
+        activeTags = new Set();
+        
+        // Clear search input
+        searchInput.value = '';
+        
+        // Reset filtering
+        filterResources();
+    });
+
     // Initialize Fuse.js search with dataset from DOM
-    const resourcesData = JSON.parse(document.getElementById('resources-data').dataset.resources);
+    let dd = 1
+    const encodedData = document.getElementById('resources-data').dataset.resources;
+    const resourcesData = JSON.parse(decodeURIComponent(encodedData));
     const fuse = new Fuse(resourcesData, {
         keys: ['name', 'description', 'comment', 'tags'],
-        threshold: 0.3,
+        threshold: 0.1,  // More strict matching
         ignoreLocation: true,
-        tokenize: true
+        ignoreDiacritics: true,
+        includeScore: true,
+        minMatchCharLength: 3  // Require at least 2 characters to match
     });
 
     // Tag filter click handler
@@ -17,12 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const tag = e.target.dataset.tag;
         if (!tag) return;
 
-        e.target.classList.toggle('is-active');
-        if (activeTags.has(tag)) {
-            activeTags.delete(tag);
-        } else {
-            activeTags.add(tag);
-        }
+        const isNowActive = e.target.classList.toggle('is-active');
+        activeTags[isNowActive ? 'add' : 'delete'](tag);
+        
+        // Update all tags with same value
+        document.querySelectorAll(`.tag-button[data-tag="${tag}"], #tag-filter .tag[data-tag="${tag}"]`).forEach(t => {
+            t.classList.toggle('is-active', isNowActive);
+        });
 
         filterResources();
     });
@@ -33,19 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const tag = e.target.dataset.tag;
             if (!tag) return;
 
-            // Find matching tag in top filter
-            const topTag = [...document.querySelectorAll('#tag-filter .tag')]
-                .find(t => t.dataset.tag === tag);
+            // Toggle active class on clicked tag and track state
+            const isNowActive = e.target.classList.toggle('is-active');
+            activeTags[isNowActive ? 'add' : 'delete'](tag);
             
+            // Update filter tag
+            const topTag = document.querySelector(`#tag-filter .tag[data-tag="${tag}"]`);
             if (topTag) {
-                topTag.classList.toggle('is-active');
-                if (activeTags.has(tag)) {
-                    activeTags.delete(tag);
-                } else {
-                    activeTags.add(tag);
-                }
-                filterResources();
+                topTag.classList.toggle('is-active', isNowActive);
             }
+            
+            // Update all other card tags with same value
+            document.querySelectorAll(`.tag-button[data-tag="${tag}"]`).forEach(t => {
+                t.classList.toggle('is-active', isNowActive);
+            });
+
+            filterResources();
         });
     });
 
@@ -67,8 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const active = Array.from(activeTags);
         
         cards.forEach(card => {
-            const hasSearchMatch = currentSearchMatches.size === 0 || 
-                currentSearchMatches.has(card.dataset.id);
+            const hasSearchMatch = (searchInput.value.trim() === '' && currentSearchMatches.size === 0) || 
+                (searchInput.value.trim() !== '' && currentSearchMatches.has(card.dataset.id));
             const hasTagMatch = active.length === 0 || 
                 active.every(tag => card.dataset.tags.split(' ').includes(tag));
             

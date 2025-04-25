@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources</title>
+    <title>The Judo List</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="styles/judolist.css">
@@ -13,12 +13,7 @@
             background-color: {{styles.bgColor}};
             color: {{styles.textColor}} !important;
         }
-        {{/tagStyles}}
-        
-        .tag-budo {
-            background-color: #6f42c1 !important;
-            color: #fff !important;
-        }
+        {{/tagStyles}}        
     </style>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 </head>
@@ -26,12 +21,13 @@
   <nav class="navbar _is-dark _is-spaced has-shadow" role="navigation" aria-label="main navigation">
     <div class="navbar-item _mr-6">
       <figure class="image is-24x24 is-clickable">
-          <img class="image is-rounded" src="images/kano_jigoro_small.jpg" id="home" />
+          <img class="image is-rounded" src="images/kano_jigoro_small.jpg" id="home" alt="The Judo Documentation Project"/>
       </figure>
     </div>
     <div class="navbar-brand">
-      <a id="jdp" class="navbar-item" href="https://www.judoc.org">柔道 | JDP</a>
-      <div id="nav-budo" class="navbar-item">Judo List</div>
+      <a id="jdp" class="navbar-item mr-0" href="https://www.judoc.org">柔道 | JDP</a>
+      <div id="nav-title" class="navbar-item ml-0">The Judo List</div>
+      <div class="navbar-item" id="nav-subtitle"> a curated compilation of Judo resources worldwide.</div>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -42,6 +38,7 @@
       <div class="navbar-start ml-6"></div>
       <div class="navbar-end"></div>
     </div>
+    <!-- 
     <div class="navbar-item">
       <div class="control has-icons-left">
         <div class="select is-small _is-rounded _is-dark">
@@ -56,11 +53,27 @@
         </div>
       </div>
     </div>
+    -->
   </nav>
+      <div class="container mb-5 mt-6 initial-quote">
+	<blockquote class="citation">
+	  The list is the origin of culture. It's part of the history
+	  of art and literature. What does culture want? To make
+	  infinity comprehensible.
+	</blockquote>
+	<p class="author">&#8212; Umberto Eco, <span class="citation-source">Spiegel International, 2009</span></p>
 
+	
+      </div>
     <!-- Tag filter area -->
     <div class="container mb-5">
       <div class="tags are-medium" id="tag-filter">
+        <span class="clear-all tag is-danger is-clickable" title="Clear all filters">
+          <span class="icon is-small">
+            <i class="fas fa-times"></i>
+          </span>
+          <span>Clear all</span>
+        </span>
         {{#allTags}}
         <span class="tag is-clickable tag-{{.}}" data-tag="{{.}}">
           {{.}}
@@ -87,12 +100,12 @@
       <div class="card-content">
         <div class="columns">
           <!-- Main content column -->
-          <div class="column is-three-quarters">
+          <div class="column is-two-thirds">
             <div class="media">
               {{#photo}}
               <div class="media-left">
                 <figure class="image is-96x96">
-                  <img class="_is-rounded" src="{{url}}" alt="Photo for {{name}}">
+                  <img class="is-rounded" src="{{url}}" alt="Photo for {{name}}">
                 </figure>
               </div>
               {{/photo}}
@@ -105,6 +118,7 @@
                         <span class="icon is-medium has-text-link">
                           <i class="{{style}} {{icon}} fa-lg"></i>
                         </span>
+                        <span class="is-sr-only">{{url}} </span>
                       </a>
                     {{/.}}
                   {{/urls}}
@@ -117,21 +131,23 @@
               </div>
             </div>
             <div class="content mt-4">
+              {{#rss}}
+              <a href="{{episodeInfo.link}}" class="episode-info mt-3" style="text-decoration: none;">
+                <i class="fas fa-podcast mr-1"></i>
+                Last episode: {{episodeInfo.date}} - {{episodeInfo.title}}
+              </a>
+              {{/rss}}
               <div class="column description">
-                <i class="fa-solid fa-quote-left"></i>&nbsp;<br>{{description}}
-              </div>
+                <i class="fa-solid fa-quote-left"></i>&nbsp;<br>{{{descriptionHtml}}}
+              </div>	      
             </div>
           </div>
 
           <!-- Comment column spanning height -->
           <div class="column comment is-flex is-flex-direction-column is-align-items-flex-start">
-            <figure class="image is-24x24 is-clickable is-relative mb-2 flex-shrink-0">
-              <div style="width: 24px; height: 24px">
-                <img class="image is-rounded" src="images/kano_jigoro_small.jpg" id="home" />
-              </div>
-            </figure>
             <div class="is-flex-grow-1">
-              {{comment}}
+            <div class="comment-icon"></div>	      
+              {{{commentHtml}}}
             </div>
           </div>
         </div>

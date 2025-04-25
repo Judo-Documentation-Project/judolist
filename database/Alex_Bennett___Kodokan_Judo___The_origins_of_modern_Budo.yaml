@@ -2,6 +2,8 @@ resource:
   id: JDP-R-4
   name: Alex Bennett - Kodokan Judo - The origins of modern Budo
   url: https://www.youtube.com/watch?v=ftO3eg2Ev3s
+  photo:
+    url: https://img.youtube.com/vi/ftO3eg2Ev3s/0.jpg  
   description: >-
     Alexander C. Bennett has two PHDs in Human Studies and Sciences
     from the University of Canterbury and Kyoto University. He holds
@@ -16,7 +18,7 @@ resource:
     In this episode, we’re starting the second part of the series by
     talking about the origins of Japanese Budo: First topic is the
     creation of the Kodokan Judo by Jigoro Kano.
-  comment: An excellent introduction to Judo as the gateway between old and new and as the first gendai martial art.
+  comment: An excellent introduction to Judo as the gateway between old and new and as the first gendai martial art. Alex Bennett's presentation is engaging and well-grounded, as usual.
   tags:
     - english
     - budo

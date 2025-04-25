@@ -1,0 +1,33 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-14
+  name: The Kano Chronicles© 嘉納歴代©
+  lang: eng
+  type: www
+  url: https://kanochronicles.com
+  rss: https://kanochronicles.com/feed/
+  description: >-  
+    The Kanō Chronicles: The Untold History of Modern Japan® (嘉納歴代
+    史:知らず近代日本史®) is the result of over 15 years of research
+    into the life and times of Kanō Jigorō, 嘉納治五郎 (1860-1938),
+    the founder of jûdô 柔道. In traditional jūdō texts and by today’s
+    jūdōka 柔道家 (judo practitioners) he is normally addressed as
+    ‘Kano shihan’ 師範 (Master Kano).
+    No English or Japanese language biographies of Kano shihan capture
+    the complexity of the man and his times. Even the best Japanese
+    biographies are often narrow, typically focused on Kano’s jūdō,
+    education, sports, or Olympic activities, or some combination
+    thereof. There are exceptions, but they are rare and difficult to
+    digest, even for native Japanese, and have escaped the attention
+    of Western researchers.
+  comment: >-
+    Written by Lance Gatling, this is a fundamental resource for
+    anyone seriously looking for a better understanding of the history
+    of Judo and Kano Jigoro himself. Highly recommended.     
+  photo:
+    url: https://kanochronicles.com/wp-content/uploads/2018/02/cropped-kano_jigoro-formal11.jpg
+  tags:
+    - www
+    - english

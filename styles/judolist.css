@@ -118,7 +118,7 @@ _.container{
     opacity: 0.6;
 }
 
-.tag.is-active {
+.tag.is-active, .tag-button.is-active {
     _background-color: #3273dc;
     background-color: white;
     _color: white;
@@ -196,4 +196,18 @@ _.container{
     border-color: #666;
     color: #000;
     transform: translateY(-1px);
+}
+
+.image.is-96x96 {
+    height: 96px;
+    width: 96px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.image.is-96x96 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
