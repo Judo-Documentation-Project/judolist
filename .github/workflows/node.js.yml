@@ -29,15 +29,20 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: package-lock.json
+	
+    - name: Create dist dist
+      run: |
+        mkdir  dist || true
+	
     - run: npm ci
 
     - name: Build page
       run: npm run build
-
+      	
     - name: Copy static assets
       run: cp -r styles dist/
 
-    - name: Commit
+    - name: Commit to gh-pages
       run: |
         git config --global user.name github-actions
         git config --global user.email github-actions@github.com
