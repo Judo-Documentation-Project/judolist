@@ -43,8 +43,10 @@ function stringToColor(str) {
 
 async function generateHtml() {
     const resourcesDir = path.join(__dirname, 'database');
+    //const outputDir = path.join(__dirname, 'dist');
+    const outputDir = __dirname;
     const templateFile = path.join(__dirname, 'bulma.mustache');
-    const outputFile = path.join(__dirname, 'output.html');
+    const outputFile = path.join(outputDir, 'index.html');
 
     console.log('Starting site generation...');
     console.log(`Reading YAML files from ${resourcesDir}`);
@@ -234,7 +236,7 @@ async function generateHtml() {
     console.log(`Successfully fetched ${totals.success} updates`);
     console.log(`Failed to fetch ${totals.failed} updates`);
     console.log(`Skipped ${totals.skipped} non-RSS resources`);
-    console.log('HTML file generated as output.html');
+    console.log('HTML file generated as ' + outputFile);
 }
 
 generateHtml()

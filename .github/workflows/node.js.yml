@@ -29,12 +29,14 @@ jobs:
         cache-dependency-path: package-lock.json	
     - name: Create dist dist
       run: |
-        mkdir  dist || true	
+        mkdir dist || true
     - run: npm ci
     - name: Build page
       run: npm run build      	
-    - name: Copy static assets
-      run: cp -r styles dist/
+    - name: Copy assets
+      run: |
+        cp index.html dist/
+        cp -r styles dist/
     - name: Commit to gh-pages
       run: |
         git config --global user.name github-actions
