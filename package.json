@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "marked": "^15.0.10",
+    "n3": "^1.25.2",
+    "rdfa-streaming-parser": "^3.0.2",
     "rss-parser": "^3.13.0"
   }
 }

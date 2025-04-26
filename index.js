@@ -3,6 +3,9 @@ const path = require('path');
 const yaml = require('js-yaml');
 const mustache = require('mustache');
 const Parser = require('rss-parser');
+const RdfaParser = require('rdfa-streaming-parser').RdfaParser;
+const N3 = require('n3');
+const dataFactory = N3.DataFactory;
 
 function stringToColor(str) {
     let hash = 0;
@@ -96,21 +99,57 @@ async function generateHtml() {
     const marked = require('marked');
 
     async function getBudoTreeData(jdpId) {
+        let html = ''; // Initialize outside try block for error fallback
+        let personSubject; // Declare here to maintain scope
         try {
             console.log(`Fetching BudoTree data for ${jdpId}`);
             const url = `https://budotree.judoc.org/${jdpId}.html`;
             const response = await fetch(url);
             console.log(`Received response for ${jdpId}: ${response.status}`);
-            const html = await response.text();
-            const nameMatch = html.match(/<h1 class="name" property="name">([^<]+)<\/h1>/);
+            html = await response.text();
+        
+            // Parse RDFa data using stream approach
+            let name = jdpId; // Default fallback
+            const parser = new RdfaParser({
+                baseIRI: url,
+                contentType: 'text/html'
+            });
+            
+            // Convert HTML string to stream and pipe through parser
+            const htmlStream = require('stream').Readable.from(html);
+            const namePromise = new Promise((resolve, reject) => {
+                htmlStream.pipe(parser)
+                .on('data', quad => {
+                    // Look for the primary Person resource declaration
+                    if (quad.predicate.equals(dataFactory.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'))) {
+                        if (quad.object.value === 'https://schema.org/Person' && 
+                           quad.subject.value.endsWith(`${jdpId}.html`)) { // Match our resource URL
+                            personSubject = quad.subject.value;
+                            console.log('🔎 Found primary Person resource:', personSubject);
+                            personSubject = quad.subject.value;
+                        }
+                    }
+                    // Then check if this is a name property for a Person
+                    else if (quad.predicate.equals(dataFactory.namedNode('https://schema.org/name')) && 
+                            quad.subject.value === personSubject) {
+                        console.log('✅ Found name for primary resource:', quad.object.value);
+                        name = quad.object.value;
+                    }
+                })
+                .on('end', () => resolve(name))
+                .on('error', reject);
+            });
+
+            await namePromise;
+
             return {
-                name: nameMatch ? nameMatch[1] : jdpId,
+                name: name,
                 profileUrl: url,
                 treeUrl: `https://budotree.judoc.org/tree.html?id=${jdpId}&infobox=visible`
             };
         } catch (error) {
             console.error(`Error fetching BudoTree data for ${jdpId}:`, error);
-            return {name: jdpId, profileUrl: '#', treeUrl: '#'};
+            throw error;
         }
     }
 
