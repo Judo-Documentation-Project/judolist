@@ -1,0 +1,24 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-25
+  name: Chadi
+  url:
+    - https://www.youtube.com/channel/UCT1pquM3m7JxxivdSC2DDJw
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCT1pquM3m7JxxivdSC2DDJw
+  photo:
+    url: https://yt3.googleusercontent.com/t1BQ3-k0I6sVgoRLKs-K8fnJRbIQ_Lm08AfS-crKRGbXLgdLBk2EjEspiQ60DBEe-XaGf3_H9A=s160-c-k-c0x00ffffff-no-rj
+  description: >-
+     This channel discusses martial arts topics, history, and the
+     forgotten legends of these beautiful arts.
+  comment: >-
+     A frequently updated channel with commented versions of old (and
+     often forgotten) footage, with a heavy bias towards history of
+     Judo from a "traditional" viewpoint, but also including other
+     martial arts. A polarising channel, but certainly one of the most
+     popular ones.     
+  tags:
+    - history
+    - video
+    - podcast
