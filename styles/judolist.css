@@ -31,7 +31,30 @@ _.container{
 
 #nav-subtitle {
     text-transform: uppercase;
+}
 
+.is-hidden-desktop-mobile {
+    display: none !important;
+}
+
+@media screen and (max-width: 1023px) {
+    #nav-subtitle {
+        max-width: none;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+    
+    .is-hidden-desktop-mobile {
+        display: block !important;
+    }
+}
+
+#nav-subtitle-mobile {
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
 }
 
 .initial-quote {

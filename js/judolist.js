@@ -1,4 +1,23 @@
+function moveSubtitleForMobile() {
+    const subtitle = document.getElementById('nav-subtitle');
+    const placeholder = document.getElementById('subtitle-placeholder');
+    if (window.innerWidth < 1024) { // Bulma's desktop breakpoint
+        placeholder.appendChild(subtitle);
+        subtitle.classList.add('is-hidden-desktop-mobile');
+    } else {
+        const navbarBrand = document.querySelector('.navbar-brand');
+        navbarBrand.insertBefore(subtitle, document.querySelector('.navbar-burger'));
+        subtitle.classList.remove('is-hidden-desktop-mobile');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Move subtitle based on initial view
+    moveSubtitleForMobile();
+    
+    // Update on window resize
+    window.addEventListener('resize', moveSubtitleForMobile);
+    
     const searchInput = document.getElementById('searchInput');
     let currentSearchMatches = new Set();
     let activeTags = new Set();
