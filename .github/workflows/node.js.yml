@@ -36,7 +36,7 @@ jobs:
     - name: Copy assets
       run: |
         cp index.html dist/
-        cp -r styles js dist/	
+        cp -r styles js images dist/	
     - name: Commit to gh-pages
       run: |
         git config --global user.name github-actions
