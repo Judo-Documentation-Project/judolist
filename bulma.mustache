@@ -68,31 +68,44 @@
 
 	
       </div>
-    <!-- Tag filter area -->
-    <div class="container mb-5">
-      <div class="tags are-medium" id="tag-filter">
-        <span class="clear-all tag is-danger is-clickable" title="Clear all filters">
-          <span class="icon is-small">
-            <i class="fas fa-times"></i>
-          </span>
-          <span>Clear all</span>
+  <!-- Search/tag header -->
+  <div class="container">
+    <div class="is-flex is-justify-content-space-between is-align-items-center my-4 px-4 has-border-grey" style="border-bottom: 1px solid #ddd; padding-bottom: 0.5rem;">
+      <h2 class="title is-6 mb-0 has-text-grey">SEARCH</h2>
+      <button id="search-toggle" class="button is-small is-text px-2 py-1">
+        <span class="icon is-small">
+          <i class="fas fa-chevron-down has-text-grey" id="toggle-icon"></i>
         </span>
-        {{#allTags}}
-        <span class="tag is-clickable tag-{{.}}" data-tag="{{.}}">
-          {{.}}
-        </span>
-        {{/allTags}}
-      </div>
+      </button>
     </div>
+    <div id="search-container" class="mx-2">
+      <!-- Tag filter area -->
+      <div class="container mb-5">
+        <div class="tags are-medium" id="tag-filter">
+          <span class="clear-all tag is-danger is-clickable" title="Clear all filters">
+            <span class="icon is-small">
+              <i class="fas fa-times"></i>
+            </span>
+            <span>Clear all</span>
+          </span>
+          {{#allTags}}
+          <span class="tag is-clickable tag-{{.}}" data-tag="{{.}}">
+            {{.}}
+          </span>
+          {{/allTags}}
+        </div>
+      </div>
 
-  <!-- Search input -->
-  <div class="container my-5">
-    <div class="field">
-      <div class="control has-icons-right">
-        <input class="input is-medium" type="text" placeholder="Search resources..." id="searchInput">
-        <span class="icon is-right">
-          <i class="fas fa-search"></i>
-        </span>
+      <!-- Search input -->
+      <div class="container my-5">
+        <div class="field">
+          <div class="control has-icons-right">
+            <input class="input is-medium" type="text" placeholder="Search resources..." id="searchInput">
+            <span class="icon is-right">
+              <i class="fas fa-search"></i>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

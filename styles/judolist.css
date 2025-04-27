@@ -188,6 +188,56 @@ _.container{
     gap: 0.5rem;
 }
 
+#search-container {
+  transition: opacity 0.2s ease, max-height 0.3s ease;
+  overflow: hidden;
+}
+
+#search-container.collapsed {
+  opacity: 0;
+  max-height: 0 !important;
+}
+
+#search-toggle {
+  transition: transform 0.2s ease;
+}
+
+#search-toggle.collapsed {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1023px) {
+  #search-container.collapsed {
+    opacity: 0;
+    max-height: 0;
+  }
+  
+  #search-toggle {
+    display: block !important;
+  }
+  
+  #search-toggle .fa-chevron-down {
+    display: inline-block;
+  }
+  
+  #search-toggle:not(.collapsed) .fa-chevron-up {
+    display: inline-block;
+  }
+}
+
+.has-border-grey {
+  border-bottom: 1px solid #ddd !important;
+}
+
+@media screen and (min-width: 1024px) {
+  #search-container:not(.collapsed) {
+    opacity: 1 !important;
+    max-height: none !important;
+  }
+  
+  /* Removed icon visibility rules to allow JS toggle */
+}
+
 /* Screen reader only text */
 .is-sr-only {
     position: absolute;

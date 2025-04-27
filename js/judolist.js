@@ -17,6 +17,42 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Update on window resize
     window.addEventListener('resize', moveSubtitleForMobile);
+
+    // Search toggle setup
+    const searchContainer = document.getElementById('search-container');
+    const searchToggle = document.getElementById('search-toggle');
+    const toggleIcon = document.getElementById('toggle-icon');
+
+    // Set initial state based on screen size
+    if (window.innerWidth < 1024) {
+      searchContainer.classList.add('collapsed');
+      searchToggle.classList.add('collapsed');
+      toggleIcon.classList.remove('fa-chevron-down');
+      toggleIcon.classList.add('fa-chevron-up');
+    } else {
+      searchContainer.classList.remove('collapsed');
+      searchToggle.classList.remove('collapsed');
+      toggleIcon.classList.remove('fa-chevron-up');
+      toggleIcon.classList.add('fa-chevron-down');
+    }
+
+    // Toggle handler
+    searchToggle.addEventListener('click', () => {
+      searchContainer.classList.toggle('collapsed');
+      searchToggle.classList.toggle('collapsed');
+      toggleIcon.classList.toggle('fa-chevron-down');
+      toggleIcon.classList.toggle('fa-chevron-up');
+    });
+
+    // Update on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        searchContainer.classList.remove('collapsed');
+        searchToggle.classList.remove('collapsed');
+        toggleIcon.classList.remove('fa-chevron-up');
+        toggleIcon.classList.add('fa-chevron-down');
+      }
+    });
     
     const searchInput = document.getElementById('searchInput');
     let currentSearchMatches = new Set();
