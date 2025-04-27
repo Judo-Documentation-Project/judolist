@@ -1,0 +1,19 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-35
+  name: Das Judo Forum
+  url:
+    - https://www.dasjudoforum.de
+  photo:
+    url: https://www.dasjudoforum.de/forum/styles/prosilver_dasjudoforum_3-3-12/theme/images/site_logo.gif
+  description: >-
+   The Judo Forum is a large German-speaking community dedicated to discussing judo. Topics include judo techniques, the history of the sport, training games, and much more.
+  comment: >-  
+   The largest German-speaking forum, and perhaps the most active in Europe; lots of information about the history of Judo in Germany, Europe, and the world, plus discussions on techniques, history of Judo, news, etc. Worth visiting even for those that do not speak German, especially considering the access to automatic translation tools and the wealth of information.
+  tags:
+    - www
+    - forum
+    - german
+    

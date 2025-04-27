@@ -1,0 +1,21 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-29
+  name: Judovision
+  url:
+    - https://www.youtube.com/c/judovision
+    - https://www.facebook.com/judovision
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCS9K3RrgKKqxPuntDRTj5Xw
+  photo:
+    url: https://yt3.googleusercontent.com/ytc/AIdro_ln2KJ86wvxuhxjKpvj4-yv9IdeVvpDrn6M6zWFxa5qZA=s160-c-k-c0x00ffffff-no-rj
+  description: >-
+    Judovision archives Judo videos from 1957 to 2011, which we find online and offline, and shares it with the world to remember!
+  comment: >-
+    A wealth of historical footage spanning decades, a fundamental resource for those looking for competition videos. Includes not only full coverage of competitions, but also documentaries. Highly recommended.
+  tags:
+    - competition
+    - video
+    - podcast
+    - history

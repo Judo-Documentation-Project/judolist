@@ -174,6 +174,9 @@ async function generateHtml() {
                 const domainMap = [
                     { pattern: 'podcasts.apple.com', icon: 'fa-apple', style: 'fab' },
                     { pattern: 'spotify.com', icon: 'fa-spotify', style: 'fab' },
+                    { pattern: 'tiktok.com', icon: 'fa-tiktok', style: 'fab' },
+                    { pattern: 'facebook.com', icon: 'fa-facebook', style: 'fab' },
+                    { pattern: 'instagram.com', icon: 'fa-instagram', style: 'fab' },
                     { pattern: 'youtube.com/playlist', icon: 'fa-youtube', style: 'fab' },
                     { pattern: 'youtube.com', icon: 'fa-youtube', style: 'fab' },
                     { pattern: 'megaphone.fm', icon: 'fa-podcast', style: 'fas' },

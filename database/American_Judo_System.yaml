@@ -1,0 +1,32 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-27
+  name: American Judo
+  url:
+    - https://www.americanjudo.com/
+    - https://www.youtube.com/@americanjudo6991
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCOOOW4-CIEIN7Vscoxz2Pmw
+  photo:
+    url: https://yt3.googleusercontent.com/ANS8LsZFArAPea7Xm48nIHEKxDnkZmTA5SCRbnbcuatSbZV8QH8FE9UPOsJ2K5TsdCW0qeZo_A=s160-c-k-c0x00ffffff-no-rj
+  description: >-
+   Helping Judoka learn judo in a fun systematic way. Jimmy Pedro &
+   Travis Stevens teach judo in an each to understand way. Get better
+   at judo faster by subscribing to our channel and turning on the
+   notification so you can get all the releases.
+  comment: >-
+   The American Judo System from Jimmy Pedro and Travis Stevens. High
+   production quality videos, with a lot of technique videos, but also
+   Judo Talk segments with exclusive interviews, content on strenght
+   and conditioning, weight cutting, and competition analysis.
+  tags:
+    - history
+    - video
+    - podcast
+    - technique
+    - interview
+    - history
+    - competition
+    - short
+    - english

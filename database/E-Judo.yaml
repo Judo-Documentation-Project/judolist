@@ -1,0 +1,24 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-35
+  name: E-Judo
+  url:
+    - https://judo.forumotion.com/
+  photo:
+    url: https://i.servimg.com/u/f12/18/02/72/90/judo13.png
+  description: >-
+    Judo network and forum
+  comment: >-  
+    One of the successor forums to the late judoforum.com, created
+    after the decable, and the most direct descendent as far as I can
+    tell; activity peaked after the event, and currently it seems to
+    suffer from the same general decline in forum usage. Still, lots
+    of threads with that "classical" feeling of when long-term
+    discussions were possible (a format lost on the "modern"
+    alternatives"), and an overall civilised commmunity.    
+  tags:
+    - www
+    - forum
+    - english

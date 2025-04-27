@@ -1,0 +1,32 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-31
+  name: Judo Inside
+  url:
+    - https://www.judoinside.com
+    - https://www.instagram.com/judoinsidecom/
+  rss: https://www.judoinside.com/site/rss
+  photo:
+    url: https://pbs.twimg.com/profile_images/2493220146/q6eixty53ro0f9ygf6bf_400x400.jpeg 
+  description: >-
+    JudoInside.com has grown to one of the world's most popular judo
+    websites. Judo Inside was founded in 2002 and has grown to a
+    useful source for athletes, coaches, the media and obviously judo
+    fans. Judo Inside offers our visitors the most extended coverage
+    of profiles, results and stats. Passion for judo is our drive and
+    like to share it with you. If you have any questions or want to
+    advertise with us, don't hesitate to contact us.
+  comment: >-
+    In the words of Dave Roman (of Judo Chop Suey podcast fame): if
+    you're not following Judo Inside, what the hell is wrong with you?
+    A constantly up-to-date coverage of what happens in Judo
+    worldwide, an essential resource for anyone even mildly interested
+    in Judo, and even more so for those with a more serious commitment.    
+  tags:
+    - www
+    - competition
+    - news
+    - english
+    

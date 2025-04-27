@@ -1,0 +1,27 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-28
+  name: Judo Highlights
+  url:
+    - https://www.youtube.com/channel/UCp8CjNQGroW5l3jxQYPIj9w
+    - https://www.tiktok.com/@judohighlightsyt
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCp8CjNQGroW5l3jxQYPIj9w
+  photo:
+    url: https://yt3.googleusercontent.com/ytc/AIdro_ne_P-JPbKdLFtlwvjpH5wIHoKslgoS97lmrUSL2nPAzLI=s160-c-k-c0x00ffffff-no-rj
+  description: >-
+    Welcome! I've been doing judo in Japan for over 15 years. Love the game, love the art, judo for life! Remember to subscribe! 🥋
+    - Judo Highlights for the Best Judokas
+    - Judo Throws and Judo Technique Montages
+    - Best Ippons
+    - Tournament Recaps
+    - Technique Breakdowns
+  comment: >-
+    The go-to place for highlights of competitions, but not limited to
+    that - also insights into Judo news in general. A great resource
+    to keep up-to-date with Judo competitions worlwide.
+  tags:
+    - competition
+    - video
+    - podcast

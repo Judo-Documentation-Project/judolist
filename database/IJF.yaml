@@ -1,0 +1,30 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-33
+  name: International Judo Federation
+  url:
+    - https://www.ijf.org/
+    - https://www.youtube.com/judo
+    - https://www.instagram.com/judogallery/
+  photo:
+    url: https://yt3.googleusercontent.com/5CjsFR_qfswLQ0uEjY7bqM71lcxySoBSe_VSeR75dB3z8zkhs3riWRT_BuFWfGGw4lc6NyhmoQ=s160-c-k-c0x00ffffff-no-rj
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCeYa3QaP2n7I8SpGSqD-kUQ
+  description: >-
+   Dive into the world of Judo with ALL the highlights from the IJF
+   World Judo Tour, exclusive video series, epic moments, athlete
+   interviews, and so much more. Your ultimate destination for
+   everything Judo!
+  comment: >-
+   The official page and channels of the International Judo
+   Federation. News, rules updates, interviews, judoka spotlights, and
+   competition coverage and highlights.
+  tags:
+    - www
+    - video
+    - short
+    - podcast
+    - news
+    - english
+    

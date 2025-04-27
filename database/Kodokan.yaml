@@ -1,0 +1,35 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-30
+  name: Kodokan Judo Institute
+  url:
+    - https://kdkjudo.org/
+    - https://www.youtube.com/channel/UCtF6tu7GuZYkZzht5MIv8UQ
+    - https://www.facebook.com/kodokanjudoinstitute/
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCtF6tu7GuZYkZzht5MIv8UQ
+  photo:
+    url: https://yt3.googleusercontent.com/ytc/AIdro_mk5WyuONUQtiC2wwzxADU-di3iLvKPTD0WBZHBe4G2oA=s160-c-k-c0x00ffffff-no-rj
+  description: >-
+    Welcome to the KODOKAN Official YouTube Channel. We will introduce
+    various content of JUDO. The KODOKAN JUDO INSTITUTE（KODOKAN）is
+    the origin of Judo that was started by Kano Jigoro Shihan
+    (professor) in 1882 and that has spread in about 200 countries and
+    regions in the world. It is a public interest incorporated
+    foundation and the main aims are the following: -Studying,
+    teaching, developing, and diffusing KODOKAN JUDO. -Contributing to
+    the strengthening of both body and mind of Japanese people,
+    especially for juveniles.
+  comment: >-
+    The official Kodokan page and video channel. An essential
+    resource, not the least for the technique videos and kata
+    instructions, which are considered the gold standard. Also
+    includes the live streams of relevant yearly events (like the
+    Kagami Biraki cerimony). Mostly in Japanese, but quote often with
+    English subtitles.    
+  tags:
+    - video
+    - podcast
+    - technique
+    - history
