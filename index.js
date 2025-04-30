@@ -62,12 +62,6 @@ async function generateHtml() {
         }
     }
 
-    // Sort resources by `id`
-    resources.sort((a, b) => {
-        const idA = parseInt(a.id.split('-')[2]);
-        const idB = parseInt(b.id.split('-')[2]);
-        return idA - idB;
-    });
 
     // Get all unique tags
     const allTags = [...new Set(resources.flatMap(r => r.tags || []))].sort();
@@ -85,7 +79,7 @@ async function generateHtml() {
             if (feed.items?.length > 0) {
                 const latest = feed.items[0];
                 return {
-                    date: latest.isoDate ? latest.isoDate.split('T')[0].replace(/-/g, '/') : 'Unknown date',
+                    date: latest.isoDate ? latest.isoDate.split('T')[0] : 'Unknown date', 
                     title: latest.title || 'Untitled episode',
                     link: latest.link || (latest.enclosure?.url || '')
                 };
@@ -170,11 +164,12 @@ async function generateHtml() {
       }))) : [];
       return {
         ...r,
-        treeLinks, // This was missing from the object
+        treeLinks,
         commentHtml: r.comment ? marked.parse(String(r.comment)) : '',
         descriptionHtml: r.description ? marked.parse(String(r.description)) : '',
+        idNumber: parseInt(r.id.split('-')[2]),
         episodeInfo: r.rss ? {
-            ...await getLastEpisode(r.rss),
+            ...(await getLastEpisode(r.rss)),
             isPodcast: (r.tags || []).includes('podcast'),
             isChannel: (r.tags || []).includes('channel')
         } : null,

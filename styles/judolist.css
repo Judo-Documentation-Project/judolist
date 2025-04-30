@@ -318,3 +318,31 @@ padding: 1px;
 .card-footer-item:not(:last-child) {
     border-right: 1px solid #ddd;
 }
+
+/* Sorting UI */
+.buttons.has-addons .button {
+  border-radius: 4px;
+  margin-right: 0.25rem;
+}
+
+
+.buttons.has-addons .button .fa-arrow-up,
+.buttons.has-addons .button .fa-arrow-down {
+  font-size: 0.8em;
+  margin-left: 0.25rem;
+}
+
+.buttons.has-addons .button:not(.is-primary) .fa-arrow-up,
+.buttons.has-addons .button:not(.is-primary) .fa-arrow-down {
+  display: none;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.label.has-text-grey {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}

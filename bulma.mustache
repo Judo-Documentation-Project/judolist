@@ -109,10 +109,44 @@
       </div>
     </div>
   </div>
+  <!-- Sorting UI -->
+  <div class="container mb-5 px-4">
+    <!-- <label class="label has-text-grey">SORT BY</label> -->
+    <div class="buttons are-small has-addons">
+      <button class="button" data-sort="name-asc" aria-label="Sort by name">
+        <span class="icon">
+          <i class="fas fa-font"></i>
+          <i class="fas fa-arrow-down"></i>
+        </span>
+        <span class="tooltip">Name</span>
+      </button>
+      <button class="button" data-sort="date-desc" aria-label="Sort by date">
+        <span class="icon">
+          <i class="fas fa-calendar"></i>
+          <i class="fas fa-arrow-up"></i>
+        </span>
+        <span class="tooltip">Date</span>
+      </button>
+      <button class="button" data-sort="id-asc" aria-label="Sort by ID">
+        <span class="icon is-small">
+          <i class="fas fa-hashtag"></i>
+          <i class="fas fa-arrow-down"></i>
+        </span>
+        <span class="tooltip">ID</span>
+      </button>
+
+    </div>
+  </div>
 
   <div class="container">
+    <div id="cards-container">
     {{#resources}}
-    <div class="card" data-tags="{{#tags}}{{.}} {{/tags}}" data-id="{{id}}">
+    <div class="card" data-tags="{{#tags}}{{.}} {{/tags}}" 
+         data-id="{{id}}"
+         data-sort-id="{{idNumber}}"
+         data-sort-name="{{name}}"
+         data-sort-date-rss="{{#episodeInfo}}{{date}}{{/episodeInfo}}"
+         data-sort-date-manual="{{date}}">
       <div class="card-content">
         <div class="columns">
           <!-- Main content column -->
@@ -184,6 +218,7 @@
 
     </div>
     {{/resources}}
+    </div>
   </div>
   <div id="resources-data" data-resources="{{{resourcesJson}}}"></div>
   <script src="js/judolist.js"></script>

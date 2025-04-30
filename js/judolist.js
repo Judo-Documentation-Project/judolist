@@ -142,8 +142,38 @@ document.addEventListener('DOMContentLoaded', () => {
         filterResources();
     });
 
+    function sortCards(cards, sortBy) {
+      const [criteria, direction] = sortBy.split('-');
+  
+      return [...cards].sort((a, b) => {
+        const aVal = a.dataset[`sort${criteria.charAt(0).toUpperCase() + criteria.slice(1)}`];
+        const bVal = b.dataset[`sort${criteria.charAt(0).toUpperCase() + criteria.slice(1)}`];
+
+        switch(criteria) {
+          case 'id':
+            return direction === 'asc' ? aVal - bVal : bVal - aVal;
+          case 'name':
+            return direction === 'asc' 
+              ? aVal.localeCompare(bVal) 
+              : bVal.localeCompare(aVal);
+          case 'date':
+            // Prefer RSS date but fall back to manual date
+            const dateAStr = a.dataset.sortDateRss || a.dataset.sortDateManual;
+            const dateBStr = b.dataset.sortDateRss || b.dataset.sortDateManual;
+            
+            const dateA = dateAStr ? new Date(dateAStr) : new Date(0);
+            const dateB = dateBStr ? new Date(dateBStr) : new Date(0);
+            
+            const result = direction === 'asc' ? dateA - dateB : dateB - dateA;
+            return result;
+          default:
+            return 0;
+        }
+      });
+    }
+
     function filterResources() {
-        const cards = document.querySelectorAll('.card');
+        const cards = Array.from(document.querySelectorAll('.card'));
         const active = Array.from(activeTags);
         
         cards.forEach(card => {
@@ -154,5 +184,64 @@ document.addEventListener('DOMContentLoaded', () => {
             
             card.style.display = hasSearchMatch && hasTagMatch ? 'block' : 'none';
         });
+
+        // Sort and reorder visible cards
+        const visibleCards = cards.filter(card => card.style.display !== 'none');
+        const sortBy = currentSort;
+        const sortedCards = sortCards(visibleCards, sortBy);
+        const container = document.querySelector('#cards-container');
+    
+        sortedCards.forEach(card => container.appendChild(card));
+    }
+
+    // Sorting button handlers
+    let currentSort = 'name-asc';
+    // Apply initial sort
+    updateSortButtons();
+    filterResources();
+    
+    document.querySelectorAll('[data-sort]').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const clickedSort = e.currentTarget.dataset.sort;
+        const [clickedField, clickedDir] = clickedSort.split('-');
+        const [currentField, currentDir] = currentSort.split('-');
+        
+        if (clickedField === currentField) {
+          // Toggle direction if clicking same field
+          currentSort = `${currentField}-${currentDir === 'asc' ? 'desc' : 'asc'}`;
+        } else {
+          // Switch to new field with default direction
+          currentSort = clickedSort;
+        }
+        
+        updateSortButtons();
+        filterResources();
+      });
+    });
+
+    function updateSortButtons() {
+      const [field, direction] = currentSort.split('-');
+      
+      document.querySelectorAll('[data-sort]').forEach(btn => {
+        const btnField = btn.dataset.sort.split('-')[0];
+        const isActive = btnField === field;
+        
+        // Update active state
+        btn.classList.toggle('is-primary', isActive);
+        
+        // Update direction arrows
+        const arrows = btn.querySelectorAll('.fa-arrow-up, .fa-arrow-down');
+        arrows.forEach(arrow => {
+          arrow.classList.toggle('is-hidden', !isActive);
+          if (isActive) {
+            arrow.classList.toggle('fa-arrow-up', direction === 'desc');
+            arrow.classList.toggle('fa-arrow-down', direction === 'asc');
+          }
+        });
+        
+        // Update aria-label
+        const label = `Sort by ${btnField} ${direction === 'asc' ? 'ascending' : 'descending'}`;
+        btn.setAttribute('aria-label', label);
+      });
     }
 });
