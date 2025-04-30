@@ -101,49 +101,57 @@ async function generateHtml() {
     const marked = require('marked');
 
     async function getBudoTreeData(jdpId) {
-        let html = ''; // Initialize outside try block for error fallback
-        let personSubject; // Declare here to maintain scope
         try {
-            console.log(`Fetching BudoTree data for ${jdpId}`);
+            //console.log(`Fetching BudoTree data for ${jdpId}`);
             const url = `https://budotree.judoc.org/${jdpId}.html`;
             const response = await fetch(url);
-            console.log(`Received response for ${jdpId}: ${response.status}`);
-            html = await response.text();
-        
-            // Parse RDFa data using stream approach
-            let name = jdpId; // Default fallback
+            const html = await response.text();
+
             const parser = new RdfaParser({
                 baseIRI: url,
                 contentType: 'text/html'
             });
-            
-            // Convert HTML string to stream and pipe through parser
+
+            const quads = [];
             const htmlStream = require('stream').Readable.from(html);
-            const namePromise = new Promise((resolve, reject) => {
+            
+            // First pass: collect all quads
+            await new Promise((resolve, reject) => {
                 htmlStream.pipe(parser)
-                .on('data', quad => {
-                    // Look for the primary Person resource declaration
-                    if (quad.predicate.equals(dataFactory.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'))) {
-                        if (quad.object.value === 'https://schema.org/Person' && 
-                           quad.subject.value.endsWith(`${jdpId}.html`)) { // Match our resource URL
-                            personSubject = quad.subject.value;
-                            console.log('🔎 Found primary Person resource:', personSubject);
-                            personSubject = quad.subject.value;
-                        }
-                    }
-                    // Then check if this is a name property for a Person
-                    else if (quad.predicate.equals(dataFactory.namedNode('https://schema.org/name')) && 
-                            quad.subject.value === personSubject) {
-                        console.log('✅ Found name for primary resource:', quad.object.value);
-                        name = quad.object.value;
-                    }
-                })
-                .on('end', () => resolve(name))
-                .on('error', reject);
+                    .on('data', quad => quads.push(quad))
+                    .on('end', resolve)
+                    .on('error', reject);
             });
 
-            await namePromise;
+            // Second pass: find person subject and name
+            let personSubject;
+            let name = jdpId; // Default fallback
 
+            // Find the Person resource first
+            for (const quad of quads) {
+                if (quad.predicate.value === 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type' &&
+                    quad.object.value === 'https://schema.org/Person' &&
+                    quad.subject.value.endsWith(`${jdpId}.html`)) {
+                    personSubject = quad.subject.value;
+                    break;
+                }
+            }
+
+            // Now look for name associated with this subject
+            if (personSubject) {
+                for (const quad of quads) {
+                    if (quad.predicate.value === 'https://schema.org/name' &&
+                        quad.subject.value === personSubject) {
+                        name = quad.object.value;
+                        break;
+                    }
+                }
+            }
+
+            console.log(name !== jdpId 
+              ? `✅ Successfully resolved name for ${jdpId}: ${name}` 
+              : `⚠️ Using fallback ID for ${jdpId}`);
+        
             return {
                 name: name,
                 profileUrl: url,
@@ -167,7 +175,8 @@ async function generateHtml() {
         descriptionHtml: r.description ? marked.parse(String(r.description)) : '',
         episodeInfo: r.rss ? {
             ...await getLastEpisode(r.rss),
-            isPodcast: (r.tags || []).includes('podcast') // Add this flag
+            isPodcast: (r.tags || []).includes('podcast'),
+            isChannel: (r.tags || []).includes('channel')
         } : null,
         urls: (() => {
             const processUrl = (url) => {
@@ -177,6 +186,7 @@ async function generateHtml() {
                     { pattern: 'tiktok.com', icon: 'fa-tiktok', style: 'fab' },
                     { pattern: 'facebook.com', icon: 'fa-facebook', style: 'fab' },
                     { pattern: 'instagram.com', icon: 'fa-instagram', style: 'fab' },
+                    { pattern: 'archive.org', icon: 'fa-landmark-flag', style: 'fas' },
                     { pattern: 'youtube.com/playlist', icon: 'fa-youtube', style: 'fab' },
                     { pattern: 'youtube.com', icon: 'fa-youtube', style: 'fab' },
                     { pattern: 'megaphone.fm', icon: 'fa-podcast', style: 'fas' },

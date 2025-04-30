@@ -1,0 +1,26 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-47
+  name: Kawaishi Mikinosuke - Le Père du Judo Français
+  url:
+    - https://www.youtube.com/watch?v=H6Ma_2aJq2E
+  photo:
+    url: https://img.youtube.com/vi/H6Ma_2aJq2E/0.jpg
+  description: >-
+    A film by Julien Boucher (Ronin Martial Production, 2019)
+  comment: >-  
+    The history of Kawaishi-sensei, and as such also largely the
+    history of French Judo itself, in a documentary filled with
+    interesting archival footage and a comprehensive view of his life.
+    From being the undisputed pioneer and leader of French Judo to the
+    conflict with the Kodokan, echoing similar tensions elsewhere
+    fueled by the differing views on what Judo was or should be - the
+    removal of techniques being one of those aspects, given Kawaishi's
+    personal method of teaching.
+  tags:
+    - video
+    - french
+    - history
+

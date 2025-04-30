@@ -1,0 +1,22 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-38
+  name:  Kosen Judo - Masahiko Kimura
+  url:
+    - https://www.youtube.com/watch?v=HT8exiUnNwo
+  photo:
+    url: https://img.youtube.com/vi/pphptwkZySs/0.jpg
+  description: >-
+   Kosen Judo, Newaza Documentary Masahiko Kimura
+  comment: >-  
+   "高專柔道~歷史に生きる得意技", a Japanese documentary/instructional with Kimura himself. Almost 2 hours of techniques, most of them showing standing-to-ground transitions. Also some interesting interleaved segments on Kyoto's Butoku-kai and it's pre-war role, described in a rather subdued way.
+  tags:
+    - video
+    - newaza
+    - technique
+    - documentary
+  tree:
+    - JDP-89
+    

@@ -1,0 +1,22 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-44
+  name: Judo Fanatics
+  url:
+    - https://judofanatics.com
+    - https://www.youtube.com/channel/UCPu7I6loSKoRu0Bt3pyiMOQ
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCPu7I6loSKoRu0Bt3pyiMOQ
+  photo:
+    url: https://judofanatics.com/cdn/shop/files/judofanatics-logo-notag_600x.png
+  description: >-
+    Judo Fanatics was founded by professionals who live by the belief: that knowledge is key and the best competitors simply know more.  We make it our mission to find the best competitors and coaches on Earth and bring their wisdom to you.
+  comment: >-  
+    Part of the larger "Fanatics" group (which includes BJJ Fanatics and Fanatic Wrestling), Judo Fanatics was started by the existing BJJ Fanatics teams and Travis Stevens, and focus on Judo instructionables. Lots of instructors, very frequent deals which span the entire group, plus bundles: to the extent instructional videos can help, Judo Fanatics has something for everybody. The YouTube channel is frequently updated with content from their catalogue.
+  tags:
+    - www
+    - english
+    - store
+    - instructional
+    - channel

@@ -1,0 +1,31 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-49
+  name: O Judo em Portugal (1959-2009)
+  url:
+    - https://www.youtube.com/watch?v=J83p2B0kbpg
+    - https://www.youtube.com/watch?v=Ng8Ypu3709s
+    - https://www.youtube.com/watch?v=-Caw0vThsJc
+    - https://www.youtube.com/watch?v=zJFD8Dc4bNY
+  photo:
+    url: https://img.youtube.com/vi/J83p2B0kbpg/0.jpg
+  description: >-
+     The history of Judo in Portugal (Portuguese Judo Federation, 1959-2009).
+  comment: >-  
+     This documentary is split in 4 relatively small parts (5-10m
+     each), totalling around 30m. It actually starts a bit before the
+     mentioned date (specifically in 1947 with the Budo Academy), but
+     quickly proceeds to the arrival of Kobayashi Kiyoshi (1925-2013,
+     Kodokan 9th dan), a student of Mifune that due to his role is
+     called "the father of Portuguese Judo", the creation of the
+     Federation, and the sporting sucesses in the 80s and beyond.     
+  tags:
+    - video
+    - portuguese
+    - portugal
+    - history
+  tree:
+    - JDP-12
+

@@ -24,7 +24,7 @@ resource:
     - www
     - video
     - short
-    - podcast
+    - channel
     - news
     - english
     

@@ -1,0 +1,23 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-45
+  name: Superstar Judo
+  url:
+    - https://www.superstarjudo.com
+    - https://www.youtube.com/playlist?list=PLCkayG3WZwY-FcoEDRcQF16MijI-LcRHg
+  rss: https://www.youtube.com/feeds/videos.xml?playlist_id=PLCkayG3WZwY-FcoEDRcQF16MijI-LcRHg
+  photo:
+    url: https://dr56wvhu2c8zo.cloudfront.net/superstarjudo/assets/049e063a-92d8-494b-aaeb-f8c409312fb8.png
+  description: >-
+   Superstar Judo is brought to you by Fighting Films. Based in Bristol, UK, Fighting Films is the World's leading producer and supplier of Judo videos.
+  comment: >-  
+   Superstar Judo is part of Fighting Films, and provides a subscription-based access to a library of hundreds of videos spanning 30 years, taking advantage of the depth of Fighting Films archive while adding new productions regularly. The free account provides access to parts of the catalogue and it's useful in itself. 
+  tags:
+    - www
+    - english
+    - store
+    - instructional
+    - uk
+    - channel

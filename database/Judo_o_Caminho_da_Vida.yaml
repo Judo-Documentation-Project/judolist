@@ -1,0 +1,29 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-50
+  name: 'Judô: o Caminho da Vida'
+  url:
+    - https://www.youtube.com/watch?v=VhKABf-IDN8
+    - https://www.youtube.com/watch?v=DKpsqTqUb10
+    - https://globoplay.globo.com/v/9376319/
+  photo:
+    url: https://img.youtube.com/vi/VhKABf-IDN8/0.jpg
+  description: >-
+     Judo: the Way of Life (Almanque dos Esportos, Globo).
+  comment: >-  
+     The history of Judo in Brazil. The GloboPlay link requires
+     subscription, the video links point to the only available copy
+     found, which isn't the best quality possible (it's made using a
+     camcorder) but is perfectly viewable. While not an in-depth view
+     of Judo's development in Brazil, it touches on several key
+     aspects like the Japanese community, Maeda, etc.
+  tags:
+    - video
+    - portuguese
+    - brazil
+    - history
+  tree:
+    - JDP-18
+
