@@ -1,0 +1,26 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-53
+  name: r/judo
+  url:
+    - https://www.reddit.com/r/judo/
+    - https://www.reddit.com/r/judo/wiki/index/
+  photo:
+    url: https://styles.redditmedia.com/t5_2qkzy/styles/communityIcon_ttgw83e4xv411.png
+  description: >-  
+    Judo - The universal principle of adaptability
+    r/judo is a reddit for judoka and spectators to submit anything about Judo.
+  comment: >-
+    To my knowledge, /r/judo is currently the most active Judo-related
+    forum-like community in the English language. It brings with it
+    all the advantages and disavantages of Reddit, from the wide reach
+    and active moderation, to a bias towards the immediate that
+    hinders attempts at long-term discussions. The wiki is very
+    useful, itself a curated list of resources about techniques,
+    history, FAQs, and more. Almost impossible to avoid.
+  tags:
+    - www
+    - forum
+

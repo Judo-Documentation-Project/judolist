@@ -1,0 +1,40 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-55
+  name: 'Kanō Jigorō: the Way of Judō'
+  url:
+    - https://www.youtube.com/watch?v=OmrmE2CsxOA
+    - https://www.youtube.com/watch?v=XSlfdh6qJLk
+    - https://www.youtube.com/watch?v=4Qpo3RaTVqg
+    - https://www.youtube.com/watch?v=QSFnyWJaxEM
+    - https://www.youtube.com/watch?v=kcv3cptY7KI
+    - https://yawaranomichi.jp/anime/
+  photo:
+    url: https://img.youtube.com/vi/OmrmE2CsxOA/1.jpg
+  description: >-
+    Judo is an Olympic sport that has become popular around the world.
+    The story of the birth and development of Judo is told from the
+    perspective of those close to Kano Jigoro, the founder of Kodokan
+    Judo, in Japan. The life of Kano Jigoro has been animated ahead of
+    the Paris Olympics to be held in the summer of 2024 in France,
+    Europe's leading judo powerhouse.
+  comment: >-  
+    Japanese animation of the life of Kano Jigoro. Tells a pretty
+    standard "approved" Kodokan version of the events, which is
+    unsurprising since it's supervised by the Kodokan. The 5 episodes
+    pick different themes: Kano through the words of Katsu Kaishū, 6
+    statues of Kano worldwide, the truth about Sanshiro (the "fights
+    against jujutsu" that would end up in Sanshiro Sugata, here
+    showing Tsunejiro Tomita as Kodokan's champion), the initial
+    expansion as "jujutsu", and the spreading out to the world.    
+  tags:
+    - anime
+    - japanese
+    - history
+  tree:
+    - JDP-1
+    - JDP-17
+    
+
