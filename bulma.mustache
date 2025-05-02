@@ -27,6 +27,7 @@
       content="Curated and updated list of Judo-related resources"
     />
     <meta name="twitter:image" content="https://list.judoc.org/images/preview.png" />
+    <meta name="twitter:creator" content="@fredericomunoz" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -221,10 +222,15 @@
             </div>
             <div class="content mt-4">
               {{#episodeInfo}}
-              <a href="{{link}}" class="episode-info mt-3" style="text-decoration: none;">
-                <i class="fas fa-{{#isPodcast}}podcast{{/isPodcast}}{{^isPodcast}}{{#isChannel}}tv{{/isChannel}}{{^isChannel}}newspaper{{/isChannel}}{{/isPodcast}} mr-1"></i>
-                {{#isPodcast}}Last episode{{/isPodcast}}{{^isPodcast}}{{#isChannel}}Last update{{/isChannel}}{{^isChannel}}Last publication{{/isChannel}}{{/isPodcast}}: {{date}} - {{title}}
-              </a>
+              <div class="is-flex is-align-items-center mt-3" style="gap: 0.5rem;">
+                <a href="{{rss}}" class="flex-shrink-0" title="Subscribe to RSS" target="_blank" rel="noopener">
+                  <i class="fas fa-rss"></i>
+                </a>
+                <a href="{{link}}" class="episode-info flex-grow-1" style="text-decoration: none;">
+                  <i class="fas fa-{{#isPodcast}}podcast{{/isPodcast}}{{^isPodcast}}{{#isChannel}}tv{{/isChannel}}{{^isChannel}}newspaper{{/isChannel}}{{/isPodcast}} mr-1"></i>
+                  {{#isPodcast}}Last episode{{/isPodcast}}{{^isPodcast}}{{#isChannel}}Last update{{/isChannel}}{{^isChannel}}Last publication{{/isChannel}}{{/isPodcast}}: {{date}} - {{title}}
+                </a>
+              </div>
               {{/episodeInfo}}
               <div class="column description">
                 <i class="fa-solid fa-quote-left"></i>&nbsp;<br>{{{descriptionHtml}}}

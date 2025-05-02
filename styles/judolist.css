@@ -255,13 +255,12 @@ _.container{
     color: #333;
     padding: 0.25rem 0.75rem;
     border-radius: 4px;
-    display: inline-flex;
     align-items: center;
     font-size: 0.9rem;
-    margin-top: 0.5rem;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.2s ease;
+    width: 100%;
 }
 
 .episode-info:hover {
