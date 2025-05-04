@@ -1,0 +1,21 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-58
+  name: Fantasy Judo
+  url:
+    - https://fantasy-judo.com
+    - https://www.facebook.com/fantasyjudodotcom
+  photo:
+    url: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxyiMpg1zzVgSeoDCeB3MW2Y_Z8YxcXRnUwQ&s
+  description: >-
+    Play Fantasy Judo against other Judo fans.
+    Select your Judo athletes for each event to create your strongest team. Choose carefully from athletes on the world ranking list and spend your budget wisely. Top players will cost you more than lower ranked ones.
+  comment: >-
+    Long-running Fantasy Judo game, which is also a great way to keep up-to-date with competitions all over the world! Create a team, pick your athletes, and then follow up the action to see how you scored. On top of the fun, it's also a great way to get to know the different weight classes. It's simple, quick, and fun - try it!
+  tags:
+    - game
+    - www
+    - competition
+
