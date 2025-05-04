@@ -57,6 +57,7 @@ async function generateHtml() {
             const filePath = path.join(resourcesDir, file);
             const data = yaml.load(await fs.readFile(filePath, 'utf8'));
             if (data && data.resource) {
+                data.resource.filename = file; // Store filename with resource
                 resources.push(data.resource);
             }
         }

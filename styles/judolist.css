@@ -172,6 +172,22 @@ _.container{
   flex-wrap: wrap;
 }
 
+/* Ensure title and ID stay on same line */
+.title.is-4 {
+    flex-shrink: 1;
+    min-width: 60%;
+    margin-right: 1rem;
+}
+
+.is-flex.is-align-items-center.is-justify-content-space-between {
+    flex-wrap: nowrap;
+}
+
+.is-flex.is-align-items-center.is-justify-content-space-between > .is-flex.is-align-items-center {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
 .subtitle.is-6 .icon {
   transition: opacity 0.2s ease;
 }
@@ -316,6 +332,22 @@ padding: 1px;
 }
 .card-footer-item:not(:last-child) {
     border-right: 1px solid #ddd;
+}
+
+/* Share button spacing */
+#share-button {
+  margin-left: 2rem;
+}
+
+/* Modal styling */
+#share-modal .modal-card {
+  width: auto;
+  min-width: 500px;
+}
+
+#share-url {
+  font-family: monospace;
+  cursor: text;
 }
 
 /* Sorting UI */

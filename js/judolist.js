@@ -12,11 +12,66 @@ function moveSubtitleForMobile() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize sorting first
+    let currentSort = 'name-asc';
+
     // Move subtitle based on initial view
     moveSubtitleForMobile();
     
     // Update on window resize
     window.addEventListener('resize', moveSubtitleForMobile);
+
+    // Initialize from URL parameters
+    function getCurrentParams() {
+        const params = new URLSearchParams();
+        if (activeTags.size > 0) params.set('tags', Array.from(activeTags).join(','));
+        if (searchInput.value.trim()) params.set('q', searchInput.value.trim());
+        if (currentSort !== 'name-asc') params.set('sort', currentSort);
+        if (currentIdMatches.size > 0) params.set('id', Array.from(currentIdMatches).join(','));
+        return params;
+    }
+
+    function initializeFromUrlParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlTags = urlParams.get('tags')?.split(',') || [];
+        const urlQuery = urlParams.get('q') || '';
+        const urlSort = urlParams.get('sort');
+        if (urlSort && ['name-asc', 'name-desc', 'date-asc', 'date-desc', 'id-asc', 'id-desc'].includes(urlSort)) {
+            currentSort = urlSort;
+        }
+
+        // Handle ID filtering
+        const urlIds = urlParams.get('id')?.split(',') || [];
+        currentIdMatches = new Set(urlIds.filter(id => id.startsWith('JDP-')));
+
+        // Get all valid tags from the page
+        const validTags = Array.from(document.querySelectorAll('#tag-filter .tag'))
+                            .map(t => t.dataset.tag);
+        
+        urlTags.forEach(tag => {
+            if (validTags.includes(tag)) {
+                const tagElement = document.querySelector(`.tag[data-tag="${tag}"]`);
+                if (tagElement && !activeTags.has(tag)) {
+                    tagElement.classList.add('is-active');
+                    activeTags.add(tag);
+                }
+            }
+        });
+
+        // Add search query handling
+        if (urlQuery) {
+            searchInput.value = urlQuery;
+            const query = urlQuery.trim().toLowerCase();
+            currentSearchMatches.clear();
+            
+            if (query.length > 1) {
+                const results = fuse.search(query);
+                results.forEach(result => currentSearchMatches.add(result.item.id));
+            }
+        }
+        
+        if (urlTags.length > 0 || urlQuery) filterResources();
+    }
 
     // Search toggle setup
     const searchContainer = document.getElementById('search-container');
@@ -68,15 +123,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clear active tags and reset set
         activeTags = new Set();
         
-        // Clear search input
+        // Clear search input and matches
         searchInput.value = '';
+        currentSearchMatches.clear();
+        
+        // Reset to default sort and clear URL parameters
+        currentSort = 'name-asc';
+        const params = getCurrentParams();
+        window.history.replaceState({}, '', 
+            params.toString() ? `${window.location.pathname}?${params}` : window.location.pathname
+        );
         
         // Reset filtering
         filterResources();
     });
 
-    // Initialize Fuse.js search with dataset from DOM
-    let dd = 1
+    // Initialize Fuse.js search with dataset from DOM first
     const encodedData = document.getElementById('resources-data').dataset.resources;
     const resourcesData = JSON.parse(decodeURIComponent(encodedData));
     const fuse = new Fuse(resourcesData, {
@@ -87,6 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
         includeScore: true,
         minMatchCharLength: 3  // Require at least 2 characters to match
     });
+
+    // Now initialize from URL params after fuse is available
+    initializeFromUrlParams();
 
     // Tag filter click handler
     document.getElementById('tag-filter').addEventListener('click', (e) => {
@@ -100,6 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll(`.tag-button[data-tag="${tag}"], #tag-filter .tag[data-tag="${tag}"]`).forEach(t => {
             t.classList.toggle('is-active', isNowActive);
         });
+
+        // Update URL parameters
+        const params = getCurrentParams();
+        window.history.replaceState({}, '', 
+            params.toString() ? `${window.location.pathname}?${params}` : window.location.pathname
+        );
 
         filterResources();
     });
@@ -131,13 +202,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Search input handler
     searchInput.addEventListener('input', function() {
-        const query = this.value.trim().toLowerCase();
+        const query = this.value.trim();
         currentSearchMatches.clear();
         
         if (query.length > 1) {
-            const results = fuse.search(query);
+            const results = fuse.search(query.toLowerCase());
             results.forEach(result => currentSearchMatches.add(result.item.id));
         }
+        
+        // Update URL parameters
+        const params = getCurrentParams();
+        window.history.replaceState({}, '', 
+            params.toString() ? `${window.location.pathname}?${params}` : window.location.pathname
+        );
         
         filterResources();
     });
@@ -181,8 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 (searchInput.value.trim() !== '' && currentSearchMatches.has(card.dataset.id));
             const hasTagMatch = active.length === 0 || 
                 active.every(tag => card.dataset.tags.split(' ').includes(tag));
+            const hasIdMatch = currentIdMatches.size === 0 || 
+                currentIdMatches.has(card.dataset.id);
             
-            card.style.display = hasSearchMatch && hasTagMatch ? 'block' : 'none';
+            card.style.display = hasSearchMatch && hasTagMatch && hasIdMatch ? 'block' : 'none';
         });
 
         // Sort and reorder visible cards
@@ -194,11 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
         sortedCards.forEach(card => container.appendChild(card));
     }
 
+    updateSortButtons();  // Sets initial button states
+    filterResources();    // Initial filter/sort
+
     // Sorting button handlers
-    let currentSort = 'name-asc';
-    // Apply initial sort
-    updateSortButtons();
-    filterResources();
     
     document.querySelectorAll('[data-sort]').forEach(button => {
       button.addEventListener('click', (e) => {
@@ -216,7 +294,50 @@ document.addEventListener('DOMContentLoaded', () => {
         
         updateSortButtons();
         filterResources();
+        
+        // Update URL parameters
+        const params = getCurrentParams();
+        window.history.replaceState({}, '', 
+            params.toString() ? `${window.location.pathname}?${params}` : window.location.pathname
+        );
       });
+    });
+
+    // Share functionality
+    document.getElementById('share-button').addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('Share button clicked');
+      // Update URL with current filters
+      // Get current tags and build URL
+      const params = new URLSearchParams(window.location.search);
+      const shareUrl = `${window.location.origin}${window.location.pathname}${params.toString() ? `?${params}` : ''}`;
+      
+      // Update modal content and show
+      const shareModal = document.getElementById('share-modal');
+      document.getElementById('share-url').value = shareUrl;
+      shareModal.classList.add('is-active');
+    });
+
+    // Modal closing logic
+    document.querySelectorAll('#share-modal .delete, #share-modal .modal-background')
+      .forEach(el => {
+        el.addEventListener('click', () => {
+          document.getElementById('share-modal').classList.remove('is-active');
+        });
+      });
+
+    // Copy functionality
+    document.getElementById('copy-button').addEventListener('click', () => {
+      const urlInput = document.getElementById('share-url');
+      urlInput.select();
+      document.execCommand('copy');
+      
+      // Visual feedback
+      const copyIcon = document.querySelector('#copy-button .icon');
+      copyIcon.innerHTML = '<i class="fas fa-check"></i>';
+      setTimeout(() => {
+        copyIcon.innerHTML = '<i class="fas fa-copy"></i>';
+      }, 2000);
     });
 
     function updateSortButtons() {

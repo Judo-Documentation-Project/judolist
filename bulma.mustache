@@ -151,30 +151,38 @@
   </div>
   <!-- Sorting UI -->
   <div class="container mb-5 px-4">
-    <!-- <label class="label has-text-grey">SORT BY</label> -->
-    <div class="buttons are-small has-addons">
-      <button class="button" data-sort="name-asc" aria-label="Sort by name">
-        <span class="icon">
-          <i class="fas fa-font"></i>
-          <i class="fas fa-arrow-down"></i>
-        </span>
-        <span class="tooltip">Name</span>
-      </button>
-      <button class="button" data-sort="date-desc" aria-label="Sort by date">
-        <span class="icon">
-          <i class="fas fa-calendar"></i>
-          <i class="fas fa-arrow-up"></i>
-        </span>
-        <span class="tooltip">Date</span>
-      </button>
-      <button class="button" data-sort="id-asc" aria-label="Sort by ID">
-        <span class="icon is-small">
-          <i class="fas fa-hashtag"></i>
-          <i class="fas fa-arrow-down"></i>
-        </span>
-        <span class="tooltip">ID</span>
-      </button>
-
+    <div class="is-flex is-align-items-baseline gap-4">
+      <div class="buttons are-small has-addons">
+        <button class="button" data-sort="name-asc" aria-label="Sort by name">
+          <span class="icon">
+            <i class="fas fa-font"></i>
+            <i class="fas fa-arrow-down"></i>
+          </span>
+          <span class="tooltip">Name</span>
+        </button>
+        <button class="button" data-sort="date-desc" aria-label="Sort by date">
+          <span class="icon">
+            <i class="fas fa-calendar"></i>
+            <i class="fas fa-arrow-up"></i>
+          </span>
+          <span class="tooltip">Date</span>
+        </button>
+        <button class="button" data-sort="id-asc" aria-label="Sort by ID">
+          <span class="icon is-small">
+            <i class="fas fa-hashtag"></i>
+            <i class="fas fa-arrow-down"></i>
+          </span>
+          <span class="tooltip">ID</span>
+        </button>
+      </div>
+      <div class="buttons are-small has-addons">
+        <button class="button" id="share-button" title="Share current view">
+          <span class="icon">
+            <i class="fas fa-share"></i>
+          </span>
+          <span class="tooltip">Share</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -200,7 +208,18 @@
               </div>
               {{/photo}}
               <div class="media-content">
-                <p class="title is-4">{{name}}</p>
+                <div class="is-flex is-align-items-center is-justify-content-space-between">
+                  <p class="title is-4 mb-0">{{name}}</p>
+                  <div class="is-flex is-align-items-center">
+                    <span class="has-text-grey is-size-7 mr-2">{{id}}</span>
+                    <a href="https://github.com/Judo-Documentation-Project/judolist/blob/master/database/{{filename}}" 
+                       target="_blank" 
+                       class="has-text-grey"
+                       title="View YAML source">
+                        <i class="fas fa-file-code fa-xs"></i>
+                    </a>
+                  </div>
+                </div>
                 <div class="subtitle is-6 mt-2">
                   {{#urls}}
                     {{#.}}
@@ -240,10 +259,8 @@
 
           <!-- Comment column spanning height -->
           <div class="column comment is-flex is-flex-direction-column is-align-items-flex-start">
-            <div class="is-flex-grow-1">
-            <div class="comment-icon"></div>	      
-              {{{commentHtml}}}
-            </div>
+            <div class="comment-icon"></div>
+            {{{commentHtml}}}
           </div>
         </div>
       </div>
@@ -266,6 +283,40 @@
     </div>
   </div>
   <div id="resources-data" data-resources="{{{resourcesJson}}}"></div>
+
+  <!-- Share Modal -->
+  <div class="modal" id="share-modal">
+    <div class="modal-background" style="background-color: rgba(0,0,0,0.5)"></div>
+    <div class="modal-card">
+      <header class="modal-card-head is-flex is-justify-content-space-between is-align-items-center">
+        <div class="is-flex is-align-items-center">
+          <figure class="image is-24x24 mr-2">
+            <img class="is-rounded" src="images/kano_jigoro_small.jpg" alt="Judo List Logo">
+          </figure>
+	  <a id="jdp" class="navbar-item mr-0" href="https://www.judoc.org">柔道 | JDP</a>
+	  <div id="nav-title" class="navbar-item ml-0">The Judo List</div>	  
+
+        </div>
+        <button class="delete ml-auto" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <p class="has-text-grey mb-4">Use this link to share the current view:</p>
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input class="input" type="text" id="share-url" readonly>
+          </div>
+          <div class="control">
+            <button class="button" id="copy-button">
+              <span class="icon">
+                <i class="fas fa-copy"></i>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
   <script src="js/judolist.js"></script>
 </body>
 </html>
