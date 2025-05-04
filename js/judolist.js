@@ -229,7 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
             params.toString() ? `${window.location.pathname}?${params}` : window.location.pathname
         );
         
-        // Reset filtering
+        // Reset disabled states and filtering
+        document.querySelectorAll('#tag-filter .tag').forEach(t => t.classList.remove('disabled'));
         filterResources();
     });
 
@@ -344,6 +345,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    function updateAvailableTags() {
+        const visibleIds = new Set(
+            Array.from(document.querySelectorAll('.card:not([style*="display: none"])'))
+                .map(card => card.dataset.id)
+        );
+        
+        const allResources = JSON.parse(decodeURIComponent(
+            document.getElementById('resources-data').dataset.resources
+        ));
+
+        document.querySelectorAll('#tag-filter .tag:not(.is-active)').forEach(tagElement => {
+            const tag = tagElement.dataset.tag;
+            const hasMatch = allResources.some(resource => 
+                visibleIds.has(resource.id) && 
+                resource.tags.includes(tag)
+            );
+            tagElement.classList.toggle('disabled', !hasMatch);
+        });
+    }
+
     function filterResources() {
         const cards = Array.from(document.querySelectorAll('.card'));
         const active = Array.from(activeTags);
@@ -366,6 +387,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = document.querySelector('#cards-container');
     
         sortedCards.forEach(card => container.appendChild(card));
+        
+        updateAvailableTags();
     }
 
     updateSortButtons();  // Sets initial button states

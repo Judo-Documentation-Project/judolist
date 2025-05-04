@@ -254,6 +254,13 @@ _.container{
   /* Removed icon visibility rules to allow JS toggle */
 }
 
+/* Disabled tags */
+.tag:not(.is-active):not(.clear-all).disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
 /* Screen reader only text */
 .is-sr-only {
     position: absolute;
