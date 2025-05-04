@@ -22,17 +22,112 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', moveSubtitleForMobile);
 
     // Initialize from URL parameters
+    let currentState = {};
+
     function getCurrentParams() {
         const params = new URLSearchParams();
         if (activeTags.size > 0) params.set('tags', Array.from(activeTags).join(','));
         if (searchInput.value.trim()) params.set('q', searchInput.value.trim());
         if (currentSort !== 'name-asc') params.set('sort', currentSort);
         if (currentIdMatches.size > 0) params.set('id', Array.from(currentIdMatches).join(','));
+        
+        currentState = {
+            // Shortened property names
+            t: Array.from(activeTags),
+            q: searchInput.value.trim(),
+            s: currentSort,
+            i: Array.from(currentIdMatches)
+        };
+
+        // Filter out empty values
+        Object.keys(currentState).forEach(k => {
+            if (Array.isArray(currentState[k])) {
+                if (currentState[k].length === 0) delete currentState[k];
+            } else if (!currentState[k]) delete currentState[k];
+        });
+        
         return params;
     }
 
+    function encodeState() {
+        const jsonString = JSON.stringify(currentState);
+        return LZString.compressToEncodedURIComponent(jsonString);
+    }
+
+    function decodeHash(hash) {
+        try {
+            const jsonString = LZString.decompressFromEncodedURIComponent(hash);
+            return JSON.parse(jsonString);
+        } catch (e) {
+            console.error('Hash decoding failed:', e);
+            return null;
+        }
+    }
+
+    function applyDecodedParams(decoded) {
+        // Handle tags
+        const validTags = Array.from(document.querySelectorAll('#tag-filter .tag'))
+                            .map(t => t.dataset.tag);
+        
+        decoded.t?.forEach(tag => {
+            if (validTags.includes(tag)) {
+                const tagElement = document.querySelector(`.tag[data-tag="${tag}"]`);
+                if (tagElement && !activeTags.has(tag)) {
+                    tagElement.classList.add('is-active');
+                    activeTags.add(tag);
+                }
+            }
+        });
+
+        // Handle search
+        if (decoded.q) {
+            searchInput.value = decoded.q;
+            const query = decoded.q.trim().toLowerCase();
+            currentSearchMatches.clear();
+            
+            if (query.length > 1) {
+                const results = fuse.search(query);
+                results.forEach(result => currentSearchMatches.add(result.item.id));
+            }
+        }
+
+        // Handle sort
+        if (decoded.s && ['name-asc', 'name-desc', 'date-asc', 'date-desc', 'id-asc', 'id-desc'].includes(decoded.s)) {
+            currentSort = decoded.s;
+        }
+
+        // Handle ID filtering
+        currentIdMatches = new Set(decoded.i?.filter(id => id.startsWith('JDP-')));
+
+        filterResources();
+        updateSortButtons();
+    }
+
     function initializeFromUrlParams() {
-        const urlParams = new URLSearchParams(window.location.search);
+        let urlParams = new URLSearchParams(window.location.search);
+        
+        const urlHash = urlParams.get('hash');
+        if (urlHash) {
+            const decoded = decodeHash(urlHash);
+            if (decoded) {
+                const newParams = new URLSearchParams();
+                if (decoded.t?.length > 0) newParams.set('tags', decoded.t.join(','));
+                if (decoded.q) newParams.set('q', decoded.q);
+                if (decoded.s) newParams.set('sort', decoded.s);
+                if (decoded.i?.length > 0) newParams.set('id', decoded.i.join(','));
+                
+                // Update URL to show expanded params without reloading
+                window.history.replaceState({}, '', 
+                    newParams.toString() ? `${window.location.pathname}?${newParams}` : window.location.pathname
+                );
+                
+                // Manually apply the decoded params to the current state
+                urlParams = newParams;
+                applyDecodedParams(decoded);
+                return;
+            }
+        }
+
         const urlTags = urlParams.get('tags')?.split(',') || [];
         const urlQuery = urlParams.get('q') || '';
         const urlSort = urlParams.get('sort');
@@ -306,15 +401,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Share functionality
     document.getElementById('share-button').addEventListener('click', (e) => {
       e.preventDefault();
-      console.log('Share button clicked');
-      // Update URL with current filters
-      // Get current tags and build URL
-      const params = new URLSearchParams(window.location.search);
-      const shareUrl = `${window.location.origin}${window.location.pathname}${params.toString() ? `?${params}` : ''}`;
+      // Get fresh state before encoding
+      getCurrentParams();
+      const baseUrl = `${window.location.origin}${window.location.pathname}`;
+      const standardParams = new URLSearchParams(window.location.search);
+      const hashUrl = `${baseUrl}?hash=${encodeState()}`;
+      const standardUrl = `${baseUrl}${standardParams.toString() ? `?${standardParams}` : ''}`;
       
-      // Update modal content and show
+      // Populate both URL types
+      const hashInput = document.getElementById('hash-url');
+      const normalInput = document.getElementById('normal-url');
+      hashInput.value = hashUrl;
+      normalInput.value = standardUrl;
+      
+      // Compare compressed payload vs raw parameter content length
+      const standardParamLength = Array.from(standardParams).reduce((acc, [k,v]) => acc + k.length + v.length + 1, 0);
+      const useHash = (hashUrl.length - '?hash='.length) < standardParamLength;
+      document.getElementById('hash-url-radio').checked = useHash;
+      document.getElementById('normal-url-radio').checked = !useHash;
+      
+      // Show appropriate input
+      hashInput.style.display = useHash ? 'block' : 'none';
+      normalInput.style.display = useHash ? 'none' : 'block';
+      
       const shareModal = document.getElementById('share-modal');
-      document.getElementById('share-url').value = shareUrl;
       shareModal.classList.add('is-active');
     });
 
@@ -328,7 +438,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Copy functionality
     document.getElementById('copy-button').addEventListener('click', () => {
-      const urlInput = document.getElementById('share-url');
+      const urlInput = document.getElementById('hash-url-radio').checked 
+        ? document.getElementById('hash-url')
+        : document.getElementById('normal-url');
       urlInput.select();
       document.execCommand('copy');
       
@@ -338,6 +450,15 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         copyIcon.innerHTML = '<i class="fas fa-copy"></i>';
       }, 2000);
+    });
+
+    // Handle URL type radio changes
+    document.querySelectorAll('input[name="url-type"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const showHash = document.getElementById('hash-url-radio').checked;
+        document.getElementById('hash-url').style.display = showHash ? 'block' : 'none';
+        document.getElementById('normal-url').style.display = showHash ? 'none' : 'block';
+      });
     });
 
     function updateSortButtons() {

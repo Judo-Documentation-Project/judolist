@@ -41,6 +41,7 @@
         {{/tagStyles}}        
     </style>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -301,9 +302,23 @@
       </header>
       <section class="modal-card-body">
         <p class="has-text-grey mb-4">Use this link to share the current view:</p>
+        <div class="field">
+          <div class="control">
+            <div class="radio">
+              <label class="mr-3">
+                <input type="radio" name="url-type" id="normal-url-radio"> Full URL
+              </label>
+              <label>
+                <input type="radio" name="url-type" id="hash-url-radio" checked> Hashed URL
+              </label>	      
+            </div>
+          </div>
+        </div>
+
         <div class="field has-addons">
           <div class="control is-expanded">
-            <input class="input" type="text" id="share-url" readonly>
+            <input class="input" type="text" id="hash-url" readonly style="display: none;">
+            <input class="input" type="text" id="normal-url" readonly style="display: none;">
           </div>
           <div class="control">
             <button class="button" id="copy-button">
