@@ -1,0 +1,40 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-64
+  name: Judo Magazine
+  url:
+    - https://judomagazine.pt
+    - https://www.youtube.com/@judomagazine3963
+    - https://www.instagram.com/magazinejudo/
+  rss: https://judomagazine.pt/feed/
+  photo:
+    url: https://yt3.googleusercontent.com/ytc/AIdro_lR8Fs1ghBLRzFcoYnIfC05aIt1xaEh7gx7NBICd3PbGg=s160-c-k-c0x00ffffff-no-rj
+  description: >-  
+    Este espaço informativo e colaborativo tem por objetivo central
+    divulgar conceitos, práticas e experiências do judo como
+    modalidade desportiva inserida em processos de desenvolvimento
+    pessoal, comunitário e social colocando ênfase na vida das
+    pessoas, das identidades, das estruturas do território com
+    destaque para as escolas, os clubes, as associações e todas as
+    instituições associadas ao desenvolvimento do judo. A intenção é
+    que o Judo Magazine seja um espaço aberto no qual todos os
+    atletas, clubes, associações e outras instituições possam divulgar
+    as suas iniciativas dando primazia a abordagens mais reflexivas e
+    qualitativas relativizando o peso dos resultados desportivos e a
+    restante vida da modalidade de uma forma mais equilibrada.
+  comment: >-  
+    Constantly updated online Judo magazine from Portugal, with
+    content that goes well beyond competition coverage (although it
+    has that as well): focus on recreational clubs, history segments
+    and interviews, refereeing, social aspects, there's a bit of
+    everything. In terms of quality of content and frequency, it's
+    right there with the best in the world. An absolute must for
+    anyone wanting to keep updated on Portuguese Judo.    
+  tags:
+    - www
+    - news
+    - portuguese
+    - portugal
+    
