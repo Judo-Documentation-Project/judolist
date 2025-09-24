@@ -1,0 +1,35 @@
+# Judo Documentation Project: online resources
+
+---
+resource:
+  id: JDP-R-65
+  name: The Judo Nomad
+  url:
+    - https://thejudonomad.com/
+    - https://www.youtube.com/channel/UCC-y-4dZn48pJx2ozVcCzgA
+    - https://www.instagram.com/thejudonomad/?hl=fr
+    - https://www.facebook.com/Thejudonomad
+  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCC-y-4dZn48pJx2ozVcCzgA
+  photo: 
+    url: https://thejudonomad.com/wp-content/uploads/2024/01/cropped-cropped-Sans-titre-1-5-99x106.png
+  description: >-
+    The judo nomad project consist of traveling to all the 197
+    countries with as less flight as possible. I am teaching judo for
+    free everywhere and live based on the donation as this project is
+    a community project. We will build a community of Judo nomads for
+    the future but also other martial arts and be all connected
+    together for peace, discipline and fun
+  comment: >-  
+  A travel log with a twist, Julien Brulard shares some unique
+  insights into how Judo is practiced, at different levels, all over
+  the world. A testament to the universal nature of Judo, with a
+  varied but always interesting coverage of different realities,
+  including rare perspectives and conversations with high-level
+  competition teams. Highly recommended.  
+  tags:
+    - podcast
+    - interview
+    - history
+    - english
+    - video
+
