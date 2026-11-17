@@ -191,9 +191,9 @@ body {
 }
 .people-mark img { opacity: 0.85; }
 /* Help tooltip: shows on hover, keyboard focus, or tap. */
-.help { position: relative; margin-right: 0.4rem; color: var(--bulma-text-weak); cursor: help; font-size: 0.75rem; }
-.help:focus-visible { outline: 2px solid var(--bulma-link); outline-offset: 2px; border-radius: 50%; }
-.help::after {
+.info-tip { position: relative; display: inline-flex; align-items: center; line-height: 1; margin-right: 0.4rem; color: var(--bulma-text-weak); cursor: help; font-size: 0.75rem; }
+.info-tip:focus-visible { outline: 2px solid var(--bulma-link); outline-offset: 2px; border-radius: 50%; }
+.info-tip::after {
   content: attr(data-tip);
   position: absolute;
   bottom: calc(100% + 0.5rem);
@@ -213,7 +213,7 @@ body {
   visibility: hidden;
   transition: opacity 0.15s ease;
 }
-.help:hover::after, .help:focus::after { opacity: 1; visibility: visible; }
+.info-tip:hover::after, .info-tip:focus::after { opacity: 1; visibility: visible; }
 .people-mark:hover { color: var(--bulma-text-strong); }
 .person {
   display: inline-flex;
