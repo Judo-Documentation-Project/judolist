@@ -17,20 +17,20 @@ const FRESH_DAYS = 14;
 const CARD_PAGE = `<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8">
-<title>{{name}} – The Judo List</title>
+<title>{{title}} – The Judo List</title>
 <meta name="description" content="{{summary}}">
 <link rel="canonical" href="${SITE}/r/{{id}}/">
 <meta property="og:site_name" content="The Judo List">
 <meta property="og:type" content="article">
-<meta property="og:title" content="{{name}}">
+<meta property="og:title" content="{{title}}">
 <meta property="og:description" content="{{summary}}">
 <meta property="og:url" content="${SITE}/r/{{id}}/">
-<meta property="og:image" content="{{photo.url}}">
-<meta property="og:image:alt" content="{{name}}">
+{{#image}}<meta property="og:image" content="{{contentUrl}}">
+<meta property="og:image:alt" content="{{title}}">{{/image}}
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@fredericomunoz">
 <script>location.replace('../../?id={{id}}' + location.hash)</script>
-</head><body><a href="../../?id={{id}}">{{name}} on The Judo List</a></body></html>
+</head><body><a href="../../?id={{id}}">{{title}} on The Judo List</a></body></html>
 `;
 
 // Plain-text description for previews: markdown marks dropped, cut at a word.
@@ -39,15 +39,23 @@ function summary(text = '', max = 200) {
   return plain.length <= max ? plain : plain.slice(0, plain.lastIndexOf(' ', max - 1)) + '…';
 }
 
-// Tags not listed here are topics. A tag can only sit in one group.
+// Tags not listed here are topics. Languages come from the `language` field.
 const GROUPS = {
   Format: ['anime', 'book', 'channel', 'cinema', 'documentary', 'federation', 'forum', 'game',
            'interview', 'news', 'paper', 'podcast', 'short', 'store', 'video', 'website'],
-  Language: ['cantonese', 'chinese', 'dutch', 'english', 'french', 'german', 'italian',
-             'japanese', 'portuguese'],
   Place: ['australia', 'brazil', 'italy', 'japan', 'portugal', 'uk'],
 };
 const groupOf = tag => Object.keys(GROUPS).find(g => GROUPS[g].includes(tag)) || 'Topic';
+
+// BCP 47 code -> lowercase English name ("yue" -> "cantonese"); undefined if unknown.
+const LANGUAGES = new Intl.DisplayNames(['en'], { type: 'language', fallback: 'none' });
+const languageName = code => { try { return LANGUAGES.of(code)?.toLowerCase(); } catch { return undefined; } };
+const languagesOf = r => [].concat(r.language ?? []).map(String);
+
+// Kinds of martial.is entity an `about` entry can point at.
+const KINDS = ['person', 'org', 'style', 'place', 'event', 'source'];
+const ULID = /^[0-9A-HJKMNP-TV-Z]{26}$/;
+const kindOf = a => KINDS.find(k => k in a);
 
 const ICONS = [
   ['podcasts.apple.com', 'fab fa-apple'], ['spotify.com', 'fab fa-spotify'],
@@ -61,18 +69,31 @@ const iconFor = url => (ICONS.find(([p]) => url.includes(p)) || [, 'fas fa-globe
 // Stable hue per tag; lightness/saturation live in CSS so every tag stays readable.
 const hue = str => [...str].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % 360;
 
+const isText = v => typeof v === 'string' && v.trim() !== '';
+const isUrl = v => { try { return /^https?:$/.test(new URL(v).protocol); } catch { return false; } };
+
 function validate(resources) {
   const errors = [], seen = new Map();
+  const languageNames = new Set(resources.flatMap(r => languagesOf(r).map(languageName)));
   for (const r of resources) {
-    const where = r.filename;
-    if (!/^JDP-R-\d+$/.test(r.id || '')) errors.push(`${where}: bad id "${r.id}"`);
-    else if (seen.has(r.id)) errors.push(`${where}: id ${r.id} already used by ${seen.get(r.id)}`);
-    else seen.set(r.id, where);
-    if (!r.name) errors.push(`${where}: missing name`);
-    if (!r.url) errors.push(`${where}: missing url`);
-    if (!Array.isArray(r.tags) || !r.tags.length) errors.push(`${where}: missing tags`);
-    for (const p of r.people || [])
-      if (!p.id || !p.name) errors.push(`${where}: people entries need id and name`);
+    const err = msg => errors.push(`${r.filename}: ${msg}`);
+    if (r.type !== 'Resource') err(`type must be Resource, not "${r.type}"`);
+    if (!ULID.test(r.id || '')) err(`bad id "${r.id}" (want a ULID: npm run new)`);
+    else if (seen.has(r.id)) err(`id ${r.id} already used by ${seen.get(r.id)}`);
+    else seen.set(r.id, r.filename);
+    if (!isText(r.title)) err('missing title');
+    if (![].concat(r.url ?? []).length || ![].concat(r.url).every(isUrl)) err('url must be one or more http(s) URLs');
+    if (r.rss != null && !isUrl(r.rss)) err('rss must be a URL');
+    if (r.image != null && !isUrl(r.image.contentUrl)) err('image needs a contentUrl');
+    for (const field of ['description', 'comment'])
+      if (r[field] != null && !isText(r[field].en)) err(`${field} must be a language map with an "en" entry`);
+    if (!Array.isArray(r.tags) || !r.tags.length) err('missing tags');
+    for (const code of languagesOf(r)) if (!languageName(code)) err(`unknown language code "${code}"`);
+    for (const t of r.tags || []) if (languageNames.has(t)) err(`tag "${t}" is a language: use the language field`);
+    for (const a of r.about || [])
+      if (!kindOf(a) || !ULID.test(a[kindOf(a)]) || !isText(a.name))
+        err(`about entries need one of ${KINDS.join('/')} with a ULID, and a name`);
+    for (const u of r.sameAs || []) if (!isUrl(u)) err(`sameAs "${u}" is not a URL`);
   }
   return errors;
 }
@@ -87,7 +108,7 @@ async function latestItem(r) {
     if (!item?.isoDate) throw new Error('no dated items');
     return { date: item.isoDate.slice(0, 10), title: item.title || 'Untitled', link: item.link || item.enclosure?.url || r.rss };
   } catch (e) {
-    console.warn(`  ✗ ${r.name}: ${e.message.split('\n')[0]}`);
+    console.warn(`  ✗ ${r.title}: ${e.message.split('\n')[0]}`);
     return null;
   }
 }
@@ -96,7 +117,7 @@ async function main() {
   const dir = path.join(__dirname, 'database');
   const files = (await fs.readdir(dir)).filter(f => /^[^#.].*\.yaml$/.test(f));
   const resources = await Promise.all(files.map(async filename => ({
-    ...yaml.load(await fs.readFile(path.join(dir, filename), 'utf8')).resource, filename,
+    ...yaml.load(await fs.readFile(path.join(dir, filename), 'utf8')), filename,
   })));
 
   const errors = validate(resources);
@@ -112,15 +133,22 @@ async function main() {
 
   const prepared = resources.map(r => {
     const tags = r.tags.map(String);
+    const facets = [
+      ...tags.map(t => ({ tag: t, group: groupOf(t) })),
+      ...languagesOf(r).map(code => ({ tag: languageName(code), group: 'Language' })),
+    ].map(f => ({ ...f, hue: hue(f.tag) }));
+    const martialis = (r.sameAs || []).find(u => u.startsWith('https://martial.is/'));
     const ep = latest.get(r.id);
     return {
       ...r,
-      num: +r.id.split('-')[2],
-      tags: tags.map(t => ({ tag: t, hue: hue(t) })),
-      tagList: tags.join(' '),
+      tags: facets,
+      tagList: facets.map(f => f.tag).join(' '),
       urls: [].concat(r.url).map(url => ({ url, icon: iconFor(url), host: new URL(url).hostname.replace(/^www\./, '') })),
-      descriptionHtml: r.description ? marked.parse(String(r.description)) : '',
-      commentHtml: r.comment ? marked.parse(String(r.comment)) : '',
+      descriptionHtml: r.description ? marked.parse(r.description.en) : '',
+      commentHtml: r.comment ? marked.parse(r.comment.en) : '',
+      about: (r.about || []).map(a => ({ id: a[kindOf(a)], name: a.name, isPerson: kindOf(a) === 'person' })),
+      martialis,
+      hasMartialis: Boolean(martialis || r.about?.length),
       episode: ep && {
         ...ep,
         fresh: now - Date.parse(ep.date) < FRESH_DAYS * 864e5,
@@ -128,14 +156,13 @@ async function main() {
         icon: tags.includes('podcast') ? 'podcast' : tags.includes('channel') ? 'tv' : 'newspaper',
       },
     };
-  }).sort((a, b) => a.name.localeCompare(b.name));
+  }).sort((a, b) => a.title.localeCompare(b.title));
 
+  const all = new Map(prepared.flatMap(r => r.tags).map(f => [f.tag, f]));
   const groups = ['Format', 'Language', 'Topic', 'Place'].map(name => ({
     name,
-    tags: [...new Set(prepared.flatMap(r => r.tags.map(t => t.tag)))]
-      .filter(t => groupOf(t) === name).sort().map(t => ({ tag: t, hue: hue(t), group: name })),
+    tags: [...all.values()].filter(f => f.group === name).sort((a, b) => a.tag.localeCompare(b.tag)),
   })).filter(g => g.tags.length);
-  for (const r of prepared) for (const t of r.tags) t.group = groupOf(t.tag);
 
   const template = await fs.readFile(path.join(__dirname, 'page.mustache'), 'utf8');
   await fs.rm(DIST, { recursive: true, force: true });
@@ -145,7 +172,7 @@ async function main() {
   for (const r of prepared) {
     await fs.mkdir(path.join(DIST, 'r', r.id), { recursive: true });
     await fs.writeFile(path.join(DIST, 'r', r.id, 'index.html'),
-      mustache.render(CARD_PAGE, { ...r, summary: summary(r.description || r.comment) }));
+      mustache.render(CARD_PAGE, { ...r, summary: summary((r.description || r.comment)?.en) }));
   }
   for (const d of ['styles', 'js', 'images'])
     await fs.cp(path.join(__dirname, d), path.join(DIST, d), { recursive: true, filter: s => !/[#~]$|\/\.#/.test(s) });

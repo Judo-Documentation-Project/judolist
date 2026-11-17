@@ -1,20 +1,21 @@
-# Judo Documentation Project: online resources
-
----
-resource:
-  id: JDP-R-36
-  name: Complete Kodokan Newaza
-  url:
-    - https://www.youtube.com/watch?v=cFMgFnvHZMs
-  photo:
-    url: https://img.youtube.com/vi/cFMgFnvHZMs/3.jpg
-  description: >-
-   Complete Kodokan grappling techniques with variations covering holding, choking and arm locks.
-  comment: >-  
-   Full video of the Kodokan comprehensive newaza production, from Hal Sharp's channel. Includes competition examples as well as the canonical form, this is an excellent reference for anyone, and especially for those studying for the Katame no Kata.
-  tags:
-    - video
-    - newaza
-    - technique
-  people:   # martial.is persons
-    - {id: 01KJJAWN28MWKKSN4J02MVY1TS, name: Hal Sharp}
+type: Resource
+id: 01JT3N671CW950NW763FKZC6WF
+title: Complete Kodokan Newaza
+url:
+  - https://www.youtube.com/watch?v=cFMgFnvHZMs
+image:
+  contentUrl: https://img.youtube.com/vi/cFMgFnvHZMs/3.jpg
+description:
+  en: Complete Kodokan grappling techniques with variations covering holding, choking and arm locks.
+comment:
+  en: >-
+    Full video of the Kodokan comprehensive newaza production, from Hal Sharp's channel. Includes
+    competition examples as well as the canonical form, this is an excellent reference for anyone,
+    and especially for those studying for the Katame no Kata.
+tags:
+  - video
+  - newaza
+  - technique
+about:
+  - person: 01KJJAWN28MWKKSN4J02MVY1TS
+    name: Hal Sharp

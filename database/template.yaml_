@@ -1,18 +1,22 @@
-# Judo Documentation Project: online resources
-
----
-resource:
-  id: JDP-R-        # next free number; the build fails on duplicates
-  name:
-  url:              # one URL, or a list
-  rss:              # optional: feed for the "last episode" box
-  photo:
-    url:
-  description: >-
-
-  comment: >-
-
-  tags:             # format, language, topic and place tags
-    - english
-  people:           # optional: martial.is persons this is about
-    - {id: 01KJJAWN28MWKKSN4J02MVY1S1, name: Kanō Jigorō}
+# Template for `npm run new -- "Title"`, which fills in id and title.
+# The build rejects it until url is filled in; delete optional fields you don't use.
+type: Resource
+id: null                  # ULID, minted by `npm run new`
+title: null
+url: null                 # one URL, or a list (website, YouTube, Spotify, ...)
+rss: null                 # optional: feed for the "last episode" box
+language: en              # BCP 47 code, or a list: [en, ja]; delete if none
+image: null               # optional: {contentUrl: https://...}
+description:
+  en: >-
+    What the resource is, in its own terms (markdown).
+comment:
+  en: >-
+    Why it is on the list (markdown).
+tags:                     # format, topic and place
+  - website
+# about:                  # optional: martial.is entities (person, org, style, place, event, source)
+#   - person: 01KJJAWN28MWKKSN4J02MVY1S1
+#     name: Kanō Jigorō
+# sameAs:                 # optional: the same resource elsewhere, e.g. its martialis Source
+#   - https://martial.is/entity/01M0DCY9PE27WPF24T770ND0N8

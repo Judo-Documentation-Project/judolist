@@ -1,20 +1,22 @@
-resource:
-  id: JDP-R-10
-  name: '1929 - Koshiki-No-Kata, Jigoro Kano and Yoshiaki Yamashita'
-  url: https://www.youtube.com/watch?v=XrLDzQohZYs
-  photo:
-    url: https://img.youtube.com/vi/XrLDzQohZYs/2.jpg
-  description: 'Kano Jigoro and Yoshiaki Yamashita performing Koshiki-no-kata'
-  comment: >-
-    Also known as the Kito-ryu no kata, this is not only an
-    interesting historical document of the founder of Judo but also
-    ties with the theme of Judo as a vehicle for preservation of koryu
-    jujutsu, specifically in this case Kito-ryu (from which Judo can
-    be said to be a descendent).
-  tags:
-    - video
-    - kata
-    - history
-  people:   # martial.is persons
-    - {id: 01KJJAWN28MWKKSN4J02MVY1S1, name: Kanō Jigorō}
-    - {id: 01KJJAWN29MA64W22606R3WD7Q, name: Yamashita Yoshitsugu}
+type: Resource
+id: 01JSH6GW7T0MYNM8HD7YDYR0ZZ
+title: 1929 - Koshiki-No-Kata, Jigoro Kano and Yoshiaki Yamashita
+url: https://www.youtube.com/watch?v=XrLDzQohZYs
+image:
+  contentUrl: https://img.youtube.com/vi/XrLDzQohZYs/2.jpg
+description:
+  en: Kano Jigoro and Yoshiaki Yamashita performing Koshiki-no-kata
+comment:
+  en: >-
+    Also known as the Kito-ryu no kata, this is not only an interesting historical document of the
+    founder of Judo but also ties with the theme of Judo as a vehicle for preservation of koryu
+    jujutsu, specifically in this case Kito-ryu (from which Judo can be said to be a descendent).
+tags:
+  - video
+  - kata
+  - history
+about:
+  - person: 01KJJAWN28MWKKSN4J02MVY1S1
+    name: Kanō Jigorō
+  - person: 01KJJAWN29MA64W22606R3WD7Q
+    name: Yamashita Yoshitsugu

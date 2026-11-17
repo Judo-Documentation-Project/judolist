@@ -1,32 +1,29 @@
-# Judo Documentation Project: online resources
-
----
-resource:
-  id: JDP-R-51
-  name: Haku Michigami Story
-  url:
-    - http://www.haku-michigami.com/
-  photo:
-    url: https://upload.wikimedia.org/wikipedia/commons/a/a5/Haku_michigami_9th_France.jpg
-  description: >-  
-    As Gracey Jujutsu had Mitsuyo Maeda as an inspiration, Haku
-    Michigami was behind the globalization of judo. ￼ In the 1964
-    Tokyo Olympics, Anton Geesink triggered the turning point of the
-    globalization of judo when he won the open weight class finals.
-    The man who trained him was "Haku Michigami". Haku Michigami's
-    dramatic story filled with events is presented.    
-  comment: >-  
-    Very interesting page, with many different stories of Haku
-    Michigami. Epecially interesting are the accounts about the
-    differences between pre-war and post-war Judo, the Butokukai
-    (through its students) and the Kodokan, and the conflict between
-    different conceptions of what Judo should be. Also, his account of
-    training Geesink almost as a way to fight the Kodokan by proxy is
-    very engaging.    
-  tags:
-    - website
-    - history
-    - english
-    - french
-    - japanese
-
+type: Resource
+id: 01JT3N671VXTRVCF8HRYQG3K9W
+title: Haku Michigami Story
+url:
+  - http://www.haku-michigami.com/
+language:
+  - en
+  - fr
+  - ja
+image:
+  contentUrl: https://upload.wikimedia.org/wikipedia/commons/a/a5/Haku_michigami_9th_France.jpg
+description:
+  en: >-
+    As Gracey Jujutsu had Mitsuyo Maeda as an inspiration, Haku Michigami was behind the
+    globalization of judo. ￼ In the 1964 Tokyo Olympics, Anton Geesink triggered the turning point
+    of the globalization of judo when he won the open weight class finals. The man who trained him
+    was "Haku Michigami". Haku Michigami's dramatic story filled with events is presented.
+comment:
+  en: >-
+    Very interesting page, with many different stories of Haku Michigami. Epecially interesting are
+    the accounts about the differences between pre-war and post-war Judo, the Butokukai (through its
+    students) and the Kodokan, and the conflict between different conceptions of what Judo should
+    be. Also, his account of training Geesink almost as a way to fight the Kodokan by proxy is very
+    engaging.
+tags:
+  - website
+  - history
+sameAs:
+  - https://martial.is/entity/01KZW2JNB8R1STDEZVVRHEHH2V

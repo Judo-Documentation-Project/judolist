@@ -1,23 +1,18 @@
-# Judo Documentation Project: online resources
-
----
-resource:
-  id: JDP-R-48
-  name: Anton Geesink, man met een missie
-  url:
-    - https://www.youtube.com/watch?v=pMyWRmf88kk
-  photo:
-    url: https://img.youtube.com/vi/pMyWRmf88kk/0.jpg
-  description: >-
-     Anton Geesink, a man with a mission (RTV Utrecht, 2015)
-  comment: >-
-     The life story of Anton Geesink, the man who ended Japanese
-     dominance in Judo by being the first non-Japanese to win gold at
-     the World Judo Championships. His life told with the help of his
-     family members and others that shared some of the moments that
-     would lead him to world fame.     
-  tags:
-    - video
-    - dutch
-    - history
-
+type: Resource
+id: 01JT3N671RP5S368CV57PYHDC1
+title: Anton Geesink, man met een missie
+url:
+  - https://www.youtube.com/watch?v=pMyWRmf88kk
+language: nl
+image:
+  contentUrl: https://img.youtube.com/vi/pMyWRmf88kk/0.jpg
+description:
+  en: Anton Geesink, a man with a mission (RTV Utrecht, 2015)
+comment:
+  en: >-
+    The life story of Anton Geesink, the man who ended Japanese dominance in Judo by being the first
+    non-Japanese to win gold at the World Judo Championships. His life told with the help of his
+    family members and others that shared some of the moments that would lead him to world fame.
+tags:
+  - video
+  - history

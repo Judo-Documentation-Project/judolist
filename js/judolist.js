@@ -48,9 +48,10 @@ function matches(card, terms, selected, skip) {
 }
 
 const compare = {
-  name: (a, b) => a.dataset.name.localeCompare(b.dataset.name),
+  name: (a, b) => a.dataset.title.localeCompare(b.dataset.title),
   date: (a, b) => a.dataset.date.localeCompare(b.dataset.date) || compare.name(b, a),
-  id: (a, b) => a.dataset.num - b.dataset.num,
+  // ULIDs start with their creation time, so plain string order is age order.
+  id: (a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
 };
 
 function render() {

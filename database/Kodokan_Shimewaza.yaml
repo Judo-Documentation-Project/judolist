@@ -1,18 +1,19 @@
-# Judo Documentation Project: online resources
-
----
-resource:
-  id: JDP-R-39
-  name:  Kodokan Shimewaza
-  url:
-    - https://www.youtube.com/watch?v=yvOMQl1Qmow
-  photo:
-    url: https://img.youtube.com/vi/yvOMQl1Qmow/0.jpg
-  description: >-
-    Kodokan film of Shimewaza (Choking Techniques) including variations and applications in major competitions.
-  comment: >-  
-    Another Kodokan production from Hal Sharp's channel, this one focusing on shimewaza: a reference for choking techniques with competition examples and classical applications.
-  tags:
-    - video
-    - newaza
-    - technique
+type: Resource
+id: 01JT3N671F7K5D5370V51Y5FKP
+title: Kodokan Shimewaza
+url:
+  - https://www.youtube.com/watch?v=yvOMQl1Qmow
+image:
+  contentUrl: https://img.youtube.com/vi/yvOMQl1Qmow/0.jpg
+description:
+  en: >-
+    Kodokan film of Shimewaza (Choking Techniques) including variations and applications in major
+    competitions.
+comment:
+  en: >-
+    Another Kodokan production from Hal Sharp's channel, this one focusing on shimewaza: a reference
+    for choking techniques with competition examples and classical applications.
+tags:
+  - video
+  - newaza
+  - technique

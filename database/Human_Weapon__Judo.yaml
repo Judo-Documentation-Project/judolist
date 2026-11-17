@@ -1,19 +1,19 @@
-resource:
-  id: JDP-R-5
-  name: 'Human Weapon: Judo'
-  url: https://www.youtube.com/watch?v=BQCas8KUtNA
-  photo:
-    url: https://img.youtube.com/vi/BQCas8KUtNA/0.jpg
-  description: >-
-     Human Weapon is a television show on History Channel that
-     premiered on July 20, 2007. The hosts, Jason Chambers and Bill
-     Duff, traveled around the world studying the unique martial arts,
-     or styles of fighting, that have origins in the region.
-  comment: >-
-     The typical Martial Arts documentary angle on how it works, how
-     dangerous it can be, some history, some sparring. For a general
-     audience, fun to watch.     
-  tags:
-    - english
-    - video
-    - documentary
+type: Resource
+id: 01JSH6GW7N853B03Z8DY86ZSCY
+title: 'Human Weapon: Judo'
+url: https://www.youtube.com/watch?v=BQCas8KUtNA
+language: en
+image:
+  contentUrl: https://img.youtube.com/vi/BQCas8KUtNA/0.jpg
+description:
+  en: >-
+    Human Weapon is a television show on History Channel that premiered on July 20, 2007. The hosts,
+    Jason Chambers and Bill Duff, traveled around the world studying the unique martial arts, or
+    styles of fighting, that have origins in the region.
+comment:
+  en: >-
+    The typical Martial Arts documentary angle on how it works, how dangerous it can be, some
+    history, some sparring. For a general audience, fun to watch.
+tags:
+  - video
+  - documentary

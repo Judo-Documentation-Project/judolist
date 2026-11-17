@@ -1,25 +1,30 @@
-# Judo Documentation Project: online resources
-
----
-resource:
-  id: JDP-R-57
-  name: Budokast
-  url:
-    - https://www.budokast.com.br/
-    - https://open.spotify.com/show/6brmz24okUPBvC5STa2XZk
-    - https://www.instagram.com/budokast/
-  rss: https://anchor.fm/s/e267e34/podcast/rss
-  photo:
-    url: https://static.wixstatic.com/media/dd1385_cd3104cc54ba4450a49758fbe54c262a~mv2_d_6250_6250_s_4_2.png/v1/fill/w_175,h_167,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ICON-03-01.png
-  description: >-
-   Budokast is a digital media outlet created to spread information and content that is not widely available to practitioners and those interested in Japanese martial arts and their derivatives. From kendo to Brazilian jiu-jitsu. Are you interested? Have a listen!
-  comment: >-
-    Podcast by Gustavo Goulart Maçaneiro, judoka (amongst other martial arts) and someone who has academically studied and published on the history of Judo in Brazil. The podcast is not limited to Judo, but Judo is almost always involved in some way. An excellent resource with some of the best research and interviews on the history of Judo (and especially its relation with BJJ) anywhere in the world. Highly recommended.
-  tags:
-    - podcast
-    - interview
-    - history
-    - budo
-    - portuguese
-    - brazil
-
+type: Resource
+id: 01JT3YG94SZ746SPCRNKET0X61
+title: Budokast
+url:
+  - https://www.budokast.com.br/
+  - https://open.spotify.com/show/6brmz24okUPBvC5STa2XZk
+  - https://www.instagram.com/budokast/
+rss: https://anchor.fm/s/e267e34/podcast/rss
+language: pt
+image:
+  contentUrl: >-
+    https://static.wixstatic.com/media/dd1385_cd3104cc54ba4450a49758fbe54c262a~mv2_d_6250_6250_s_4_2.png/v1/fill/w_175,h_167,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ICON-03-01.png
+description:
+  en: >-
+    Budokast is a digital media outlet created to spread information and content that is not widely
+    available to practitioners and those interested in Japanese martial arts and their derivatives.
+    From kendo to Brazilian jiu-jitsu. Are you interested? Have a listen!
+comment:
+  en: >-
+    Podcast by Gustavo Goulart Maçaneiro, judoka (amongst other martial arts) and someone who has
+    academically studied and published on the history of Judo in Brazil. The podcast is not limited
+    to Judo, but Judo is almost always involved in some way. An excellent resource with some of the
+    best research and interviews on the history of Judo (and especially its relation with BJJ)
+    anywhere in the world. Highly recommended.
+tags:
+  - podcast
+  - interview
+  - history
+  - budo
+  - brazil

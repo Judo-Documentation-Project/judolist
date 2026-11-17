@@ -191,7 +191,7 @@ body {
   background: var(--bulma-scheme-main);
 }
 .person a { color: var(--bulma-text); }
-.person a:last-child { color: var(--bulma-text-weak); font-size: 0.75em; }
+.person .graph, .person i { color: var(--bulma-text-weak); font-size: 0.75em; }
 .person a:hover { color: var(--bulma-link); }
 .person:hover { border-color: var(--bulma-text-weak); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .people-mark img { filter: invert(1); } }

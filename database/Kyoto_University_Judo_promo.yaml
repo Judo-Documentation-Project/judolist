@@ -1,12 +1,16 @@
-resource:
-  id: JDP-R-13
-  name: Kyoto University Judo
-  url: https://www.youtube.com/watch?v=lZyCAOqRIYk
-  photo:
-    url: https://img.youtube.com/vi/lZyCAOqRIYk/0.jpg
-  description: Kyoto University Judo promomotion
-  comment: Sometimes having a 1m upper that brings it all together is a must, and this is a very good fit for that.
-  tags:
-    - video
-    - japanese
-    - short
+type: Resource
+id: 01JSH6GW7X6Z9XP3YRRAKTFJ9W
+title: Kyoto University Judo
+url: https://www.youtube.com/watch?v=lZyCAOqRIYk
+language: ja
+image:
+  contentUrl: https://img.youtube.com/vi/lZyCAOqRIYk/0.jpg
+description:
+  en: Kyoto University Judo promomotion
+comment:
+  en: >-
+    Sometimes having a 1m upper that brings it all together is a must, and this is a very good fit
+    for that.
+tags:
+  - video
+  - short

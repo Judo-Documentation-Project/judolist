@@ -1,15 +1,21 @@
-resource:
-  id: JDP-R-11
-  name: 'Kyuzo Mifune: Itsusu no kata'
-  url: https://www.youtube.com/watch?v=cwiaRm0Mw9s
-  photo:
-    url: https://img.youtube.com/vi/cwiaRm0Mw9s/3.jpg
-  description: 'Kyuzo Mifune Itsusu-no-kata'
-  comment: The kata from Tenjin Shinyō-ryū, performed by Kyuzo Mifune 10th dan, with audio commentary by Hal Sharp.
-  tags:
-    - video
-    - kata
-    - history
-  people:   # martial.is persons
-    - {id: 01KJJAWN28MWKKSN4J02MVY1SD, name: Mifune Kyūzō}
-    - {id: 01KJJAWN28MWKKSN4J02MVY1TS, name: Hal Sharp}
+type: Resource
+id: 01JSH6GW7V849SG2SNZM8FST9W
+title: 'Kyuzo Mifune: Itsusu no kata'
+url: https://www.youtube.com/watch?v=cwiaRm0Mw9s
+image:
+  contentUrl: https://img.youtube.com/vi/cwiaRm0Mw9s/3.jpg
+description:
+  en: Kyuzo Mifune Itsusu-no-kata
+comment:
+  en: >-
+    The kata from Tenjin Shinyō-ryū, performed by Kyuzo Mifune 10th dan, with audio commentary by
+    Hal Sharp.
+tags:
+  - video
+  - kata
+  - history
+about:
+  - person: 01KJJAWN28MWKKSN4J02MVY1SD
+    name: Mifune Kyūzō
+  - person: 01KJJAWN28MWKKSN4J02MVY1TS
+    name: Hal Sharp

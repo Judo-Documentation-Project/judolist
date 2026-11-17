@@ -1,23 +1,23 @@
-# Judo Documentation Project: online resources
-
----
-resource:
-  id: JDP-R-3
-  name: Original Judo Podcast
-  lang: eng
-  type: podcast
-  url: https://www.originaljudopod.com/
-  rss: https://www.originaljudopod.com/blog/?format=rss
-  description: >-
-    Original Judo Podcast is a podcast about Judo! Season one saw us
-    chat with athletes and coaches aiming for Tokyo 2020ne. In season
-    2 we're trying to keep it going following a group of athletes and
-    coaches and coaches through the Paris 2024 Olympic cycle.
-  comment:
-    James Austin's podcast, English judoka and winner of several British titles. This is one of the oldest Judo podcasts with steady releases (if not the oldest), and offers a perspective on not only British Judo, but competition analysis, interviews, etc. A great resource to keep in touch with Judo in the UK, Europe, and the world.
-  photo:
-    url: https://images.squarespace-cdn.com/content/v1/58920663ff7c5048fd82c818/1485984466384-OG8UE46U3I0WVM42YS2L/30.png?format=1500w
-  tags:
-    - podcast
-    - english
-    - uk
+type: Resource
+id: 01JSH6GW7K8591NY1930H65G3W
+title: Original Judo Podcast
+url: https://www.originaljudopod.com/
+rss: https://www.originaljudopod.com/blog/?format=rss
+language: en
+image:
+  contentUrl: >-
+    https://images.squarespace-cdn.com/content/v1/58920663ff7c5048fd82c818/1485984466384-OG8UE46U3I0WVM42YS2L/30.png?format=1500w
+description:
+  en: >-
+    Original Judo Podcast is a podcast about Judo! Season one saw us chat with athletes and coaches
+    aiming for Tokyo 2020ne. In season 2 we're trying to keep it going following a group of athletes
+    and coaches and coaches through the Paris 2024 Olympic cycle.
+comment:
+  en: >-
+    James Austin's podcast, English judoka and winner of several British titles. This is one of the
+    oldest Judo podcasts with steady releases (if not the oldest), and offers a perspective on not
+    only British Judo, but competition analysis, interviews, etc. A great resource to keep in touch
+    with Judo in the UK, Europe, and the world.
+tags:
+  - podcast
+  - uk

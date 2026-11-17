@@ -97,24 +97,24 @@
 
     <div id="cards">
       {{#resources}}
-      <article class="card" id="{{id}}" data-id="{{id}}" data-tags="{{tagList}}" data-name="{{name}}"
-               data-num="{{num}}" data-date="{{#episode}}{{date}}{{/episode}}">
+      <article class="card" id="{{id}}" data-id="{{id}}" data-tags="{{tagList}}" data-title="{{title}}"
+               data-date="{{#episode}}{{date}}{{/episode}}">
         <div class="card-content">
           <div class="columns">
             <div class="column is-two-thirds">
               <div class="media">
-                {{#photo}}
+                {{#image}}
                 <div class="media-left">
                   <figure class="image is-96x96">
-                    <img src="{{url}}" alt="" loading="lazy">
+                    <img src="{{contentUrl}}" alt="" loading="lazy" referrerpolicy="no-referrer">
                   </figure>
                 </div>
-                {{/photo}}
+                {{/image}}
                 <div class="media-content">
                   <div class="card-title">
-                    <h2 class="title is-4">{{name}}</h2>
+                    <h2 class="title is-4">{{title}}</h2>
                     <span class="card-id">
-                      <a href="r/{{id}}/" title="Permalink">{{id}}</a>
+                      <a href="r/{{id}}/" title="Permalink"><i class="fas fa-link fa-xs"></i></a>
                       <a href="https://github.com/Judo-Documentation-Project/judolist/blob/master/database/{{filename}}"
                          target="_blank" rel="noopener" title="View YAML source"><i class="fas fa-file-code fa-xs"></i></a>
                     </span>
@@ -154,19 +154,25 @@
             </div>
           </div>
         </div>
-        {{#people.length}}
+        {{#hasMartialis}}
         <footer class="people">
           <a class="people-mark" href="https://martial.is" target="_blank" rel="noopener" title="Martialis: martial arts lineages">
             <img src="images/martialis.png" alt="" width="18" height="18"><span>Martialis</span>
           </a>
-          {{#people}}
+          {{#about}}
           <span class="person">
-            <a href="https://martial.is/persons/{{id}}" target="_blank" rel="noopener" title="{{name}} on Martialis">{{name}}</a>
-            <a href="https://martial.is/graph/{{id}}" target="_blank" rel="noopener" title="Lineage graph" aria-label="{{name}} lineage graph"><i class="fas fa-diagram-project"></i></a>
+            <a href="https://martial.is/entity/{{id}}" target="_blank" rel="noopener" title="{{name}} on Martialis">{{name}}</a>
+            {{#isPerson}}<a class="graph" href="https://martial.is/graph/{{id}}" target="_blank" rel="noopener" title="Lineage graph" aria-label="{{name}} lineage graph"><i class="fas fa-diagram-project"></i></a>{{/isPerson}}
           </span>
-          {{/people}}
+          {{/about}}
+          {{#martialis}}
+          <span class="person">
+            <a href="{{.}}" target="_blank" rel="noopener" title="This resource as a Martialis source">Source entry</a>
+            <i class="fas fa-book-open" aria-hidden="true"></i>
+          </span>
+          {{/martialis}}
         </footer>
-        {{/people.length}}
+        {{/hasMartialis}}
       </article>
       {{/resources}}
       <p id="empty" class="has-text-centered has-text-grey py-6" hidden>Nothing matches these filters.</p>

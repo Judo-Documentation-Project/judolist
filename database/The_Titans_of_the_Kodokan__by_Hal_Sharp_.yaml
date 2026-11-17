@@ -1,15 +1,16 @@
-resource:
-  id: JDP-R-12
-  name: The Titans of the Kodokan, by Hal Sharp.
-  url: https://www.youtube.com/watch?v=B5B39yYPIlQ
-  photo:
-    url: https://img.youtube.com/vi/B5B39yYPIlQ/0.jpg
-  description: >-
-     Hal's study of judo in Japan.
-  comment: >-
-    A great inside view of Judo history by Hal Sharp, Judo pioneer.
-  tags:
-    - video
-    - history
-  people:   # martial.is persons
-    - {id: 01KJJAWN28MWKKSN4J02MVY1TS, name: Hal Sharp}
+type: Resource
+id: 01JSH6GW7WNN8XZTQJXDC1B6VH
+title: The Titans of the Kodokan, by Hal Sharp.
+url: https://www.youtube.com/watch?v=B5B39yYPIlQ
+image:
+  contentUrl: https://img.youtube.com/vi/B5B39yYPIlQ/0.jpg
+description:
+  en: Hal's study of judo in Japan.
+comment:
+  en: A great inside view of Judo history by Hal Sharp, Judo pioneer.
+tags:
+  - video
+  - history
+about:
+  - person: 01KJJAWN28MWKKSN4J02MVY1TS
+    name: Hal Sharp

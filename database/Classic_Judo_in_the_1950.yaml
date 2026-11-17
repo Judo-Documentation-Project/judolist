@@ -1,19 +1,22 @@
-# Judo Documentation Project: online resources
-
----
-resource:
-  id: JDP-R-56
-  name: "Classic Judo in the 1950's"
-  url:
-    - https://www.youtube.com/watch?v=vnmwLah1fVc
-  photo:
-    url: https://img.youtube.com/vi/vnmwLah1fVc/0.jpg
-  description: >-  
-    Collection of Hal Sharp's films shot in the 1950,s. Includes 47 senseis with many of the old masters.  Hal shares his experiences with you. Today, Hal is 92 years old and is Kudan (9th degree) with USA Judo, USJA, & USJF. He was in his 20's when he trained five years in Japan.
-  comment: >-  
-    Unmissable video from Hal Sharp's channel, with some unique (though often reused elsewhere in some cases) footage from Hal's archive. Includes competition, kata, demonstrations, etc. Mifune, Kobayashi Kiyoshi, Kotani, are just some of the names we can see in this 2 hour compilation commented and contextualised by Hal himself.
-  tags:
-    - website
-    - history
-    - english
-
+type: Resource
+id: 01JT3N6720HXQQ54PN539PH48A
+title: Classic Judo in the 1950's
+url:
+  - https://www.youtube.com/watch?v=vnmwLah1fVc
+language: en
+image:
+  contentUrl: https://img.youtube.com/vi/vnmwLah1fVc/0.jpg
+description:
+  en: >-
+    Collection of Hal Sharp's films shot in the 1950,s. Includes 47 senseis with many of the old
+    masters.  Hal shares his experiences with you. Today, Hal is 92 years old and is Kudan (9th
+    degree) with USA Judo, USJA, & USJF. He was in his 20's when he trained five years in Japan.
+comment:
+  en: >-
+    Unmissable video from Hal Sharp's channel, with some unique (though often reused elsewhere in
+    some cases) footage from Hal's archive. Includes competition, kata, demonstrations, etc. Mifune,
+    Kobayashi Kiyoshi, Kotani, are just some of the names we can see in this 2 hour compilation
+    commented and contextualised by Hal himself.
+tags:
+  - website
+  - history

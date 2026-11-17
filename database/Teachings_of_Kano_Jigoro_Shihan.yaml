@@ -1,13 +1,19 @@
-resource:
-  id: JDP-R-46
-  name: Teachings of Kano Jigoro Shihan
-  url: https://kdkjd.org/%e5%98%89%e7%b4%8d%e6%b2%bb%e4%ba%94%e9%83%8e%e5%b8%ab%e7%af%84%e3%81%ae%e6%95%99%e3%81%88-2/
-  photo:
-    url: https://i0.wp.com/kdkjudo.org/wp-content/uploads/2024/02/topimage-2.jpg
-  description: Teachings of Master Jigoro Kano.
-  comment: Writings of Kano from the Kodokan official english site, including then history of Kodokan Judo and assorted Words of Kano-shihan.
-  tags:
-    - english
-    - website
-  people:   # martial.is persons
-    - {id: 01KJJAWN28MWKKSN4J02MVY1S1, name: Kanō Jigorō}
+type: Resource
+id: 01JSH6GW8YTJJN338QAQETRWPD
+title: Teachings of Kano Jigoro Shihan
+url: >-
+  https://kdkjd.org/%e5%98%89%e7%b4%8d%e6%b2%bb%e4%ba%94%e9%83%8e%e5%b8%ab%e7%af%84%e3%81%ae%e6%95%99%e3%81%88-2/
+language: en
+image:
+  contentUrl: https://i0.wp.com/kdkjudo.org/wp-content/uploads/2024/02/topimage-2.jpg
+description:
+  en: Teachings of Master Jigoro Kano.
+comment:
+  en: >-
+    Writings of Kano from the Kodokan official english site, including then history of Kodokan Judo
+    and assorted Words of Kano-shihan.
+tags:
+  - website
+about:
+  - person: 01KJJAWN28MWKKSN4J02MVY1S1
+    name: Kanō Jigorō

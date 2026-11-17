@@ -1,26 +1,37 @@
-# Judo Documentation Project: online resources
-
----
-resource:
-  id: JDP-R-34
-  name: All-Japan Judo Federation
-  url:
-    - https://www.judo.or.jp/
-    - https://www.youtube.com/@JAPAN-JUDO
-    - https://www.facebook.com/ajjf.judo/
-    - https://www.facebook.com/ajjf.judo/
-  photo:
-    url: https://yt3.googleusercontent.com/xW2dEtYl0otKn56ayChhkq-B9CKfEk2vP80REVQLTdLizOuZfi2Tdj07xhgZ6boUyABjDORMgw=s160-c-k-c0x00ffffff-no-rj
-  rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKb9NZxvwLLtx_HJarAGIKg
-  description: >-
-     The official page and channel of the All Japan Judo Federation. The All Japan Judo Federation produces and distributes video content for its members and judo fans to help them feel the appeal of judo anew. 
-  comment: >-
-     News from Japan, with live broadcasting of competitions (partially or in full) in the YouTube channel, and general updates in the webpage. Important resource for to wishing to follow Japanese judo. The channel includes the AJJF Podcast, "an interactive podcast that uses dialogue and questions to sharply address the real issues in the world of judo and sports and search for solutions".
-  tags:
-    - website
-    - video
-    - competition
-    - podcast
-    - federation
-    - japanese
-    - japan
+type: Resource
+id: 01JSWB211A4KK705DVJYNGH8QB
+title: All-Japan Judo Federation
+url:
+  - https://www.judo.or.jp/
+  - https://www.youtube.com/@JAPAN-JUDO
+  - https://www.facebook.com/ajjf.judo/
+  - https://www.facebook.com/ajjf.judo/
+rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCKb9NZxvwLLtx_HJarAGIKg
+language: ja
+image:
+  contentUrl: >-
+    https://yt3.googleusercontent.com/xW2dEtYl0otKn56ayChhkq-B9CKfEk2vP80REVQLTdLizOuZfi2Tdj07xhgZ6boUyABjDORMgw=s160-c-k-c0x00ffffff-no-rj
+description:
+  en: >-
+    The official page and channel of the All Japan Judo Federation. The All Japan Judo Federation
+    produces and distributes video content for its members and judo fans to help them feel the
+    appeal of judo anew.
+comment:
+  en: >-
+    News from Japan, with live broadcasting of competitions (partially or in full) in the YouTube
+    channel, and general updates in the webpage. Important resource for to wishing to follow
+    Japanese judo. The channel includes the AJJF Podcast, "an interactive podcast that uses dialogue
+    and questions to sharply address the real issues in the world of judo and sports and search for
+    solutions".
+tags:
+  - website
+  - video
+  - competition
+  - podcast
+  - federation
+  - japan
+about:
+  - org: 01KZY6FCNSB6FF9YTPN01452TZ
+    name: All Japan Judo Federation
+sameAs:
+  - https://martial.is/entity/01M64QW2FNNK7QDSABA187EH2H
