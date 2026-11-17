@@ -85,6 +85,7 @@ function validate(resources) {
     if (!isText(r.title)) err('missing title');
     if (![].concat(r.url ?? []).length || ![].concat(r.url).every(isUrl)) err('url must be one or more http(s) URLs');
     if (r.rss != null && !isUrl(r.rss)) err('rss must be a URL');
+    if (r.unavailable != null && !/^\d{4}(-\d{2}){0,2}$/.test(r.unavailable)) err('unavailable must be a date: YYYY, YYYY-MM or YYYY-MM-DD');
     if (r.image != null && !isUrl(r.image.contentUrl)) err('image needs a contentUrl');
     for (const field of ['description', 'comment'])
       if (r[field] != null && !isText(r[field].en)) err(`${field} must be a language map with an "en" entry`);
@@ -120,13 +121,15 @@ async function main() {
   const resources = await Promise.all(files.map(async filename => ({
     ...yaml.load(await fs.readFile(path.join(dir, filename), 'utf8')), filename,
   })));
+  // An unquoted YAML date loads as a Date; keep it as the text that was written.
+  for (const r of resources) if (r.unavailable instanceof Date) r.unavailable = r.unavailable.toISOString().slice(0, 10);
 
   const errors = validate(resources);
   if (errors.length) throw new Error('Invalid database:\n  ' + errors.join('\n  '));
   console.log(`${resources.length} resources OK`);
   if (process.argv.includes('--check')) return;
 
-  const feeds = resources.filter(r => r.rss);
+  const feeds = resources.filter(r => r.rss && !r.unavailable);
   if (!OFFLINE) console.log(`Fetching ${feeds.length} feeds…`);
   const now = Date.now();
   const latest = new Map(await Promise.all(feeds.map(async r => [r.id, OFFLINE ? null : await latestItem(r)])));

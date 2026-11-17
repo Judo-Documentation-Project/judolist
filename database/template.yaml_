@@ -5,6 +5,7 @@ id: null                  # ULID, minted by `npm run new`
 title: null
 url: null                 # one URL, or a list (website, YouTube, Spotify, ...)
 rss: null                 # optional: feed for the "last episode" box
+# unavailable: '2026-11'  # optional: when it stopped working; the card is kept but greyed out
 language: en              # BCP 47 code, or a list: [en, ja]; delete if none
 image: null               # optional: {contentUrl: https://...}
 description:

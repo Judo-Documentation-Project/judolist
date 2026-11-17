@@ -123,6 +123,16 @@ body {
 .links a:hover { opacity: 0.7; }
 
 .image.is-96x96 { overflow: hidden; border-radius: 4px; }
+
+/* Resources that existed but are gone: greyed out, text kept readable. */
+.is-unavailable .media-left, .is-unavailable .links, .is-unavailable .chip { filter: grayscale(1); opacity: 0.55; }
+.is-unavailable .title { color: var(--bulma-text-weak); }
+.gone {
+  display: inline-flex; align-items: center; gap: 0.4em;
+  margin-top: 0.4rem; padding: 0.1em 0.6em;
+  border: 1px dashed var(--bulma-border); border-radius: 4px;
+  color: var(--bulma-text-weak); font-size: 0.75rem;
+}
 .image.is-96x96 img { width: 100%; height: 100%; object-fit: cover; }
 
 .episode { display: flex; align-items: center; gap: 0.5rem; }
