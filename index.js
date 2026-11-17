@@ -6,6 +6,8 @@ const yaml = require('js-yaml');
 const mustache = require('mustache');
 const { marked } = require('marked');
 const Parser = require('rss-parser');
+const { existsSync } = require('fs');
+const { cachePath } = require('./scripts/images.js');
 
 const OFFLINE = process.argv.includes('--offline');
 const DIST = path.join(__dirname, 'dist');
@@ -26,7 +28,7 @@ const CARD_PAGE = `<!DOCTYPE html>
 <meta property="og:title" content="{{title}}">
 <meta property="og:description" content="{{summary}}">
 <meta property="og:url" content="${SITE}/r/{{id}}/">
-{{#image}}<meta property="og:image" content="{{contentUrl}}">
+{{#image}}<meta property="og:image" content="{{absolute}}">
 <meta property="og:image:alt" content="{{title}}">{{/image}}
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@fredericomunoz">
@@ -144,6 +146,7 @@ async function main() {
   const latest = new Map(await Promise.all(feeds.map(async r => [r.id, OFFLINE ? null : await latestItem(r)])));
   if (!OFFLINE) console.log(`  ${[...latest.values()].filter(Boolean).length}/${feeds.length} feeds updated`);
 
+  const uncached = [];
   const prepared = resources.map(r => {
     const tags = r.tags.map(String);
     const facets = [
@@ -151,6 +154,8 @@ async function main() {
       ...languagesOf(r).map(code => ({ tag: languageName(code), group: 'Language' })),
     ].map(f => ({ ...f, hue: hue(f.tag) }));
     const martialis = (r.sameAs || []).find(u => u.startsWith('https://martial.is/'));
+    const cached = r.image && existsSync(path.join(__dirname, cachePath(r.image.contentUrl)));
+    if (r.image && !cached) uncached.push(r.title);
     const ep = latest.get(r.id);
     return {
       ...r,
@@ -161,6 +166,10 @@ async function main() {
       commentHtml: r.comment ? marked.parse(r.comment.en) : '',
       about: (r.about || []).map(a => ({ id: a[kindOf(a)], name: a.name, isPerson: kindOf(a) === 'person' })),
       martialis,
+      image: r.image && {
+        src: cached ? cachePath(r.image.contentUrl) : r.image.contentUrl,
+        absolute: cached ? `${SITE}/${cachePath(r.image.contentUrl)}` : r.image.contentUrl,
+      },
       curator: { slug: agentOf(r.curatedBy), name: AGENTS[agentOf(r.curatedBy)] },
       gone: r.unavailable && {
         since: r.unavailable.since,
@@ -175,6 +184,8 @@ async function main() {
       },
     };
   }).sort((a, b) => a.title.localeCompare(b.title));
+
+  if (uncached.length) console.warn(`  ${uncached.length} images not cached, linked from their source (npm run images): ${uncached.join(', ')}`);
 
   const all = new Map(prepared.flatMap(r => r.tags).map(f => [f.tag, f]));
   const groups = ['Format', 'Language', 'Topic', 'Place'].map(name => ({

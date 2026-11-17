@@ -8,6 +8,7 @@
     "dev": "node index.js --offline",
     "test": "node index.js --check",
     "new": "node scripts/new.js",
+    "images": "node scripts/images.js",
     "preview": "node index.js && python3 -m http.server -d dist 8000"
   },
   "keywords": [
