@@ -172,6 +172,9 @@ body {
   .comment { border-left: 0; border-top: 2px solid var(--bulma-border-weak); margin: 0 0.75rem; padding: 1rem 0 0; }
 }
 .comment { display: flex; flex-direction: column; }
+.curator { margin-top: 0.5rem; font-size: 0.75rem; font-style: normal; letter-spacing: 0.05em; color: var(--bulma-text-weak); }
+.curator a { color: inherit; }
+.curator a:hover { color: var(--bulma-link); }
 .yaml-link {
   align-self: flex-end;
   margin-top: auto;

@@ -56,6 +56,10 @@ const languagesOf = r => [].concat(r.language ?? []).map(String);
 // Kinds of martial.is entity an `about` entry can point at.
 const KINDS = ['person', 'org', 'style', 'place', 'event', 'source'];
 const ULID = /^[0-9A-HJKMNP-TV-Z]{26}$/;
+
+// Curators, as martialis agents: `curatedBy: agent:FSM` -> https://martial.is/agent/FSM.
+const AGENTS = { FSM: 'Frederico Muñoz' };
+const agentOf = curie => curie?.match(/^agent:([\w-]+)$/)?.[1];
 const kindOf = a => KINDS.find(k => k in a);
 
 const ICONS = [
@@ -83,6 +87,7 @@ function validate(resources) {
     else if (seen.has(r.id)) err(`id ${r.id} already used by ${seen.get(r.id)}`);
     else seen.set(r.id, r.filename);
     if (!isText(r.title)) err('missing title');
+    if (!(agentOf(r.curatedBy) in AGENTS)) err(`curatedBy must be a known agent (${Object.keys(AGENTS).map(a => 'agent:' + a).join(', ')}), not "${r.curatedBy}"`);
     if (![].concat(r.url ?? []).length || ![].concat(r.url).every(isUrl)) err('url must be one or more http(s) URLs');
     if (r.rss != null && !isUrl(r.rss)) err('rss must be a URL');
     if (r.unavailable != null) {
@@ -156,6 +161,7 @@ async function main() {
       commentHtml: r.comment ? marked.parse(r.comment.en) : '',
       about: (r.about || []).map(a => ({ id: a[kindOf(a)], name: a.name, isPerson: kindOf(a) === 'person' })),
       martialis,
+      curator: { slug: agentOf(r.curatedBy), name: AGENTS[agentOf(r.curatedBy)] },
       gone: r.unavailable && {
         since: r.unavailable.since,
         noteHtml: r.unavailable.note ? marked.parse(r.unavailable.note.en) : '',

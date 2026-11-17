@@ -18,6 +18,7 @@ description:
 comment:
   en: >-
     Why it is on the list (markdown).
+curatedBy: agent:FSM      # who selected it and wrote the comment (martial.is/agent/FSM)
 tags:                     # format, topic and place
   - website
 # about:                  # optional: martial.is entities (person, org, style, place, event, source)

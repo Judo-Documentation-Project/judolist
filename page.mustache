@@ -157,6 +157,7 @@
             <div class="column comment content">
               <div class="comment-icon" aria-hidden="true"></div>
               {{{commentHtml}}}
+              {{#curator}}<p class="curator">— <a href="https://martial.is/agent/{{slug}}" target="_blank" rel="noopener" title="Curated by {{name}}">{{slug}}</a></p>{{/curator}}
               <a class="yaml-link" href="https://github.com/Judo-Documentation-Project/judolist/blob/master/database/{{filename}}"
                  target="_blank" rel="noopener" title="This entry's YAML source on GitHub"><i class="fas fa-code"></i> YAML</a>
             </div>
