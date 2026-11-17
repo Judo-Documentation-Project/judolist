@@ -9,7 +9,35 @@ const Parser = require('rss-parser');
 
 const OFFLINE = process.argv.includes('--offline');
 const DIST = path.join(__dirname, 'dist');
+const SITE = 'https://list.judoc.org';
 const FRESH_DAYS = 14;
+
+// One tiny page per resource at r/<id>/: social crawlers read its preview
+// card, people get sent on to the list filtered to that resource.
+const CARD_PAGE = `<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>{{name}} – The Judo List</title>
+<meta name="description" content="{{summary}}">
+<link rel="canonical" href="${SITE}/r/{{id}}/">
+<meta property="og:site_name" content="The Judo List">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{name}}">
+<meta property="og:description" content="{{summary}}">
+<meta property="og:url" content="${SITE}/r/{{id}}/">
+<meta property="og:image" content="{{photo.url}}">
+<meta property="og:image:alt" content="{{name}}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@fredericomunoz">
+<script>location.replace('../../?id={{id}}' + location.hash)</script>
+</head><body><a href="../../?id={{id}}">{{name}} on The Judo List</a></body></html>
+`;
+
+// Plain-text description for previews: markdown marks dropped, cut at a word.
+function summary(text = '', max = 200) {
+  const plain = String(text).replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/[*_`#>]/g, '').replace(/\s+/g, ' ').trim();
+  return plain.length <= max ? plain : plain.slice(0, plain.lastIndexOf(' ', max - 1)) + '…';
+}
 
 // Tags not listed here are topics. A tag can only sit in one group.
 const GROUPS = {
@@ -114,6 +142,11 @@ async function main() {
   await fs.mkdir(DIST);
   await fs.writeFile(path.join(DIST, 'index.html'),
     mustache.render(template, { resources: prepared, groups, total: prepared.length, built: new Date().toISOString().slice(0, 10) }));
+  for (const r of prepared) {
+    await fs.mkdir(path.join(DIST, 'r', r.id), { recursive: true });
+    await fs.writeFile(path.join(DIST, 'r', r.id, 'index.html'),
+      mustache.render(CARD_PAGE, { ...r, summary: summary(r.description || r.comment) }));
+  }
   for (const d of ['styles', 'js', 'images'])
     await fs.cp(path.join(__dirname, d), path.join(DIST, d), { recursive: true, filter: s => !/[#~]$|\/\.#/.test(s) });
   console.log('Wrote dist/');

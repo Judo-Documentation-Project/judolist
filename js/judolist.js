@@ -107,7 +107,9 @@ document.addEventListener('keydown', e => {
 });
 
 $('#share').addEventListener('click', async () => {
-  const url = location.href;
+  // A single resource shares its own page, which carries a preview card.
+  const single = state.ids.size === 1 && !state.tags.size && !state.q;
+  const url = single ? new URL(`r/${[...state.ids][0]}/`, location.href).href : location.href;
   if (navigator.share && matchMedia('(pointer: coarse)').matches) {
     return navigator.share({ title: document.title, url }).catch(() => {});
   }
