@@ -89,7 +89,7 @@
             <option value="id-asc">First added</option>
           </select>
         </div>
-        <button id="share" class="button is-small" title="Copy a link to this view">
+        <button id="share" class="button is-small" data-share title="Share a link to this view">
           <span class="icon"><i class="fas fa-share"></i></span><span>Share</span>
         </button>
       </div>
@@ -113,11 +113,9 @@
                 <div class="media-content">
                   <div class="card-title">
                     <h2 class="title is-4">{{title}}</h2>
-                    <span class="card-id">
-                      <a href="r/{{id}}/" title="Permalink"><i class="fas fa-link fa-xs"></i></a>
-                      <a href="https://github.com/Judo-Documentation-Project/judolist/blob/master/database/{{filename}}"
-                         target="_blank" rel="noopener" title="View YAML source"><i class="fas fa-file-code fa-xs"></i></a>
-                    </span>
+                    <a class="button is-small is-rounded share" href="r/{{id}}/" data-share data-title="{{title}}" title="Share a link to this resource">
+                      <span class="icon"><i class="fas fa-share-nodes"></i></span><span>Share</span>
+                    </a>
                   </div>
                   <div class="links">
                     {{#urls}}
@@ -151,6 +149,8 @@
             <div class="column comment content">
               <div class="comment-icon" aria-hidden="true"></div>
               {{{commentHtml}}}
+              <a class="yaml-link" href="https://github.com/Judo-Documentation-Project/judolist/blob/master/database/{{filename}}"
+                 target="_blank" rel="noopener" title="This entry's YAML source on GitHub"><i class="fas fa-code"></i> YAML</a>
             </div>
           </div>
         </div>
@@ -180,9 +180,15 @@
   </main>
 
   <footer class="site-footer">
-    <a href="https://github.com/Judo-Documentation-Project/judolist/issues/new">Suggest a resource</a> ·
-    <a href="https://github.com/Judo-Documentation-Project/judolist">Source</a> ·
-    Updated <time datetime="{{built}}">{{built}}</time>
+    <p>
+      <a href="https://github.com/Judo-Documentation-Project/judolist/issues/new">Suggest a resource</a> ·
+      <a href="https://github.com/Judo-Documentation-Project/judolist">Source code and data</a> ·
+      Updated <time datetime="{{built}}">{{built}}</time>
+    </p>
+    <p>
+      © 2024–{{year}} Frederico Muñoz,
+      <a href="https://www.judoc.org">Judo Documentation Project</a>
+    </p>
   </footer>
 
   <script src="js/judolist.js"></script>

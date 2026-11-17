@@ -107,17 +107,22 @@ document.addEventListener('keydown', e => {
   }
 });
 
-$('#share').addEventListener('click', async () => {
-  // A single resource shares its own page, which carries a preview card.
+// Share buttons: a card's links to its own page (which carries a preview card);
+// the toolbar's shares the current view, or that page if the view is one resource.
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-share]');
+  if (!b) return;
+  e.preventDefault();
   const single = state.ids.size === 1 && !state.tags.size && !state.q;
-  const url = single ? new URL(`r/${[...state.ids][0]}/`, location.href).href : location.href;
+  const url = b.href || (single ? new URL(`r/${[...state.ids][0]}/`, location.href).href : location.href);
+  const title = b.dataset.title ? `${b.dataset.title} – The Judo List` : document.title;
   if (navigator.share && matchMedia('(pointer: coarse)').matches) {
-    return navigator.share({ title: document.title, url }).catch(() => {});
+    return navigator.share({ title, url }).catch(() => {});
   }
-  const label = $('#share span:last-child');
+  const label = b.querySelector('span:last-child');
   try {
     await navigator.clipboard.writeText(url);
-    label.textContent = 'Link copied';
+    label.textContent = 'Copied';
   } catch {
     prompt('Copy this link:', url);
   }

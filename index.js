@@ -168,7 +168,7 @@ async function main() {
   await fs.rm(DIST, { recursive: true, force: true });
   await fs.mkdir(DIST);
   await fs.writeFile(path.join(DIST, 'index.html'),
-    mustache.render(template, { resources: prepared, groups, total: prepared.length, built: new Date().toISOString().slice(0, 10) }));
+    mustache.render(template, { resources: prepared, groups, total: prepared.length, built: new Date().toISOString().slice(0, 10), year: new Date().getFullYear() }));
   for (const r of prepared) {
     await fs.mkdir(path.join(DIST, 'r', r.id), { recursive: true });
     await fs.writeFile(path.join(DIST, 'r', r.id, 'index.html'),

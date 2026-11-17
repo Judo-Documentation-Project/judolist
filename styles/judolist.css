@@ -116,9 +116,8 @@ body {
   .card-title .title { font-size: 1.25rem; }
   .image.is-96x96 { width: 64px; height: 64px; }
 }
-.card-id { flex-shrink: 0; white-space: nowrap; font-size: 0.75rem; }
-.card-id a { color: var(--bulma-text-weak); margin-left: 0.4rem; }
-.card-id a:hover { color: var(--bulma-link); }
+.card-title .share { flex-shrink: 0; }
+.share .icon { color: var(--bulma-link); }
 .links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; }
 .links a:hover { opacity: 0.7; }
 
@@ -152,6 +151,17 @@ body {
 @media screen and (max-width: 768px) {
   .comment { border-left: 0; border-top: 2px solid var(--bulma-border-weak); margin: 0 0.75rem; padding: 1rem 0 0; }
 }
+.comment { display: flex; flex-direction: column; }
+.yaml-link {
+  align-self: flex-end;
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--bulma-text-weak);
+  font-size: 0.7rem;
+  font-style: normal;
+  opacity: 0.7;
+}
+.yaml-link:hover { color: var(--bulma-link); opacity: 1; }
 .comment-icon {
   width: 24px; height: 24px; margin-bottom: 0.5rem; border-radius: 50%;
   background: url('../images/kano_jigoro_small.jpg') center / cover;
@@ -198,4 +208,5 @@ body {
 [data-theme="dark"] .people-mark img { filter: invert(1); }
 
 .site-footer { padding: 2rem 1rem 3rem; text-align: center; font-size: 0.8rem; color: var(--bulma-text-weak); }
+.site-footer p + p { margin-top: 0.4rem; }
 .site-footer a { color: inherit; text-decoration: underline; }
