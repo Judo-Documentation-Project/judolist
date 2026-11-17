@@ -11,6 +11,7 @@ const OFFLINE = process.argv.includes('--offline');
 const DIST = path.join(__dirname, 'dist');
 const SITE = 'https://list.judoc.org';
 const FRESH_DAYS = 14;
+const MARTIALIS_HELP = 'Persons, styles, or events mentioned in this resource that have an entry in Martialis, the Martial Arts Lineage Database.';
 
 // One tiny page per resource at r/<id>/: social crawlers read its preview
 // card, people get sent on to the list filtered to that resource.
@@ -168,7 +169,7 @@ async function main() {
   await fs.rm(DIST, { recursive: true, force: true });
   await fs.mkdir(DIST);
   await fs.writeFile(path.join(DIST, 'index.html'),
-    mustache.render(template, { resources: prepared, groups, total: prepared.length, built: new Date().toISOString().slice(0, 10), year: new Date().getFullYear() }));
+    mustache.render(template, { resources: prepared, groups, total: prepared.length, martialisHelp: MARTIALIS_HELP, built: new Date().toISOString().slice(0, 10), year: new Date().getFullYear() }));
   for (const r of prepared) {
     await fs.mkdir(path.join(DIST, 'r', r.id), { recursive: true });
     await fs.writeFile(path.join(DIST, 'r', r.id, 'index.html'),

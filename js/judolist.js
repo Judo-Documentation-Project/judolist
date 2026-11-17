@@ -91,6 +91,19 @@ document.addEventListener('click', e => {
   render();
 });
 
+// A card title shows only that resource. Plain clicks stay in the page and add a
+// history entry, so Back returns to the list; modified clicks open a new tab as usual.
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-open]');
+  if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault();
+  history.pushState(null, '', a.href);
+  readUrl();
+  render();
+  $('.toolbar').scrollIntoView();
+});
+addEventListener('popstate', () => { readUrl(); render(); });
+
 $('#q').addEventListener('input', e => { state.q = e.target.value; render(); });
 $('#q').addEventListener('keydown', e => { if (e.key === 'Escape') { state.q = ''; render(); } });
 $('#sort').addEventListener('change', e => { state.sort = e.target.value; render(); });

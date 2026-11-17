@@ -117,6 +117,8 @@ body {
   .image.is-96x96 { width: 64px; height: 64px; }
 }
 .card-title .share { flex-shrink: 0; }
+.card-title .title a { color: inherit; }
+.card-title .title a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; }
 .links a:hover { opacity: 0.7; }
 
@@ -182,13 +184,36 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  margin-right: 0.4rem;
   color: var(--bulma-text-weak);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .people-mark img { opacity: 0.85; }
+/* Help tooltip: shows on hover, keyboard focus, or tap. */
+.help { position: relative; margin-right: 0.4rem; color: var(--bulma-text-weak); cursor: help; font-size: 0.75rem; }
+.help:focus-visible { outline: 2px solid var(--bulma-link); outline-offset: 2px; border-radius: 50%; }
+.help::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: -1rem;
+  z-index: 10;
+  width: max-content;
+  max-width: min(22rem, 80vw);
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--bulma-border);
+  border-radius: 6px;
+  background: var(--bulma-scheme-main);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: var(--bulma-text);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease;
+}
+.help:hover::after, .help:focus::after { opacity: 1; visibility: visible; }
 .people-mark:hover { color: var(--bulma-text-strong); }
 .person {
   display: inline-flex;
