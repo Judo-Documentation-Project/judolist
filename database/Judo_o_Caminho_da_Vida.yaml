@@ -24,6 +24,6 @@ resource:
     - portuguese
     - brazil
     - history
-  tree:
-    - JDP-18
+  people:   # martial.is persons
+    - {id: 01KJJAWN28MWKKSN4J02MVY1TH, name: Maeda Mitsuyo}
 

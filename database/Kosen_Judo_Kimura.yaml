@@ -17,6 +17,6 @@ resource:
     - newaza
     - technique
     - documentary
-  tree:
-    - JDP-89
+  people:   # martial.is persons
+    - {id: 01KJJAWN29MA64W22606R3WD7G, name: Kimura Masahiko}
     

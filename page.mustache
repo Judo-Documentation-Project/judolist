@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Judo List</title>
+  <meta name="description" content="Curated and updated list of Judo-related resources">
+  <meta name="author" content="Frederico Muñoz">
+  <meta property="og:title" content="The Judo List">
+  <meta property="og:url" content="https://list.judoc.org">
+  <meta property="og:description" content="Curated and updated list of Judo-related resources">
+  <meta property="og:image" content="https://list.judoc.org/images/preview.png">
+  <meta property="og:video" content="https://list.judoc.org/images/judolist.mp4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Judo List">
+  <meta name="twitter:description" content="Curated and updated list of Judo-related resources">
+  <meta name="twitter:image" content="https://list.judoc.org/images/preview.png">
+  <meta name="twitter:creator" content="@fredericomunoz">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/judolist.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN5TCW2MTP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-LN5TCW2MTP");
+  </script>
+</head>
+<body>
+  <nav class="navbar has-shadow" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.judoc.org">
+        <img class="avatar" src="images/kano_jigoro_small.jpg" alt="" width="24" height="24">
+      </a>
+      <a id="jdp" class="navbar-item pl-0 mr-0" href="https://www.judoc.org">柔道 | JDP</a>
+      <a id="nav-title" class="navbar-item ml-0" href="./">The Judo List</a>
+      <div id="nav-subtitle" class="navbar-item">a curated compilation of Judo resources.</div>
+    </div>
+  </nav>
+
+  <div class="container initial-quote mb-5 mt-6">
+    <blockquote class="citation">
+      The list is the origin of culture. It's part of the history
+      of art and literature. What does culture want? To make
+      infinity comprehensible.
+    </blockquote>
+    <p class="author">&#8212; Umberto Eco, <span class="citation-source">Spiegel International, 2009</span></p>
+  </div>
+
+  <main class="container px-4">
+    <details id="filters" open>
+      <summary>Search <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+      <div class="control has-icons-left my-4">
+        <input class="input is-medium" type="search" id="q" autocomplete="off"
+               placeholder="Search names, descriptions, comments, people…" aria-label="Search">
+        <span class="icon is-left"><i class="fas fa-search"></i></span>
+        <kbd class="is-hidden-touch">/</kbd>
+      </div>
+      <div class="facets">
+        {{#groups}}
+        <div class="facet">
+          <span class="facet-name">{{name}}</span>
+          <div class="tags">
+            {{#tags}}
+            <button type="button" class="chip" data-tag="{{tag}}" data-group="{{group}}" style="--h:{{hue}}" aria-pressed="false">{{tag}}<span class="count"></span></button>
+            {{/tags}}
+          </div>
+        </div>
+        {{/groups}}
+      </div>
+    </details>
+
+    <div class="toolbar">
+      <p id="status" aria-live="polite"><strong id="shown">{{total}}</strong> of {{total}} resources</p>
+      <button id="clear" class="button is-small is-danger is-light" hidden>
+        <span class="icon"><i class="fas fa-times"></i></span><span>Clear filters</span>
+      </button>
+      <div class="toolbar-end">
+        <div class="select is-small">
+          <select id="sort" aria-label="Sort">
+            <option value="name-asc">Name A–Z</option>
+            <option value="name-desc">Name Z–A</option>
+            <option value="date-desc">Latest activity</option>
+            <option value="id-desc">Recently added</option>
+            <option value="id-asc">First added</option>
+          </select>
+        </div>
+        <button id="share" class="button is-small" title="Copy a link to this view">
+          <span class="icon"><i class="fas fa-share"></i></span><span>Share</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="cards">
+      {{#resources}}
+      <article class="card" id="{{id}}" data-id="{{id}}" data-tags="{{tagList}}" data-name="{{name}}"
+               data-num="{{num}}" data-date="{{#episode}}{{date}}{{/episode}}">
+        <div class="card-content">
+          <div class="columns">
+            <div class="column is-two-thirds">
+              <div class="media">
+                {{#photo}}
+                <div class="media-left">
+                  <figure class="image is-96x96">
+                    <img src="{{url}}" alt="" loading="lazy">
+                  </figure>
+                </div>
+                {{/photo}}
+                <div class="media-content">
+                  <div class="card-title">
+                    <h2 class="title is-4">{{name}}</h2>
+                    <span class="card-id">
+                      <a href="?id={{id}}" title="Permalink">{{id}}</a>
+                      <a href="https://github.com/Judo-Documentation-Project/judolist/blob/master/database/{{filename}}"
+                         target="_blank" rel="noopener" title="View YAML source"><i class="fas fa-file-code fa-xs"></i></a>
+                    </span>
+                  </div>
+                  <div class="links">
+                    {{#urls}}
+                    <a href="{{url}}" target="_blank" rel="noopener" title="{{host}}">
+                      <span class="icon is-medium"><i class="{{icon}} fa-lg"></i></span>
+                      <span class="is-sr-only">{{host}}</span>
+                    </a>
+                    {{/urls}}
+                  </div>
+                  <div class="card-tags">
+                    {{#tags}}
+                    <button type="button" class="chip is-small" data-tag="{{tag}}" style="--h:{{hue}}" aria-pressed="false">{{tag}}</button>
+                    {{/tags}}
+                  </div>
+                </div>
+              </div>
+              {{#episode}}
+              <div class="episode mt-4">
+                <a href="{{rss}}" target="_blank" rel="noopener" title="Subscribe via RSS"><i class="fas fa-rss"></i></a>
+                <a href="{{link}}" class="episode-link" target="_blank" rel="noopener">
+                  <i class="fas fa-{{icon}} mr-1"></i>{{label}}: <time datetime="{{date}}">{{date}}</time> – {{title}}
+                  {{#fresh}}<span class="new">new</span>{{/fresh}}
+                </a>
+              </div>
+              {{/episode}}
+              <div class="description content mt-4">
+                <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+                {{{descriptionHtml}}}
+              </div>
+            </div>
+            <div class="column comment content">
+              <div class="comment-icon" aria-hidden="true"></div>
+              {{{commentHtml}}}
+            </div>
+          </div>
+        </div>
+        {{#people.length}}
+        <footer class="card-footer people">
+          {{#people}}
+          <span class="card-footer-item">
+            <a href="https://martial.is/persons/{{id}}" target="_blank" rel="noopener" title="{{name}} on Martialis">{{name}}</a>
+            <a href="https://martial.is/graph/{{id}}" target="_blank" rel="noopener" title="Lineage graph"><i class="fas fa-diagram-project fa-xs"></i></a>
+          </span>
+          {{/people}}
+        </footer>
+        {{/people.length}}
+      </article>
+      {{/resources}}
+      <p id="empty" class="has-text-centered has-text-grey py-6" hidden>Nothing matches these filters.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://github.com/Judo-Documentation-Project/judolist/issues/new">Suggest a resource</a> ·
+    <a href="https://github.com/Judo-Documentation-Project/judolist">Source</a> ·
+    Updated <time datetime="{{built}}">{{built}}</time>
+  </footer>
+
+  <script src="js/judolist.js"></script>
+</body>
+</html>

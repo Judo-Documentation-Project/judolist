@@ -26,6 +26,6 @@ resource:
     - portuguese
     - portugal
     - history
-  tree:
-    - JDP-12
+  people:   # martial.is persons
+    - {id: 01KJJAWN28MWKKSN4J02MVY1SR, name: Kobayashi Kiyoshi}
 

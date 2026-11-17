@@ -2,20 +2,17 @@
 
 ---
 resource:
-  id: JDP-R-
-  name: 
-  url:
+  id: JDP-R-        # next free number; the build fails on duplicates
+  name:
+  url:              # one URL, or a list
+  rss:              # optional: feed for the "last episode" box
   photo:
-    url:   
-  description: >-  
+    url:
+  description: >-
 
   comment: >-
 
-
-  tags:
-    - research
+  tags:             # format, language, topic and place tags
     - english
-    - kata
-    - history
-    - paper
-    - podcast
+  people:           # optional: martial.is persons this is about
+    - {id: 01KJJAWN28MWKKSN4J02MVY1S1, name: Kanō Jigorō}

@@ -33,8 +33,8 @@ resource:
     - anime
     - japanese
     - history
-  tree:
-    - JDP-1
-    - JDP-17
+  people:   # martial.is persons
+    - {id: 01KJJAWN28MWKKSN4J02MVY1S1, name: Kanō Jigorō}
+    - {id: 01KJJAWN28MWKKSN4J02MVY1TG, name: Tomita Tsunejirō}
     
 

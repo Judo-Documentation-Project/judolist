@@ -1,0 +1,7 @@
+.aider*
+node_modules/
+dist/
+index.html
+\#*#
+.#*
+*~

@@ -1,10 +1,13 @@
 {
   "name": "judolist",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "List of online Judo resources",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "build": "node index.js"
+    "build": "node index.js",
+    "dev": "node index.js --offline",
+    "test": "node index.js --check",
+    "preview": "node index.js --offline && python3 -m http.server -d dist 8000"
   },
   "keywords": [
     "judo"
@@ -12,14 +15,9 @@
   "author": "Frederico Muñoz",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "fs-extra": "^11.2.0",
     "js-yaml": "^4.1.0",
-    "mustache": "^4.2.0"
-  },
-  "devDependencies": {
     "marked": "^15.0.10",
-    "n3": "^1.25.2",
-    "rdfa-streaming-parser": "^3.0.2",
+    "mustache": "^4.2.0",
     "rss-parser": "^3.13.0"
   }
 }

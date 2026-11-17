@@ -2,7 +2,7 @@
 
 ---
 resource:
-  id: JDP-R-35
+  id: JDP-R-68
   name: E-Judo
   url:
     - https://judo.forumotion.com/
@@ -19,6 +19,6 @@ resource:
     discussions were possible (a format lost on the "modern"
     alternatives"), and an overall civilised commmunity.    
   tags:
-    - www
+    - website
     - forum
     - english

@@ -8,6 +8,6 @@ resource:
   comment: Writings of Kano from the Kodokan official english site, including then history of Kodokan Judo and assorted Words of Kano-shihan.
   tags:
     - english
-    - www
-  tree:
-    - JDP-1
+    - website
+  people:   # martial.is persons
+    - {id: 01KJJAWN28MWKKSN4J02MVY1S1, name: Kanō Jigorō}

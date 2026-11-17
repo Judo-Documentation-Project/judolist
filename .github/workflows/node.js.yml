@@ -1,82 +1,52 @@
-name: Node.js CI
+name: Build and deploy
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [master]
   pull_request:
-    branches: [ "master" ]
+    branches: [master]
   schedule:
-    - cron: '52 0,4,8,12,16,20 * * *'
+    - cron: '52 */4 * * *'   # refreshes the RSS "last episode" boxes
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        cache-dependency-path: package-lock.json	
-    
-    - name: Create dist directory
-      run: mkdir -p dist
-    
-    - name: Install dependencies
-      run: npm ci
-    
-    - name: Build page
-      run: npm run build      	
-    
-    - name: Copy assets
-      run: |
-        cp index.html dist/
-        cp -r styles js images dist/	
-    
-    - name: Commit to gh-pages
-      # Only deploy on push to master or scheduled runs, skip for pull requests
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master' || github.event_name == 'schedule'
-      run: |
-        git config --global user.name github-actions
-        git config --global user.email github-actions@github.com
-        git checkout -b gh-pages
-        git add -f dist
-        git commit -m "Automated site build"
-        git push -f origin gh-pages
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
 
   deploy:
-    # Only run deploy on push to master or scheduled runs, skip for pull requests
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master' || github.event_name == 'schedule'
-    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
     needs: build
+    runs-on: ubuntu-latest
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-
-    # Deploy to the github-pages environment
+      pages: write
+      id-token: write
+      actions: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
     steps:
-    - name: Checkout gh-pages branch
-      uses: actions/checkout@v4
-      with:
-       ref: gh-pages
-    
-    - name: Upload artifacts
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: dist
-    
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      # GitHub disables scheduled workflows after 60 days without repo activity;
+      # re-enabling on each run keeps the RSS refresh alive between commits.
+      - run: gh workflow enable node.js.yml --repo "$GITHUB_REPOSITORY"
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -11,5 +11,5 @@ resource:
   tags:
     - video
     - history
-  tree:
-    - JDP-25
+  people:   # martial.is persons
+    - {id: 01KJJAWN28MWKKSN4J02MVY1TS, name: Hal Sharp}

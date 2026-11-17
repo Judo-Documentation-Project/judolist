@@ -29,7 +29,7 @@ resource:
   photo:
     url: https://kanochronicles.com/wp-content/uploads/2018/02/cropped-kano_jigoro-formal11.jpg
   tags:
-    - www
+    - website
     - english
-  tree:
-    - JDP-1
+  people:   # martial.is persons
+    - {id: 01KJJAWN28MWKKSN4J02MVY1S1, name: Kanō Jigorō}

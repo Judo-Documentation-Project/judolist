@@ -10,5 +10,5 @@ resource:
     - japanese
     - video
     - history
-  tree:
-    - JDP-11
+  people:   # martial.is persons
+    - {id: 01KJJAWN28MWKKSN4J02MVY1SD, name: Mifune Kyūzō}

@@ -1,5 +1,5 @@
 resource:
-  id: JDP-R-3
+  id: JDP-R-40
   name: Canon of Judo, Kyuzo Mifune
   url: https://archive.org/details/pdfy-vaVjryYeqQikyrwh
   photo:
@@ -17,5 +17,5 @@ resource:
   tags:
     - english
     - book
-  tree:
-    - JDP-11
+  people:   # martial.is persons
+    - {id: 01KJJAWN28MWKKSN4J02MVY1SD, name: Mifune Kyūzō}
