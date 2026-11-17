@@ -1,0 +1,25 @@
+type: Resource
+id: 01M7NAB3R95QNXMSP6ENXXVE6J
+title: What Does Judo Mean to You?
+url: https://www.youtube.com/watch?v=p7f5VosP7iU
+language: [en, fr]
+image:
+  contentUrl: https://img.youtube.com/vi/p7f5VosP7iU/0.jpg
+description:
+  en: >-
+    A Judo Canada documentary by judoka and filmmaker Luke Thomson. What started as a short film
+    about two judo competitions in Montréal grew into a series of interviews with athletes, coaches
+    and staff, each ending with the same question: "What does judo mean to you?" It premiered
+    during the Pan-American Cup at the Centre Pierre-Charbonneau.
+comment:
+  en: >-
+    A series of interviews about the title question - what does Judo mean to you? - which is very
+    enjoyable to watch, not the least due to the diversity of experiences and the richness of
+    responses. Different ages, backgrounds, competition record, life experiences, all contributing
+    to the very varied way Judo is described.
+curatedBy: agent:FSM
+tags:
+  - video
+  - documentary
+  - interview
+  - canada

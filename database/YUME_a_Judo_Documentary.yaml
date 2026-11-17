@@ -1,0 +1,34 @@
+type: Resource
+id: 01M7N9STYYQ4QK6X2DSRWG5A71
+title: YUME 夢, a Judo Documentary
+url: https://www.youtube.com/watch?v=JA1hpUW--_Y
+language: en
+image:
+  contentUrl: https://img.youtube.com/vi/JA1hpUW--_Y/0.jpg
+description:
+  en: >-
+    Some dreams can’t be chased at home.
+
+
+    YUME (夢, “dream”) follows a team of American judoka from High Noon BJJ & Judo and MASTERS to
+    Japan, the birthplace of judo, chasing one goal: the road to the 2028 Olympics.
+
+
+    From the mats of Shutoku High School, to the dojos of Shukutoku and Waseda Universities, to the
+    corporate powerhouse JR East, they trained with and against some of the best judoka in the
+    world. Along the way, they learned what it actually takes. What they found there wasn’t what
+    they expected.
+
+
+    One dream. One journey. The road to 2028.
+comment:
+  en: >-
+    A documentary about the experiences of USA judoka visiting Japan and training there; very
+    interesting in terms of the Judo shown, but also for the more intimistic sections about the
+    reasons, the differences, the individual goals and experiences, and also the expectations and
+    how they do (and do not) match reality.
+curatedBy: agent:FSM
+tags:
+  - video
+  - documentary
+  - japan
