@@ -117,7 +117,6 @@ body {
   .image.is-96x96 { width: 64px; height: 64px; }
 }
 .card-title .share { flex-shrink: 0; }
-.share .icon { color: var(--bulma-link); }
 .links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; }
 .links a:hover { opacity: 0.7; }
 

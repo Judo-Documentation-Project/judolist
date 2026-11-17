@@ -107,26 +107,22 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Share buttons: a card's links to its own page (which carries a preview card);
-// the toolbar's shares the current view, or that page if the view is one resource.
-document.addEventListener('click', async e => {
+// Share buttons copy a link: a card's own page (which carries a preview card),
+// or for the toolbar the current view (that page, if the view is one resource).
+// writeText runs straight from the click, so browsers still count the gesture.
+document.addEventListener('click', e => {
   const b = e.target.closest('[data-share]');
   if (!b) return;
   e.preventDefault();
   const single = state.ids.size === 1 && !state.tags.size && !state.q;
   const url = b.href || (single ? new URL(`r/${[...state.ids][0]}/`, location.href).href : location.href);
-  const title = b.dataset.title ? `${b.dataset.title} – The Judo List` : document.title;
-  if (navigator.share && matchMedia('(pointer: coarse)').matches) {
-    return navigator.share({ title, url }).catch(() => {});
-  }
   const label = b.querySelector('span:last-child');
+  const show = text => { label.textContent = text; setTimeout(() => { label.textContent = 'Share'; }, 2000); };
   try {
-    await navigator.clipboard.writeText(url);
-    label.textContent = 'Copied';
+    navigator.clipboard.writeText(url).then(() => show('Copied'), () => show('Copy failed'));
   } catch {
-    prompt('Copy this link:', url);
+    show('Copy failed'); // no clipboard outside https/localhost
   }
-  setTimeout(() => { label.textContent = 'Share'; }, 2000);
 });
 
 readUrl();
