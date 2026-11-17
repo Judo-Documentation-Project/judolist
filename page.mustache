@@ -97,7 +97,7 @@
 
     <div id="cards">
       {{#resources}}
-      <article class="card{{#unavailable}} is-unavailable{{/unavailable}}" id="{{id}}" data-id="{{id}}" data-tags="{{tagList}}" data-title="{{title}}"
+      <article class="card{{#gone}} is-unavailable{{/gone}}" id="{{id}}" data-id="{{id}}" data-tags="{{tagList}}" data-title="{{title}}"
                data-date="{{#episode}}{{date}}{{/episode}}">
         <div class="card-content">
           <div class="columns">
@@ -117,11 +117,14 @@
                       <span class="icon"><i class="fas fa-share-nodes"></i></span><span>Share</span>
                     </a>
                   </div>
-                  {{#unavailable}}
-                  <p class="gone" title="Listed because it existed; its links may no longer work">
-                    <i class="fas fa-ghost" aria-hidden="true"></i> No longer available since {{unavailable}}
-                  </p>
-                  {{/unavailable}}
+                  {{#gone}}
+                  <div class="gone">
+                    <p class="gone-badge" title="Listed because it existed; its links may no longer work">
+                      <i class="fas fa-ghost" aria-hidden="true"></i> No longer available since {{since}}
+                    </p>
+                    {{#noteHtml}}<div class="gone-note">{{{noteHtml}}}</div>{{/noteHtml}}
+                  </div>
+                  {{/gone}}
                   <div class="links">
                     {{#urls}}
                     <a href="{{url}}" target="_blank" rel="noopener" title="{{host}}">

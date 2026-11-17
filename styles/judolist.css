@@ -127,11 +127,20 @@ body {
 /* Resources that existed but are gone: greyed out, text kept readable. */
 .is-unavailable .media-left, .is-unavailable .links, .is-unavailable .chip { filter: grayscale(1); opacity: 0.55; }
 .is-unavailable .title { color: var(--bulma-text-weak); }
-.gone {
+.gone { margin-top: 0.4rem; }
+.gone-badge {
   display: inline-flex; align-items: center; gap: 0.4em;
-  margin-top: 0.4rem; padding: 0.1em 0.6em;
+  padding: 0.1em 0.6em;
   border: 1px dashed var(--bulma-border); border-radius: 4px;
   color: var(--bulma-text-weak); font-size: 0.75rem;
+}
+.gone-note {
+  margin: 0.5rem 0 0.25rem;
+  padding-left: 0.75rem;
+  border-left: 2px dashed var(--bulma-border);
+  color: var(--bulma-text-weak);
+  font-size: 0.85rem;
+  font-weight: normal;
 }
 .image.is-96x96 img { width: 100%; height: 100%; object-fit: cover; }
 

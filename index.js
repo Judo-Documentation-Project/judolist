@@ -85,7 +85,10 @@ function validate(resources) {
     if (!isText(r.title)) err('missing title');
     if (![].concat(r.url ?? []).length || ![].concat(r.url).every(isUrl)) err('url must be one or more http(s) URLs');
     if (r.rss != null && !isUrl(r.rss)) err('rss must be a URL');
-    if (r.unavailable != null && !/^\d{4}(-\d{2}){0,2}$/.test(r.unavailable)) err('unavailable must be a date: YYYY, YYYY-MM or YYYY-MM-DD');
+    if (r.unavailable != null) {
+      if (!/^\d{4}(-\d{2}){0,2}$/.test(r.unavailable.since)) err('unavailable.since must be a date: YYYY, YYYY-MM or YYYY-MM-DD');
+      if (r.unavailable.note != null && !isText(r.unavailable.note.en)) err('unavailable.note must be a language map with an "en" entry');
+    }
     if (r.image != null && !isUrl(r.image.contentUrl)) err('image needs a contentUrl');
     for (const field of ['description', 'comment'])
       if (r[field] != null && !isText(r[field].en)) err(`${field} must be a language map with an "en" entry`);
@@ -122,7 +125,8 @@ async function main() {
     ...yaml.load(await fs.readFile(path.join(dir, filename), 'utf8')), filename,
   })));
   // An unquoted YAML date loads as a Date; keep it as the text that was written.
-  for (const r of resources) if (r.unavailable instanceof Date) r.unavailable = r.unavailable.toISOString().slice(0, 10);
+  for (const r of resources)
+    if (r.unavailable?.since instanceof Date) r.unavailable.since = r.unavailable.since.toISOString().slice(0, 10);
 
   const errors = validate(resources);
   if (errors.length) throw new Error('Invalid database:\n  ' + errors.join('\n  '));
@@ -152,6 +156,10 @@ async function main() {
       commentHtml: r.comment ? marked.parse(r.comment.en) : '',
       about: (r.about || []).map(a => ({ id: a[kindOf(a)], name: a.name, isPerson: kindOf(a) === 'person' })),
       martialis,
+      gone: r.unavailable && {
+        since: r.unavailable.since,
+        noteHtml: r.unavailable.note ? marked.parse(r.unavailable.note.en) : '',
+      },
       hasMartialis: Boolean(martialis || r.about?.length),
       episode: ep && {
         ...ep,

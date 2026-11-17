@@ -5,7 +5,13 @@ url:
   - https://www.youtube.com/c/judovision
   - https://www.facebook.com/judovision
 rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCS9K3RrgKKqxPuntDRTj5Xw
-unavailable: '2026-11'
+unavailable:
+  since: '2026-11'
+  note:
+    en: >-
+      The Judovision account was unexpectedly deleted in early 2016. Rumours about the reasons
+      pointed to a defence against copyright infringement claims, but this in unconfirmed. Another
+      tremendous loss for globally accessible Judo content
 image:
   contentUrl: >-
     https://yt3.googleusercontent.com/ytc/AIdro_ln2KJ86wvxuhxjKpvj4-yv9IdeVvpDrn6M6zWFxa5qZA=s160-c-k-c0x00ffffff-no-rj
