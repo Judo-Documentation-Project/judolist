@@ -1,6 +1,7 @@
 /* Colours come from Bulma's variables, so light and dark mode both follow the OS. */
 body {
-  font-family: 'Noto Serif JP', serif;
+  /* Source Serif for Latin (Noto Serif JP lacks ō, ū); Noto Serif JP for Japanese. */
+  font-family: 'Source Serif 4', 'Noto Serif JP', serif;
   font-weight: 500;
   background: var(--bulma-scheme-main);
 }
@@ -156,9 +157,45 @@ body {
   background: url('../images/kano_jigoro_small.jpg') center / cover;
 }
 
-.people .card-footer-item { gap: 0.5rem; padding: 0.35rem; font-size: 0.75rem; }
-.people a { color: var(--bulma-text); }
-.people a:hover { color: var(--bulma-link); }
+/* People on Martialis: a quiet labelled row of pills under the card. */
+.people {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid var(--bulma-border-weak);
+  background: var(--bulma-scheme-main-bis);
+  border-radius: 0 0 var(--bulma-card-radius, 0.75rem) var(--bulma-card-radius, 0.75rem);
+  font-size: 0.8rem;
+}
+.people-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-right: 0.4rem;
+  color: var(--bulma-text-weak);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.people-mark img { opacity: 0.85; }
+.people-mark:hover { color: var(--bulma-text-strong); }
+.person {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 0.7rem;
+  border: 1px solid var(--bulma-border);
+  border-radius: 999px;
+  background: var(--bulma-scheme-main);
+}
+.person a { color: var(--bulma-text); }
+.person a:last-child { color: var(--bulma-text-weak); font-size: 0.75em; }
+.person a:hover { color: var(--bulma-link); }
+.person:hover { border-color: var(--bulma-text-weak); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .people-mark img { filter: invert(1); } }
+[data-theme="dark"] .people-mark img { filter: invert(1); }
 
 .site-footer { padding: 2rem 1rem 3rem; text-align: center; font-size: 0.8rem; color: var(--bulma-text-weak); }
 .site-footer a { color: inherit; text-decoration: underline; }
