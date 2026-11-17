@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [master]
   schedule:
-    - cron: '52 */4 * * *'   # refreshes the RSS "last episode" boxes
+    - cron: '52 0,8,16 * * *'   # refreshes the RSS "last episode" boxes
   workflow_dispatch:
 
 permissions:
