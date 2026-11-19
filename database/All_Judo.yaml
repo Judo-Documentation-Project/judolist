@@ -1,0 +1,26 @@
+type: Resource
+id: 01M7SYF1NXV8859RHSYACH3X4K
+title: All Judo
+url:
+  - https://podcast.ausha.co/lundi-judo
+  - https://www.alljudo.net/
+  - https://podcasts.apple.com/fr/podcast/all-judo/id1741932836
+rss: https://feed.ausha.co/xAAE9SkXAmep
+language: fr
+image:
+  contentUrl: >-
+    https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/66/69/06/6669062c-d479-b83e-d9d3-0e16008ba05d/mza_1329807809610208775.jpeg/600x600bb.jpg
+description:
+  en: >-
+    The judo news of the French site alljudo.net, now also as a podcast.
+comment:
+  en: >-
+    Covers French Judo news, including national and international competitions, NGB elections, and
+    interviews. Seems to be a companion to https://www.alljudo.net/
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - news
+  - competition
+  - interview
+  - france

@@ -1,0 +1,29 @@
+type: Resource
+id: 01M7NEAH77VA1Q252Z4AG3260Z
+title: JudoMania
+url:
+  - https://judomania.no/
+  - https://podcasts.apple.com/no/podcast/id1560888508
+  - https://open.spotify.com/show/5t0OlOegCPBmHufLmTp06Y
+rss: https://rss.buzzsprout.com/1751786.rss
+language: 'no'
+image:
+  contentUrl: >-
+    https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/b8/07/8b/b8078bbe-5c76-dfdf-05e1-f67fab254842/mza_10631912670924381532.jpg/600x600bb.jpg
+description:
+  en: >-
+    Japan, judo and life: culture, history and philosophy. A Norwegian podcast by Arne Midtlund, a
+    judoka since 1983, about judo history, technique, Japanese culture and the philosophy behind
+    the art. New episodes every other Monday.
+comment:
+  en: >-
+    I wish I understood Norwegian since the episode list covers a lot of ground: from overviews and
+    interviews on Norwegian judo to history segments on techniques, Japanese history and
+    traditions, profiles of well-known figures in Judo history, it blends current topics with
+    evergreen ones. Extraordinary longevity, closing at 150 episodes at the time of writing.
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - history
+  - culture
+  - norway

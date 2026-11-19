@@ -46,7 +46,8 @@ function summary(text = '', max = 200) {
 const GROUPS = {
   Format: ['anime', 'book', 'channel', 'cinema', 'documentary', 'federation', 'forum', 'game',
            'interview', 'news', 'paper', 'podcast', 'short', 'store', 'video', 'website'],
-  Place: ['australia', 'brazil', 'italy', 'japan', 'portugal', 'uk'],
+  Place: ['australia', 'belgium', 'brazil', 'canada', 'france', 'germany', 'iceland', 'italy',
+          'japan', 'netherlands', 'norway', 'portugal', 'uk', 'usa'],
 };
 const groupOf = tag => Object.keys(GROUPS).find(g => GROUPS[g].includes(tag)) || 'Topic';
 

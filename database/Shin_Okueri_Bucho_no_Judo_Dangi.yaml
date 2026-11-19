@@ -1,0 +1,24 @@
+type: Resource
+id: 01M7NJQ8MAQ1CC76PSYQKXSRX4
+title: シン・奥襟部長の柔道談議 (Shin Okueri Buchō no Jūdō Dangi)
+url:
+  - https://okueribucho.seesaa.net/
+  - https://podcasts.apple.com/jp/podcast/id939144280
+  - https://open.spotify.com/show/2F0l5CBtGrRgRI4XGFKOs3
+rss: http://okueribucho.seesaa.net/index20.rdf
+language: ja
+image:
+  contentUrl: >-
+    https://is1-ssl.mzstatic.com/image/thumb/Podcasts113/v4/54/79/b3/5479b336-14d4-00c3-0c74-bd54b48d4057/mza_3495647599082516551.jpg/600x600bb.jpg
+description:
+  en: >-
+    A Japanese judo talk show where three hosts, 奥襟部長 ("Okueri-buchō"), 両襟平社員 and みっちゃん,
+    chat casually about judo, and take in topics sent by listeners.
+comment:
+  en: >-
+    A Japanese podcast, where the hosts chat amongst themselves about Judo and, in particular, Judo
+    in Japan (with events, recent news, etc).
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - japan

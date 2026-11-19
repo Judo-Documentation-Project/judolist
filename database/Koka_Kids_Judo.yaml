@@ -1,0 +1,26 @@
+type: Resource
+id: 01M7T3VYNZMTZRQ18W5TJY3P20
+title: Koka Kids Judo
+url:
+  - https://www.kokakids.co.uk/
+  - https://kokakids.substack.com
+rss: https://kokakids.substack.com/feed
+language: en
+description:
+  en: >-
+    A weekly newsletter for judo coaches by Nicola Fairbrother, with resources for teaching
+    techniques (including newaza and grading certificates) and help with running and marketing a
+    dojo, especially for children's classes.
+comment:
+  en: >-
+    A resource targeted at Judo for children, with content - mostly books - for children and for
+    coaches. It's a storefront, so books, certificates, and other resources are available to be
+    bought.
+curatedBy: agent:FSM
+tags:
+  - website
+  - store
+  - book
+  - training
+  - technique
+  - uk

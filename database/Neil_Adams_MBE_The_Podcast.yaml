@@ -1,0 +1,26 @@
+type: Resource
+id: 01M7NPVJZSBBNFZRQN0CMJBA86
+title: Neil Adams MBE - The Podcast
+url:
+  - https://www.neiladamsjudo.com/podcasts/neil-adams-mbe-the-podcast-2
+  - https://www.spreaker.com/podcast/neil-adams-mbe-the-podcast--3119005
+  - https://podcasts.apple.com/gb/podcast/neil-adams-mbe-the-podcast/id1434972219
+  - https://open.spotify.com/show/74hj8s9I6RhUD5U0kTFyYG
+rss: https://www.spreaker.com/show/3119005/episodes/feed
+language: en
+image:
+  contentUrl: >-
+    https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/05/36/b8/0536b8c5-60a1-7d83-829d-e16bdbcd26b3/mza_14263630348918018614.jpg/600x600bb.jpg
+description:
+  en: >-
+    The podcast of iconic British World Judo Champion Neil Adams MBE - come and get to know him a
+    little better. All episodes recorded live in the real world, not in a studio.
+comment:
+  en: >-
+    Neil Adams interviews and is interviewed - competitors, instructors, clubs, a first-person
+    perspective from Neil, which always adds a twist.
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - interview
+  - uk

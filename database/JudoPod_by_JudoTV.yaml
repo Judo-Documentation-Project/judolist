@@ -1,0 +1,30 @@
+type: Resource
+id: 01M7NCBZKVAD3KPYNDEXTDBK6X
+title: JudoPod by JudoTV
+url:
+  - https://podcasts.apple.com/podcast/id1864913117
+  - https://www.ijf.org/news/show/judopod-launches-to-worldwide-success
+rss: https://anchor.fm/s/10b55a6ac/podcast/rss
+language: en
+image:
+  contentUrl: >-
+    https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/be/93/8b/be938be8-c0cb-b33e-d425-f2d35b295cab/mza_10821318916722149467.jpg/600x600bb.jpg
+description:
+  en: >-
+    From the JudoTV team, JudoPOD brings deeper stories and bigger conversations from the world of
+    judo. Hosts Robin Willingham and Thea Cowen introduce a new podcast from Judo TV dedicated to
+    exploring the stories of elite judoka. The series will feature long-form conversations with
+    Olympic and world champions to share behind-the-scenes experiences and insights into the sport.
+comment:
+  en: >-
+    The official IJF podcast, focused on interviews with well-known competitors. Very high
+    production value, as expected, and hosted by Thea Cowen (a common presence in IJF competition
+    commentary) and Robin Willingham (also a regular on IJF media).
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - interview
+  - competition
+about:
+  - org: 01KJJAWN29MA64W22606R3WD83
+    name: International Judo Federation

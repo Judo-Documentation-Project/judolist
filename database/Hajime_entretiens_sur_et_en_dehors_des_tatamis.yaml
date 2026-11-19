@@ -1,0 +1,30 @@
+type: Resource
+id: 01M7NJ4JSGYGJ98XCDW4KFFN94
+title: Hajime, entretiens sur et en dehors des tatamis
+url:
+  - https://podcast.ausha.co/hajime-entretiens-sur-et-en-dehors-des-tatamis
+  - https://podcasts.apple.com/fr/podcast/hajime-entretiens-sur-et-en-dehors-des-tatamis/id1589483420
+  - https://open.spotify.com/show/5vHY9xoshQclGTgjOYaojj
+rss: https://feed.ausha.co/BnPwjIaDDLNZ
+language: fr
+image:
+  contentUrl: >-
+    https://is1-ssl.mzstatic.com/image/thumb/Podcasts115/v4/a3/24/2e/a3242e44-121c-617b-5135-813c0671adc1/mza_6575569860236527974.jpeg/600x600bb.jpg
+description:
+  en: >-
+    Hello and welcome to "Hajime," the podcast from L'Esprit du Judo. A magazine, a website, a large
+    judo community, and now a podcast that gives a voice to those who shape French and
+    international judo: expert instructors, coaches, champions of yesterday and today, anonymous
+    but dedicated judokas who have something to say.
+comment:
+  en: >-
+    Podcast from the well-known magazine «L'Esprit du Judo», with in-depth series on specific
+    competitions, with a focus on French judo in general and France's Judo team in particular. Also
+    behind-the-scenes interviews, retrospective analysis, and interviews with athletes, coaches,
+    practitioners.
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - interview
+  - competition
+  - france

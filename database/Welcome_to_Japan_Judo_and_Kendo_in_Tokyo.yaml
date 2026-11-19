@@ -1,0 +1,23 @@
+type: Resource
+id: 01M7NAVE4B8Q9XDNEK6PW8P83G
+title: Welcome to Japan - Judo & Kendo in Tokyo
+url: https://www.youtube.com/watch?v=kP1z6NARSCA
+language: en
+image:
+  contentUrl: https://img.youtube.com/vi/kP1z6NARSCA/0.jpg
+description:
+  en: >-
+    A documentary by Tigre Film exploring Japan through two of its martial arts, judo and kendo,
+    with a focus on their history and culture, filmed in Tokyo.
+comment:
+  en: >-
+    Tokyo seen through the lenses of Judo and Kendo, a documentary on both martial arts and how they
+    integrate with Japanese society, with on-site footage. The goal is not to deeply cover either
+    martial art in detail, but to highlight their practice, routines, and integration in the Tokyo
+    region.
+curatedBy: agent:FSM
+tags:
+  - video
+  - documentary
+  - japan
+  - budo

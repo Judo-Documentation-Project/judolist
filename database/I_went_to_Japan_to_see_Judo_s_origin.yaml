@@ -1,0 +1,23 @@
+type: Resource
+id: 01M7NBS62055A615HVCPMKF1BT
+title: I went to Japan to see Judo's origin (Sensei Seth)
+url: https://www.youtube.com/watch?v=dSDlwp5mvXg
+language: en
+image:
+  contentUrl: https://img.youtube.com/vi/dSDlwp5mvXg/0.jpg
+description:
+  en: >-
+    Sensei Seth travels to Japan to visit the places where judo began.
+comment:
+  en: >-
+    While on a visit to Japan, an episode specifically about Judo, with a visit to the Kodokan and a
+    personal description of the standard history of Judo, plus a guided tour on the Kodokan Hall of
+    fame. Second half of the episode is about Sumo.
+curatedBy: agent:FSM
+tags:
+  - video
+  - japan
+  - history
+about:
+  - org: 01KJJAWN29MA64W22606R3WD7X
+    name: Kodokan

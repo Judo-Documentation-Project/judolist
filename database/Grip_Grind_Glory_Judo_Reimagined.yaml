@@ -1,0 +1,27 @@
+type: Resource
+id: 01M7NKDZXEN3MZMDNVVH814JD0
+title: 'Grip Grind Glory: Judo Reimagined'
+url:
+  - https://www.gripgrindglory.com/podcast
+  - https://async.com/show/grip-grind-glory-MKpcNBa8
+  - https://podcasts.apple.com/us/podcast/grip-grind-glory-judo-reimagined/id1815218647
+rss: https://feeds.async.com/1dc12427-6c33-4c2d-8643-7949a49847ed.rss
+language: en
+image:
+  contentUrl: >-
+    https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/df/02/62/df026225-8660-1305-4ad8-b3c5733d4a49/mza_6069090111956613611.jpeg/600x600bb.jpg
+description:
+  en: >-
+    Hosted by Anna Janovics, a podcast from a lifestyle brand for judo players who train with
+    purpose and think beyond drills and medals, exploring the mindset, the meaning, and the mess of
+    personal growth through grappling, with a focus on adult judoka.
+comment:
+  en: >-
+    One of the few podcasts clearly targeting something that is often talked about, the lack of
+    'lifestyle' approach in Judo compared with, say, BJJ. This is the podcast component of the wider
+    project, and most episodes touch upon points like adult beginners, retention, competition focus,
+    etc.
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - training

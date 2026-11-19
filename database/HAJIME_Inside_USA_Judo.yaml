@@ -1,0 +1,25 @@
+type: Resource
+id: 01M7NDCPE9S6Y2M370BD00NDWA
+title: 'HAJIME: Inside USA Judo'
+url:
+  - https://hajimeinsideusajudo.podbean.com/
+  - https://podcasts.apple.com/us/podcast/hajime-inside-usa-judo/id1817210768
+  - https://open.spotify.com/show/1FxMMsi7h8TtqqtKRrUrK5
+rss: https://feed.podbean.com/hajimeinsideusajudo/feed.xml
+language: en
+image:
+  contentUrl: https://pbcdn1.podbean.com/imglogo/image-logo/20761539/2.jpg
+description:
+  en: >-
+    Your front-row seat to the heart of American judo. Hosted by former national team athlete
+    Hannah Martin, the USA Judo podcast interviews athletes, coaches, referees and others across
+    the US judo community.
+comment:
+  en: >-
+    Interview-based podcast focused on the USA Judo roster, a good source for those looking for a
+    deeper look into the life journeys of US judoka.
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - interview
+  - usa

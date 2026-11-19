@@ -1,0 +1,36 @@
+type: Resource
+id: 01M7NGGA6E5H348G8XFW5TTXWK
+title: Hajime Judo Podcast
+url:
+  - https://hajimejudopodcast.nl/
+  - https://podcasts.apple.com/nl/podcast/hajime-judo-podcast/id1552480761
+  - https://open.spotify.com/show/6VBDptWt59VsV11UUuhq1P
+rss: https://rss.buzzsprout.com/1670929.rss
+language: nl
+image:
+  contentUrl: >-
+    https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/54/ae/00/54ae0051-2bd2-6943-8d3e-5daf755a1a07/mza_471729287456234843.jpg/600x600bb.jpg
+description:
+  en: >-
+    The first Dutch podcast about Judo created by André and Pim van Meerkerk.
+
+
+    In this JUDO podcast, I, André van Meerkerk, speak with Dutch and Belgian judo enthusiasts, top
+    athletes, trainers and coaches, administrators, and other interesting people.
+
+
+    I discuss the latest judo news and our own judo experiences with my son Pim van Meerkerk.
+comment:
+  en: >-
+    Lots of coverage of IJF competitions, the Judo Eredivisie (Dutch Judo competition league), and
+    an obvious focus on all things Dutch, as expected from the subtitle The Dutch Judo Podcast.
+    Vigorous release rhythm with often more than one episode per month, so an easy pick for Dutch
+    language judoka.
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - interview
+  - news
+  - competition
+  - netherlands
+  - belgium

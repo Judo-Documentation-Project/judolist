@@ -1,0 +1,29 @@
+type: Resource
+id: 01M7NJEZCTYF687VR6WNFEN959
+title: Ippon Storie dal Tatami
+url:
+  - https://www.ipponstoriedaltatami.it
+  - https://podcasts.apple.com/it/podcast/ippon-storie-dal-tatami/id1734273053
+  - https://open.spotify.com/show/4Addq3T1cCnEsCtdiuccfr
+  - https://www.youtube.com/channel/UCcB5HBoyveUvXVjCSSbGFww/podcasts
+rss: https://www.spreaker.com/show/6107448/episodes/feed
+language: it
+image:
+  contentUrl: >-
+    https://is1-ssl.mzstatic.com/image/thumb/Podcasts122/v4/05/03/36/050336be-9796-d307-7458-2bfdc01b222e/mza_13998739653315871270.jpg/600x600bb.jpg
+description:
+  en: >-
+    Welcome to Ippon! Stories from the Tatami, the podcast that takes a passionate and thoughtful
+    look at the world of Judo. We explore the stories that bring our beloved sport to life with the
+    voices of coaches, Olympians, and prominent figures who will share strategies, reflections, and
+    a few little secrets with us...
+comment:
+  en: >-
+    Interviews and episodes by three Italian judoka, covering philosophy, competition, life
+    experiences - goes beyond interviews with competitors to address pedagogical themes as well. In
+    Italian.
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - interview
+  - italy

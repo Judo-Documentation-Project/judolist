@@ -1,0 +1,28 @@
+type: Resource
+id: 01M7NDSAK3KFC6PAZZYQ7WMJQM
+title: Judo Talk
+url:
+  - https://judotalk.podbean.com
+  - https://podcasts.apple.com/gb/podcast/judo-talk/id1555297151
+  - https://open.spotify.com/show/2dNWZRH6r3XF4zFs0WfI4W
+  - https://www.youtube.com/@thejudocoach
+rss: https://feed.podbean.com/judotalk/feed.xml
+language: en
+image:
+  contentUrl: https://pbcdn1.podbean.com/imglogo/image-logo/11093874/Judo_Talk_Podcast_2048.jpg
+description:
+  en: >-
+    Vince Skillcorn, "The Judo Coach", talks about British and world judo, club life, rules, and
+    growing the sport, with guests from beginner to elite level. New episodes every two weeks.
+    Pull up a chair.
+comment:
+  en: >-
+    By typical standards of longevity, a classic (started in 2021). The second series restarted in
+    2023, with a shift of focus from more 1:1 interviews and towards topics like growing Judo clubs
+    or adult learner retention. Still keeps interviews of course, so a bit of everything and a
+    healthy focus on Judo topics. UK-based.
+curatedBy: agent:FSM
+tags:
+  - podcast
+  - interview
+  - uk

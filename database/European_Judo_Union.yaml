@@ -1,0 +1,23 @@
+type: Resource
+id: 01M7T3F6WEWQXM3KPHPBV4WWNG
+title: European Judo Union
+url:
+  - https://www.eju.net/
+  - https://www.youtube.com/@europeanjudo
+rss: https://www.youtube.com/feeds/videos.xml?channel_id=UCeh54d1UC56eS7R5iMN9ehw
+language: en
+description:
+  en: >-
+    The official site and YouTube channel of the European Judo Union (EJU), the continental
+    federation for judo in Europe: European Championships, European Cups and Open events,
+    highlights, interviews and news.
+comment:
+  en: >-
+    Highlights, promos, interviews, all focused on European competitions, their background and their
+    results.
+curatedBy: agent:FSM
+tags:
+  - federation
+  - channel
+  - competition
+  - news
