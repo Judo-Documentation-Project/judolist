@@ -33,3 +33,11 @@ tags:
   - website
   - news
   - portugal
+unavailable:
+  since: '2025'
+  note:
+    en: >-
+      In 2025, the owner deactivated all accounts and removed all the content after a message
+      denouncing behind-the-scene attacks and insinuations, likely linked to the political
+      situation around the NGB elections. And thus, hours of interviews and unique content were
+      mostly lost.
